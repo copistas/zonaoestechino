@@ -33,11 +33,25 @@
             margin-top: 20px;
         }
 
+        /* Estilo inicial para las imágenes (30%) */
         section img {
-            width: 100%;
+            width: 30%;
             height: auto;
+            transition: width 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Clase para el tamaño completo (100%) */
+        .full-size {
+            width: 100% !important;
         }
     </style>
+    <script>
+        // Función para alternar el tamaño de la imagen
+        function toggleSize(img) {
+            img.classList.toggle("full-size");
+        }
+    </script>
 </head>
 <body>
 
@@ -46,8 +60,8 @@
         <nav>
             <ul>
                 <li><a href="#salidas-ministerio">Salidas al ministerio</a></li>
-                <p><li><a href="#reunion-fin-semana">Reunión de fin de semana</a></li></p>
-                <p><a href="#tesoros-seamos-mejores">Tesoros y Seamos Mejores Maestros (Ch)</a></p>
+                <li><a href="#reunion-fin-semana">Reunión de fin de semana</a></li>
+                <li><a href="#tesoros-seamos-mejores">Tesoros y Seamos Mejores Maestros (Ch)</a></li>
                 <li><a href="#discurso-domingo">Discurso Domingo</a></li>
             </ul>
         </nav>
@@ -55,25 +69,25 @@
         <!-- Secciones de contenido -->
         <section id="salidas-ministerio">
             <h2>Salidas al ministerio</h2>
-            <img src="d2d46.jpg" alt="Imagen de salidas al ministerio">
+            <img src="d2d46.jpg" alt="Imagen de salidas al ministerio" onclick="toggleSize(this)">
             <p>Contenido relacionado con las salidas al ministerio.</p>
         </section>
 
         <section id="reunion-fin-semana">
             <h2>Reunión de fin de semana</h2>
-            <img src="300110c.jpg" alt="Imagen de la reunión de fin de semana">
+            <img src="300110c.jpg" alt="Imagen de la reunión de fin de semana" onclick="toggleSize(this)">
             <p>Contenido relacionado con la reunión de fin de semana.</p>
         </section>
 
         <section id="tesoros-seamos-mejores">
             <h2>Tesoros y Seamos Mejores Maestros (Ch)</h2>
-            <img src="177a99d.jpg" alt="Imagen de Tesoros y Seamos Mejores Maestros">
+            <img src="177a99d.jpg" alt="Imagen de Tesoros y Seamos Mejores Maestros" onclick="toggleSize(this)">
             <p>Contenido relacionado con Tesoros y Seamos Mejores Maestros.</p>
         </section>
 
         <section id="discurso-domingo">
             <h2>Discurso Domingo</h2>
-            <img src="blank.jpg" alt="Imagen del discurso del domingo">
+            <img src="blank.jpg" alt="Imagen del discurso del domingo" onclick="toggleSize(this)">
             <p>Contenido relacionado con el discurso del domingo.</p>
         </section>
     </div>
