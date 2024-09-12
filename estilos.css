@@ -1,3 +1,10 @@
+body {
+    background-image: url('mmexport96f2debf9d1b3cffda7f04aef75d3b43_1629828275217.webp');
+    background-repeat: repeat; /* Se repite en forma de mosaico */
+    background-size: auto; /* Mantiene el tamaño original de la imagen */
+    opacity: 0.78; /* Aplicar la transparencia del 78% */
+}
+
 /* Estilo para centrar el contenido y limitar el ancho al 75% */
 .contenido-centrado {
     width: 75%;
