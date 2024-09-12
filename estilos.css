@@ -16,7 +16,7 @@ body::before {
     background-image: url('mmexport96f2debf9d1b3cffda7f04aef75d3b43_1629828275217.webp');
     background-repeat: repeat;
     background-size: auto;
-    opacity: 0.78; /* Transparencia del fondo */
+    opacity: 0.58; /* Transparencia del fondo */
     z-index: -1; /* Coloca el fondo detrás del contenido */
 }
 
