@@ -54,6 +54,7 @@ section img {
     height: auto;
     transition: width 0.3s ease;
     cursor: pointer;
+    border: 15px solid rgba(255, 255, 255, 0.5); /* Borde blanco con 50% de transparencia */
 }
 
 /* Clase para el tamaño completo (100%) */
