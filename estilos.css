@@ -1,0 +1,63 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    position: relative; /* Necesario para que el pseudo-elemento ::before se posicione correctamente */
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('mmexport96f2debf9d1b3cffda7f04aef75d3b43_1629828275217.webp');
+    background-repeat: repeat;
+    background-size: auto;
+    opacity: 0.58; /* Transparencia del fondo */
+    z-index: -1; /* Coloca el fondo detrás del contenido */
+}
+
+/* Estilo para centrar el contenido y limitar el ancho al 75% */
+.contenido-centrado {
+    width: 75%;
+    margin: 0 auto;
+}
+
+/* Estilo para el menú de navegación */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Estilo para las secciones */
+section {
+    margin-top: 20px;
+}
+
+/* Estilo inicial para las imágenes (30%) */
+section img {
+    width: 30%;
+    height: auto;
+    transition: width 0.3s ease;
+    cursor: pointer;
+    border: 15px solid rgba(255, 255, 255, 0.5); /* Borde blanco con 50% de transparencia */
+}
+
+/* Clase para el tamaño completo (100%) */
+.full-size {
+    width: 100% !important;
+}
