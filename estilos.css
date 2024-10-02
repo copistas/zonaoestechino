@@ -61,3 +61,8 @@ section img {
 .full-size {
     width: 100% !important;
 }
+
+th, td {
+  border: 1px solid black; /* Borde negro para cada celda */
+  background-color: white; /* Fondo blanco para cada celda */
+}
