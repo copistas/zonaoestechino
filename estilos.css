@@ -62,22 +62,22 @@ section img {
     width: 100% !important;
 }
 
-th, td { 
+th, td {
   border: 1px solid black; /* Borde negro para cada celda */
   background-color: white; /* Fondo blanco para cada celda */
   padding: 8px; /* Ajusta el espacio interior si lo necesitas */
-  width: 75%; /* El ancho de cada columna será 75% de su tamaño actual */
+  width: 75%;
+  text-align: center; /* Alineación horizontal al centro */
+  vertical-align: top; /* Alineación vertical hacia arriba */
 }
 
-/* último código para la tabla */
 table {
-  table-layout: fixed; /* Esto asegura que todas las celdas tengan el mismo ancho */
-  width: 75%; /* Esto ajusta la tabla completa para que ocupe el 75% de su tamaño actual */
+  table-layout: fixed;
+  width: 75%;
 }
 
 table th, table td {
-  border: 1px solid black !important; /* Borde negro */
-  background-color: white !important; /* Fondo blanco */
-  width: calc(100% / 7); /* Distribuye equitativamente el espacio entre las 7 columnas */
+  border: 1px solid black !important;
+  background-color: white !important;
+  width: calc(100% / 7);
 }
-
