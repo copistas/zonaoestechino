@@ -1,18 +1,35 @@
-</html>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programa de Actividades</title>
-    <!-- Vincular el archivo CSS externo -->
-    <link rel="stylesheet" href="estilos.css">
-    <script>
-        // Función para alternar el tamaño de la imagen
-        function toggleSize(img) {
-            img.classList.toggle("full-size");
+    <title>Calendario Octubre 2024</title>
+    <style>
+        th, td {
+            border: 1px solid black;
+            background-color: white;
+            padding: 8px;
+            width: 75%;
+            text-align: center; /* Alineación horizontal al centro */
+            vertical-align: top; /* Alineación vertical hacia arriba */
         }
-    </script>
+
+        table {
+            table-layout: fixed;
+            width: 75%;
+        }
+
+        table th, table td {
+            border: 1px solid black !important;
+            background-color: white !important;
+            width: calc(100% / 7);
+        }
+
+        .strikethrough {
+            text-decoration: line-through; /* Tachado del contenido */
+            color: gray;
+        }
+    </style>
 </head>
 <body>
 
@@ -44,45 +61,45 @@
             <tr>
               <td></td>
               <td></td>
-              <td>1</td>
-              <td>2<br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Ramos<br>Terri 45</td>
-              <td>3</td>
-              <td>4<br>Encargado: Daiana Ferrando<br>9:30hs<br>Brandsen y Ruta 3<br>Terri 10</td>
-              <td>5<br>Encargado: Laureano Millan<br>9:45hs<br>Plaza Tapiales<br>Tuyuti y Altolaguirre<br><A HREF="https://maps.app.goo.gl/rjB1k5kqteVRxJED8">Coordenadas</A><br>Terri 22</td>
+              <td>class="day" data-day="1"</td>
+              <td>class="day" data-day="2"<br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Ramos<br>Terri 45</td>
+              <td>class="day" data-day="3"</td>
+              <td>class="day" data-day="4"<br>Encargado: Daiana Ferrando<br>9:30hs<br>Brandsen y Ruta 3<br>Terri 10</td>
+              <td>class="day" data-day="5"<br>Encargado: Laureano Millan<br>9:45hs<br>Plaza Tapiales<br>Tuyuti y Altolaguirre<br><A HREF="https://maps.app.goo.gl/rjB1k5kqteVRxJED8">Coordenadas</A><br>Terri 22</td>
             </tr>
             <tr>
-              <td>6<br>Encargado: Alicia Souza<br>10:00hs<br>Salón de Laferrere<br>Terri 80</td>
-              <td>7<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Ing. Brian<br>Terri 41</td>
-              <td>8</td>
-              <td>9<br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Haedo<br>Terri 51</td>
-              <td>10</td>
-              <td>11<br>Asamblea</td>
-              <td>12<br>Asamblea</td>
+              <td>class="day" data-day="6"<br>Encargado: Alicia Souza<br>10:00hs<br>Salón de Laferrere<br>Terri 80</td>
+              <td>class="day" data-day="7"<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Ing. Brian<br>Terri 41</td>
+              <td>class="day" data-day="8"</td>
+              <td>class="day" data-day="9"<br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Haedo<br>Terri 51</td>
+              <td>class="day" data-day="10"</td>
+              <td>class="day" data-day="11"<br>Asamblea</td>
+              <td>class="day" data-day="12"<br>Asamblea</td>
             </tr>
             <tr>
-              <td>13<br>Asamblea</td>
-              <td>14<br>Encargado: Daiana Ferrando<br>9:30hs<br>Estación Ing. Brian<br>Terri 42</td>
-              <td>15</td>
-              <td>16<br>Encargado: Andres Cistriani<br>17:30hs<br>Arieta y Triunvirato<br>Terri 55</td>
-              <td>17</td>
-              <td>18<br>Encargado: Noelia Aguirre<br>9:30hs<br>Ruta 3 y Colón<br>Terri 9</td>
-              <td>19<br>Salida con la congregación</td>
+              <td>class="day" data-day="13"<br>Asamblea</td>
+              <td>class="day" data-day="14"<br>Encargado: Daiana Ferrando<br>9:30hs<br>Estación Ing. Brian<br>Terri 42</td>
+              <td>class="day" data-day="15"</td>
+              <td>class="day" data-day="16"<br>Encargado: Andres Cistriani<br>17:30hs<br>Arieta y Triunvirato<br>Terri 55</td>
+              <td>class="day" data-day="17"</td>
+              <td>class="day" data-day="18"<br>Encargado: Noelia Aguirre<br>9:30hs<br>Ruta 3 y Colón<br>Terri 9</td>
+              <td>class="day" data-day="19"<br>Salida con la congregación</td>
             </tr>
             <tr>
-              <td>20<br>Encargado: Rosana Gomez<br>10:00hs<br>Salón de Laferrere<br>Terri 81</td>
-              <td>21<br>Encargado: Debora Millan<br>9:30hs<br>Estación Haedo<br>Terri 49</td>
-              <td>22</td>
-              <td>23<br>Encargado: Laureano Millan<br>17:30hs<br>Brandsen y Av. de Mayo<br>Terri 36</td>
-              <td>24</td>
-              <td>25<br>Encargado: Jessica Cistriani<br>9:30hs<br>Plaza del Cañón<br>Terri 7 y 8</td>
-              <td>26<br>Encargado: Andres Cistriani<br>9:45hs<br>Salón del Reino<br>Terri a definir</td>
+              <td>class="day" data-day="20"<br>Encargado: Rosana Gomez<br>10:00hs<br>Salón de Laferrere<br>Terri 81</td>
+              <td>class="day" data-day="21"<br>Encargado: Debora Millan<br>9:30hs<br>Estación Haedo<br>Terri 49</td>
+              <td>class="day" data-day="22"</td>
+              <td>class="day" data-day="23"<br>Encargado: Laureano Millan<br>17:30hs<br>Brandsen y Av. de Mayo<br>Terri 36</td>
+              <td>class="day" data-day="24"</td>
+              <td>class="day" data-day="25"<br>Encargado: Jessica Cistriani<br>9:30hs<br>Plaza del Cañón<br>Terri 7 y 8</td>
+              <td>class="day" data-day="26"<br>Encargado: Andres Cistriani<br>9:45hs<br>Salón del Reino<br>Terri a definir</td>
             </tr>
             <tr>
-              <td>27</td>
-              <td>28<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Haedo<br>Terri 50</td>
-              <td>29</td>
-              <td>30<br>Encargado: Christian Rodriguez<br>17:30hs<br>San Martin y Florencio Varela<br>Terri 37</td>
-              <td>31</td>
+              <td>class="day" data-day="27"</td>
+              <td>class="day" data-day="28"<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Haedo<br>Terri 50</td>
+              <td>class="day" data-day="29"</td>
+              <td>class="day" data-day="30"<br>Encargado: Christian Rodriguez<br>17:30hs<br>San Martin y Florencio Varela<br>Terri 37</td>
+              <td>class="day" data-day="31"</td>
               <td></td>
               <td></td>
             </tr>
@@ -112,9 +129,23 @@
         </section>
 
     </div>
+ <script>
+        // Obtener la fecha actual
+        const today = new Date();
+        const currentDay = today.getDate();
 
-</body>
-</html>
+        // Seleccionar todas las celdas que representan los días del mes
+        const days = document.querySelectorAll('.day');
+
+        // Recorrer cada celda y comparar el número del día con el día actual
+        days.forEach(day => {
+            const dayNumber = parseInt(day.getAttribute('data-day'), 10);
+            if (dayNumber < currentDay) {
+                // Si el día es anterior al día actual, añadir la clase 'strikethrough' para tachar el contenido
+                day.classList.add('strikethrough');
+            }
+        });
+    </script>
 
 
 </body>
