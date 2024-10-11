@@ -71,6 +71,8 @@ th, td {
   vertical-align: top; /* Alineación vertical hacia arriba */
 }
 
+/* ... tus estilos anteriores ... */
+
 table {
   table-layout: fixed;
   width: 75%;
@@ -80,4 +82,22 @@ table th, table td {
   border: 1px solid black !important;
   background-color: white !important;
   width: calc(100% / 7);
+}
+
+/* Añade aquí tus estilos para la tabla responsiva */
+@media (max-width: 600px) {
+    .tabla-container {
+        overflow-x: auto; /* Permitir desplazamiento horizontal */
+    }
+
+    table {
+        width: 100%;
+        display: block;
+        white-space: nowrap; /* Para evitar que las celdas se envuelvan */
+    }
+
+    th, td {
+        display: block; /* Hacer que las celdas se comporten como bloques */
+        text-align: right; /* Alinear el texto a la derecha */
+    }
 }
