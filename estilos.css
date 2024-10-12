@@ -1,46 +1,38 @@
+/* Estilo general del cuerpo */
 body {
     font-family: 'Roboto', sans-serif;
     color: #333;
-    position: relative; /* Necesario para que el pseudo-elemento ::before se posicione correctamente */
     margin: 0;
     padding: 0;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('mmexport96f2debf9d1b3cffda7f04aef75d3b43_1629828275217.webp');
-    background-repeat: repeat;
-    background-size: auto;
-    opacity: 0.58; /* Transparencia del fondo */
-    z-index: -1; /* Coloca el fondo detrás del contenido */
-}
-
-/* Estilo para centrar el contenido y limitar el ancho al 75% */
+/* Estilo para centrar el contenido */
 .contenido-centrado {
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
 }
 
 /* Estilo para el menú de navegación */
-nav ul {
+.menu-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+}
+
+.menu-nav ul {
     list-style-type: none;
     padding: 0;
-    text-align: center;
+    margin: 0;
 }
-/* Cl
-nav ul li {
-    display: inline;
+
+.menu-nav li {
     margin: 0 15px;
 }
 
-nav ul li a {
+.menu-nav a {
+    color: white;
     text-decoration: none;
-    color: #000;
 }
 
 /* Estilo para las secciones */
@@ -48,56 +40,60 @@ section {
     margin-top: 20px;
 }
 
-/* Estilo inicial para las imágenes (30%) */
+/* Contenedor para la tabla */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+    margin: 0 auto;
+}
+
+/* Estilos de la tabla */
+table {
+    width: auto; /* Deja que el ancho de la tabla se ajuste según las columnas */
+    border-collapse: collapse;
+    table-layout: fixed; /* Fijar el ancho de las columnas */
+    min-width: 1000px; /* Asegura que el ancho total de la tabla sea el mínimo necesario */
+}
+
+/* Estilo para las celdas de la tabla */
+th, td {
+    width: 200px; /* Fijar el ancho de las columnas a 200px */
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* Asegura que el padding y el borde no afecten el ancho */
+}
+
+/* Estilo para el encabezado de la tabla */
+th {
+    background-color: #f2f2f2;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 500px; /* Fijar el ancho total de la tabla en pantallas pequeñas */
+    }
+
+    th, td {
+        width: 200px; /* Mantener las celdas de 200px en pantallas pequeñas */
+    }
+}
+
+/* Estilo para imágenes */
 section img {
     width: 30%;
     height: auto;
     transition: width 0.3s ease;
     cursor: pointer;
-    border: 15px solid rgba(255, 255, 255, 0.5); /* Borde blanco con 50% de transparencia */
+    border: 15px solid rgba(255, 255, 255, 0.5);
 }
 
 /* Clase para el tamaño completo (100%) */
 .full-size {
     width: 100% !important;
-}
-
-th, td {
-  border: 1px solid black; /* Borde negro para cada celda */
-  background-color: white; /* Fondo blanco para cada celda */
-  padding: 8px; /* Ajusta el espacio interior si lo necesitas */
-  width: 75%;
-  text-align: center; /* Alineación horizontal al centro */
-  vertical-align: top; /* Alineación vertical hacia arriba */
-}
-
-/* ... tus estilos anteriores ... */
-
-table {
-  table-layout: fixed;
-  width: 75%;
-}
-
-table th, table td {
-  border: 1px solid black !important;
-  background-color: white !important;
-  width: calc(100% / 7);
-}
-
-/* Añade aquí tus estilos para la tabla responsiva */
-@media (max-width: 600px) {
-    .tabla-container {
-        overflow-x: auto; /* Permitir desplazamiento horizontal */
-    }
-
-    table {
-        width: 100%;
-        display: block;
-        white-space: nowrap; /* Para evitar que las celdas se envuelvan */
-    }
-
-    th, td {
-        display: block; /* Hacer que las celdas se comporten como bloques */
-        text-align: right; /* Alinear el texto a la derecha */
-    }
 }
