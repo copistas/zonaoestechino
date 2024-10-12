@@ -184,6 +184,26 @@
         });
     </script>
 
+<section id="salidas-ministerio">
+    <h2>Salidas al ministerio</h2>
+    <div class="table-responsive">
+        <table>
+            <!-- Tu contenido de la tabla aquí -->
+        </table>
+    </div>
+</section>
 
+<!-- Sección para mostrar la resolución -->
+<div id="screen-resolution" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
+
+<script>
+    // Obtener la resolución de la pantalla
+    const width = window.innerWidth; // Ancho en píxeles
+    const height = window.innerHeight; // Alto en píxeles
+
+    // Mostrar la resolución en el div
+    document.getElementById('screen-resolution').innerText = `Su resolución de pantalla es: ${width} px por ${height} px`;
+</script>
+121020241352
 </body>
 </html>

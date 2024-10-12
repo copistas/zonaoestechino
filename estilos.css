@@ -4,6 +4,17 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    background-image: url('mmexport96f2debf9d1b3cffda7f04aef75d3b43_1629828275217.webp'); /* Imagen de fondo por defecto */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 640px) {
+    body {
+        background-image: url('paisChina.png'); /* Cambia la imagen de fondo */
+        background-size: cover; /* Asegúrate de que cubra todo el fondo */
+    }
 }
 
 /* Estilo para centrar el contenido */
@@ -12,88 +23,42 @@ body {
     margin: 0 auto;
 }
 
-/* Estilo para el menú de navegación */
-.menu-nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: #333;
-    padding: 10px;
-}
-
-.menu-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu-nav li {
-    margin: 0 15px;
-}
-
-.menu-nav a {
-    color: white;
-    text-decoration: none;
-}
-
-/* Estilo para las secciones */
-section {
-    margin-top: 20px;
-}
+/* ... Resto de tu CSS ... */
 
 /* Contenedor para la tabla */
 .table-responsive {
     width: 100%;
     overflow-x: auto; /* Permitir desplazamiento horizontal */
-    margin: 0 auto;
+    margin: 0 auto; /* Centrar el contenedor */
 }
 
 /* Estilos de la tabla */
 table {
     width: auto; /* Deja que el ancho de la tabla se ajuste según las columnas */
-    border-collapse: collapse;
+    border-collapse: collapse; /* Colapsar bordes de la tabla */
     table-layout: fixed; /* Fijar el ancho de las columnas */
-    min-width: 1000px; /* Asegura que el ancho total de la tabla sea el mínimo necesario */
 }
 
 /* Estilo para las celdas de la tabla */
 th, td {
     width: 200px; /* Fijar el ancho de las columnas a 200px */
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #ddd;
-    box-sizing: border-box; /* Asegura que el padding y el borde no afecten el ancho */
+    padding: 8px; /* Espaciado interno */
+    text-align: left; /* Alineación del texto */
+    border: 1px solid #ddd; /* Bordes de celdas */
 }
 
 /* Estilo para el encabezado de la tabla */
 th {
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; /* Color de fondo */
 }
 
 /* Media query para pantallas más pequeñas */
 @media (max-width: 600px) {
     .table-responsive {
-        overflow-x: auto;
+        overflow-x: auto; /* Permitir desplazamiento horizontal */
     }
 
     table {
         width: 500px; /* Fijar el ancho total de la tabla en pantallas pequeñas */
     }
-
-    th, td {
-        width: 200px; /* Mantener las celdas de 200px en pantallas pequeñas */
-    }
-}
-
-/* Estilo para imágenes */
-section img {
-    width: 30%;
-    height: auto;
-    transition: width 0.3s ease;
-    cursor: pointer;
-    border: 15px solid rgba(255, 255, 255, 0.5);
-}
-
-/* Clase para el tamaño completo (100%) */
-.full-size {
-    width: 100% !important;
 }
