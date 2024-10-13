@@ -4,52 +4,52 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    background-image: url('mmexport96f2debf9d1b3cffda7f04aef75d3b43_1629828275217.webp'); /* Imagen de fondo por defecto */
+    background-image: url('mmexport96f2debf9d1b3cffda7f04aef75d3b43_1629828275217.webp');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-/* Media query para pantallas más pequeñas */
-@media (max-width: 640px) {
-    body {
-        background-image: url('paisChina.png'); /* Cambia la imagen de fondo */
-        background-size: cover; /* Asegúrate de que cubra todo el fondo */
-    }
+/* Estilo del contenedor */
+.contenedor {
+    width: 1200px; /* Ancho fijo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
 }
 
-/* Estilo para centrar el contenido */
-.contenido-centrado {
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* ... Resto de tu CSS ... */
-
-/* Contenedor para la tabla */
+/* Estilo para la tabla */
 .table-responsive {
-    width: 100%;
+    width: 100%; /* Ancho del contenedor de la tabla */
     overflow-x: auto; /* Permitir desplazamiento horizontal */
     margin: 0 auto; /* Centrar el contenedor */
 }
 
-/* Estilos de la tabla */
+/* Estilo para la tabla */
 table {
-    width: auto; /* Deja que el ancho de la tabla se ajuste según las columnas */
-    border-collapse: collapse; /* Colapsar bordes de la tabla */
-    table-layout: fixed; /* Fijar el ancho de las columnas */
+    width: 2520px; /* Ancho total de la tabla (14 columnas de 180px) */
+    table-layout: fixed; /* Fijar el tamaño de las columnas */
+    border-collapse: collapse; /* Colapsar los bordes de las celdas */
+    white-space: nowrap; /* Evitar que el texto se rompa en varias líneas */
 }
 
-/* Estilo para las celdas de la tabla */
+/* Estilo para celdas */
 th, td {
-    width: 200px; /* Fijar el ancho de las columnas a 200px */
-    padding: 8px; /* Espaciado interno */
-    text-align: left; /* Alineación del texto */
-    border: 1px solid #ddd; /* Bordes de celdas */
+    border: 1px solid black;
+    background-color: white;
+    padding: 8px;
+    width: 180px; /* Ancho fijo para cada columna */
+    text-align: center; /* Alineación horizontal al centro */
+    vertical-align: top; /* Alineación vertical hacia arriba */
+    overflow: hidden; /* Ocultar contenido que excede */
+    white-space: nowrap; /* No permitir que el texto se divida en varias líneas */
+    text-overflow: ellipsis; /* Mostrar puntos suspensivos si el texto es demasiado largo */
 }
 
-/* Estilo para el encabezado de la tabla */
-th {
-    background-color: #f2f2f2; /* Color de fondo */
+
+/* Hacer que el contenido de las celdas sea desplazable */
+td {
+    max-width: 180px; /* Ancho máximo de la celda */
+    overflow: hidden; /* Ocultar el contenido que no cabe */
+    text-overflow: ellipsis; /* Mostrar puntos suspensivos */
+    white-space: nowrap; /* No permitir el ajuste de línea */
 }
 
 /* Media query para pantallas más pequeñas */
@@ -58,7 +58,16 @@ th {
         overflow-x: auto; /* Permitir desplazamiento horizontal */
     }
 
-    table {
-        width: 500px; /* Fijar el ancho total de la tabla en pantallas pequeñas */
+    .table-responsive table {
+        width: 500px; /* Ancho de la tabla ajustado a pantallas pequeñas */
+    }
+
+    th, td {
+        width: auto; /* Ajustar el ancho de las columnas en pantallas pequeñas */
     }
 }
+
+window.addEventListener('resize', function() {
+    const newWidth = window.innerWidth;
+    deviceTypeDiv.innerText = newWidth < 860 ? "Estás usando la versión móvil." : "Estás usando la versión de escritorio.";
+});

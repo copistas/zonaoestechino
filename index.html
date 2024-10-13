@@ -9,20 +9,17 @@
             border: 1px solid black;
             background-color: white;
             padding: 8px;
-            width: 75%;
+            width: 180px; /* Ancho fijo para cada columna */
             text-align: center; /* Alineación horizontal al centro */
             vertical-align: top; /* Alineación vertical hacia arriba */
+            overflow: hidden; /* Ocultar contenido que excede */
+            white-space: nowrap; /* No permitir que el texto se divida en varias líneas */
+            text-overflow: ellipsis; /* Mostrar puntos suspensivos si el texto es demasiado largo */
         }
 
         table {
             table-layout: fixed;
-            width: 75%;
-        }
-
-        table th, table td {
-            border: 1px solid black !important;
-            background-color: white !important;
-            width: calc(100% / 7);
+            width: 2520px; /* Ancho total de la tabla */
         }
 
         .strikethrough {
@@ -33,8 +30,8 @@
 </head>
 <body>
 
-    <div class="contenido-centrado">
-        <!-- Enlaces a las secciones -->
+<div class="contenido-centrado">
+    <section id="salidas-ministerio">
         <nav>
             <ul>
                 <li><a href="#salidas-ministerio">Salidas al ministerio</a></li>
@@ -44,154 +41,108 @@
             </ul>
         </nav>
 
-        <!-- Secciones de contenido -->
-<section id="salidas-ministerio">
-    <h2>Salidas al Ministerio</h2>
-    <div class="table-responsive">
+        <div class="contenido-centrado">
+            <section id="salidas-al-ministerio">
+                <h2>Salidas al Ministerio</h2>
+                
+                <div class="contenedor">
+                    <div class="table-responsive">
+                        <table>
+                            <tr>
+                                <th>Domingo</th>
+                                <th>Lunes</th>
+                                <th>Martes</th>
+                                <th>Miércoles</th>
+                                <th>Jueves</th>
+                                <th>Viernes</th>
+                                <th>Sábado</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td class="day" data-day="1">1</td> <!-- Día 1 -->
+                                <td class="day" data-day="2">2
+                                    <br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Ramos<br>Terri 45
+                                </td>
+                                <td class="day" data-day="3">3</td> <!-- Día 3 -->
+                                <td class="day" data-day="4">
+                                    4<br>Encargado: Daiana Ferrando<br>9:30hs<br>Brandsen y Ruta 3<br>Terri 10
+                               </td>
+                                <td class="day" data-day="5">
+                                    5<br>Encargado: Laureano Millan<br>9:45hs<br>Plaza Tapiales<br>Tuyuti y Altolaguirre<br>
+                                    <a href="https://maps.app.goo.gl/rjB1k5kqteVRxJED8">Coordenadas</a><br>Terri 22
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="day" data-day="6">6<br>Encargado: Alicia Souza<br>10:00hs<br>Salón de Laferrere<br>Terri 80</td>
+                                <td class="day" data-day="7">7<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Ing. Brian<br>Terri 41</td>
+                                <td class="day" data-day="8">8</td>
+                                <td class="day" data-day="9">
+                                    9<br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Haedo<br>Terri 51
+                                </td>
+                                <td class="day" data-day="10">10</td>
+                                <td class="day" data-day="11">11<br>Asamblea</td>
+                                <td class="day" data-day="12">12<br>Asamblea</td>
+                            </tr>
+                            <tr>
+                                <td class="day" data-day="13">13<br>Asamblea</td>
+                                <td class="day" data-day="14">14<br>Encargado: Daiana Ferrando<br>9:30hs<br>Estación Ing. Brian<br>Terri 42</td>
+                                <td class="day" data-day="15">15</td>
+                                <td class="day" data-day="16">16<br>Encargado: Andres Cistriani<br>17:30hs<br>Arieta y Triunvirato<br>Terri 55</td>
+                                <td class="day" data-day="17">17</td>
+                                <td class="day" data-day="18">18<br>Encargado: Noelia Aguirre<br>9:30hs<br>Ruta 3 y Colón<br>Terri 9</td>
+                                <td class="day" data-day="19">19<br>Salida con la congregación</td>
+                            </tr>
+                            <tr>
+                                <td class="day" data-day="20">20<br>Encargado: Rosana Gomez<br>10:00hs<br>Salón de Laferrere<br>Terri 81</td>
+                                <td class="day" data-day="21">21<br>Encargado: Debora Millan<br>9:30hs<br>Estación Haedo<br>Terri 49</td>
+                                <td class="day" data-day="22">22</td>
+                                <td class="day" data-day="23">23<br>Encargado: Laureano Millan<br>17:30hs<br>Brandsen y Av. de Mayo<br>Terri 36</td>
+                                <td class="day" data-day="24">24</td>
+                                <td class="day" data-day="25">25<br>Encargado: Jessica Cistriani<br>9:30hs<br>Plaza del Cañón<br>Terri 7 y 8</td>
+                                <td class="day" data-day="26">26<br>Encargado: Andres Cistriani<br>9:45hs<br>Salón del Reino<br>Terri a definir</td>
+                            </tr>
+                            <tr>
+                                <td class="day" data-day="27">27</td>
+                                <td class="day" data-day="28">28<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Haedo<br>Terri 50</td>
+                                <td class="day" data-day="29">29</td>
+                                <td class="day" data-day="30">30<br>Encargado: Christian Rodriguez<br>17:30hs<br>San Martin y Florencio Varela<br>Terri 37</td>
+                                <td class="day" data-day="31">31</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
 
-    <!-- <img src="ae0bd4eb.jpg" alt="Contenido relacionado con las salidas al ministerio" onclick="toggleSize(this)"> -->
-                <table>
-                    <tr>
-                        <th>Domingo</th>
-                        <th>Lunes</th>
-                        <th>Martes</th>
-                        <th>Miércoles</th>
-                        <th>Jueves</th>
-                        <th>Viernes</th>
-                        <th>Sábado</th>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="day" data-day="1"></td>
-                        <td class="day" data-day="2">
-                            Encargado: Christian Rodriguez<br>17:30hs<br>Estación Ramos<br>Terri 45
-                        </td>
-                        <td class="day" data-day="3"></td>
-                        <td class="day" data-day="4">
-                            Encargado: Daiana Ferrando<br>9:30hs<br>Brandsen y Ruta 3<br>Terri 10
-                        </td>
-                        <td class="day" data-day="5">
-                            Encargado: Laureano Millan<br>9:45hs<br>Plaza Tapiales<br>Tuyuti y Altolaguirre<br>
-                            <a href="https://maps.app.goo.gl/rjB1k5kqteVRxJED8">Coordenadas</a><br>Terri 22
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="day" data-day="6">
-                            Encargado: Alicia Souza<br>10:00hs<br>Salón de Laferrere<br>Terri 80
-                        </td>
-                        <td class="day" data-day="7">
-                            Encargado: Jessica Cistriani<br>9:30hs<br>Estación Ing. Brian<br>Terri 41
-                        </td>
-                        <td class="day" data-day="8"></td>
-                        <td class="day" data-day="9">
-                            Encargado: Christian Rodriguez<br>17:30hs<br>Estación Haedo<br>Terri 51
-                        </td>
-                        <td class="day" data-day="10"></td>
-                        <td class="day" data-day="11">Asamblea</td>
-                        <td class="day" data-day="12">Asamblea</td>
-                    </tr>
-                    <tr>
-                        <td class="day" data-day="13">Asamblea</td>
-                        <td class="day" data-day="14">
-                            Encargado: Daiana Ferrando<br>9:30hs<br>Estación Ing. Brian<br>Terri 42
-                        </td>
-                        <td class="day" data-day="15"></td>
-                        <td class="day" data-day="16">
-                            Encargado: Andres Cistriani<br>17:30hs<br>Arieta y Triunvirato<br>Terri 55
-                        </td>
-                        <td class="day" data-day="17"></td>
-                        <td class="day" data-day="18">
-                            Encargado: Noelia Aguirre<br>9:30hs<br>Ruta 3 y Colón<br>Terri 9
-                        </td>
-                        <td class="day" data-day="19">Salida con la congregación</td>
-                    </tr>
-                    <tr>
-                        <td class="day" data-day="20">
-                            Encargado: Rosana Gomez<br>10:00hs<br>Salón de Laferrere<br>Terri 81
-                        </td>
-                        <td class="day" data-day="21">
-                            Encargado: Debora Millan<br>9:30hs<br>Estación Haedo<br>Terri 49
-                        </td>
-                        <td class="day" data-day="22"></td>
-                        <td class="day" data-day="23">
-                            Encargado: Laureano Millan<br>17:30hs<br>Brandsen y Av. de Mayo<br>Terri 36
-                        </td>
-                        <td class="day" data-day="24"></td>
-                        <td class="day" data-day="25">
-                            Encargado: Jessica Cistriani<br>9:30hs<br>Plaza del Cañón<br>Terri 7 y 8
-                        </td>
-                        <td class="day" data-day="26">
-                            Encargado: Andres Cistriani<br>9:45hs<br>Salón del Reino<br>Terri a definir
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="day" data-day="27"></td>
-                        <td class="day" data-day="28">
-                            Encargado: Jessica Cistriani<br>9:30hs<br>Estación Haedo<br>Terri 50
-                        </td>
-                        <td class="day" data-day="29"></td>
-                        <td class="day" data-day="30">
-                            Encargado: Christian Rodriguez<br>17:30hs<br>San Martin y Florencio Varela<br>Terri 37
-                        </td>
-                        <td class="day" data-day="31"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
-    </div>
-</section>
+<div>
+    <section id="reunion-fin-semana">
+        <h2>Reunión de fin de semana</h2>
+        <img src="Captura de pantalla 2024-10-06 170823.jpg" alt="Contenido relacionado con la reunión de fin de semana" onclick="toggleSize(this)">
+    </section>
 
+    <section id="tesoros-seamos-mejores">
+        <h2>Tesoros y Seamos Mejores Maestros (Ch)</h2>
+        <img src="Captura de pantalla 2024-09-11 230910.png" alt="Contenido relacionado con Tesoros y Seamos Mejores Maestros" onclick="toggleSize(this)">
+    </section>
 
-        <section id="reunion-fin-semana">
-            <h2>Reunión de fin de semana</h2>
-            <img src="Captura de pantalla 2024-10-06 170823.jpg" alt="Contenido relacionado con la reunión de fin de semana" onclick="toggleSize(this)">
-        </section>
+    <section id="discurso-domingo">
+        <h2>Discurso Domingo</h2>
+        <br>Asamblea Regional 
+        <br>(en español)
+        <br><a href="https://www.youtube.com/watch?v=K1daiiZK7hU">Ver por YouTube</a>
+    </section>
 
-        <section id="tesoros-seamos-mejores">
-            <h2>Tesoros y Seamos Mejores Maestros (Ch)</h2>
-            <img src="Captura de pantalla 2024-09-11 230910.png" alt="Contenido relacionado con Tesoros y Seamos Mejores Maestros" onclick="toggleSize(this)">
-        </section>
-
-        <section id="discurso-domingo">
-            <h2>Discurso Domingo</h2>
-            <Br>Asamblea Regional 
-            <br>(en español)
-            <br><a href="https://www.youtube.com/watch?v=K1daiiZK7hU">Ver por YouTube</a>
-        </section>
-
-        <section id="Salidas en español">
-            <h2>Imagen Final</h2>
-            <img src="predi sp.jpg" alt="Salidas español" onclick="toggleSize(this)">
-        </section>
-
-    </div>
- <script>
-        // Obtener la fecha actual
-        const today = new Date();
-        const currentDay = today.getDate();
-
-        // Seleccionar todas las celdas que representan los días del mes
-        const days = document.querySelectorAll('.day');
-
-        // Recorrer cada celda y comparar el número del día con el día actual
-        days.forEach(day => {
-            const dayNumber = parseInt(day.getAttribute('data-day'), 10);
-            if (dayNumber < currentDay) {
-                // Si el día es anterior al día actual, añadir la clase 'strikethrough' para tachar el contenido
-                day.classList.add('strikethrough');
-            }
-        });
-    </script>
-
-<section id="salidas-ministerio">
-    <h2>Salidas al ministerio</h2>
-    <div class="table-responsive">
-        <table>
-            <!-- Tu contenido de la tabla aquí -->
-        </table>
-    </div>
-</section>
+    <section id="Salidas en español">
+        <h2>Imagen Final</h2>
+        <img src="predi sp.jpg" alt="Salidas español" onclick="toggleSize(this)">
+    </section>
+</div>
 
 <!-- Sección para mostrar la resolución -->
 <div id="screen-resolution" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
@@ -204,6 +155,25 @@
     // Mostrar la resolución en el div
     document.getElementById('screen-resolution').innerText = `Su resolución de pantalla es: ${width} px por ${height} px`;
 </script>
-121020241352
+
+<!-- Aquí va el resto de tu contenido -->
+<div id="device-type" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
+
+<script>
+    // Obtener el ancho de la pantalla
+    const screenWidth = window.innerWidth; // Cambia 'width' por 'screenWidth'
+
+    // Seleccionar el div para mostrar el mensaje
+    const deviceTypeDiv = document.getElementById('device-type');
+
+    // Determinar si es móvil o escritorio
+    if (screenWidth < 860) {
+        deviceTypeDiv.innerText = "Estás usando la versión móvil.";
+    } else {
+        deviceTypeDiv.innerText = "Estás usando la versión de escritorio.";
+    }
+</script>
+
+121020242107
 </body>
 </html>
