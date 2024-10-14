@@ -11,45 +11,39 @@ body {
 
 /* Estilo del contenedor */
 .contenedor {
-    width: 1200px; /* Ancho fijo del contenedor */
+    width: 640px; /* Ancho del contenedor */
     margin: 0 auto; /* Centrar el contenedor horizontalmente */
 }
 
 /* Estilo para la tabla */
 .table-responsive {
-    width: 100%; /* Ancho del contenedor de la tabla */
-    overflow-x: auto; /* Permitir desplazamiento horizontal */
-    margin: 0 auto; /* Centrar el contenedor */
+    width: 100%; /* Asegurar que el contenedor de la tabla ocupe todo el ancho */
+    overflow-x: auto; /* Permitir desplazamiento horizontal si es necesario */
 }
 
 /* Estilo para la tabla */
 table {
-    width: 2520px; /* Ancho total de la tabla (14 columnas de 180px) */
-    table-layout: fixed; /* Fijar el tamaño de las columnas */
+    width: auto; /* Ajustar la tabla al tamaño de las columnas */
     border-collapse: collapse; /* Colapsar los bordes de las celdas */
-    white-space: nowrap; /* Evitar que el texto se rompa en varias líneas */
+    /* Quita o cambia esta línea: */
+    /* table-layout: fixed; /* Quita esta línea para permitir el ajuste dinámico */
 }
 
 /* Estilo para celdas */
 th, td {
-    border: 1px solid black;
-    background-color: white;
+    border: 1px solid rgb(10, 26, 241);
+    background-color: rgb(255, 255, 255);
     padding: 8px;
-    width: 180px; /* Ancho fijo para cada columna */
-    text-align: center; /* Alineación horizontal al centro */
-    vertical-align: top; /* Alineación vertical hacia arriba */
-    overflow: hidden; /* Ocultar contenido que excede */
-    white-space: nowrap; /* No permitir que el texto se divida en varias líneas */
-    text-overflow: ellipsis; /* Mostrar puntos suspensivos si el texto es demasiado largo */
+    white-space: normal; /* Permitir el ajuste de línea automático */
+    word-wrap: break-word; /* Dividir palabras largas si es necesario */
+    overflow-wrap: break-word; /* Alternativa para dividir palabras largas */
+    text-overflow: clip; /* Mostrar el texto completo sin puntos suspensivos */
 }
-
 
 /* Hacer que el contenido de las celdas sea desplazable */
 td {
-    max-width: 180px; /* Ancho máximo de la celda */
-    overflow: hidden; /* Ocultar el contenido que no cabe */
-    text-overflow: ellipsis; /* Mostrar puntos suspensivos */
-    white-space: nowrap; /* No permitir el ajuste de línea */
+    text-overflow: clip; /* Mostrar el texto completo sin puntos suspensivos */
+    white-space: normal; /* Permitir el ajuste de línea automático */
 }
 
 /* Media query para pantallas más pequeñas */
@@ -59,15 +53,10 @@ td {
     }
 
     .table-responsive table {
-        width: 500px; /* Ancho de la tabla ajustado a pantallas pequeñas */
+        width: 100%; /* Ajustar la tabla al 100% en pantallas pequeñas */
     }
 
     th, td {
         width: auto; /* Ajustar el ancho de las columnas en pantallas pequeñas */
     }
 }
-
-window.addEventListener('resize', function() {
-    const newWidth = window.innerWidth;
-    deviceTypeDiv.innerText = newWidth < 860 ? "Estás usando la versión móvil." : "Estás usando la versión de escritorio.";
-});

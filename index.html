@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script src="script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendario Octubre 2024</title>
     <style>
-        th, td {
-            border: 1px solid black;
-            background-color: white;
-            padding: 8px;
-            width: 180px; /* Ancho fijo para cada columna */
-            text-align: center; /* Alineación horizontal al centro */
-            vertical-align: top; /* Alineación vertical hacia arriba */
-            overflow: hidden; /* Ocultar contenido que excede */
-            white-space: nowrap; /* No permitir que el texto se divida en varias líneas */
-            text-overflow: ellipsis; /* Mostrar puntos suspensivos si el texto es demasiado largo */
-        }
+    th, td {
+        border: 1px solid black;
+        background-color: white;
+        padding: 8px;
+        width: auto; /* Ajusta esta línea o elimina el ancho fijo de 180px */
+        text-align: center;
+        vertical-align: top;
+        overflow: hidden;
+        white-space: normal; /* Permitir ajuste de línea */
+        text-overflow: clip;
+    }
 
-        table {
-            table-layout: fixed;
-            width: 2520px; /* Ancho total de la tabla */
-        }
+    table {
+        table-layout: auto; /* Cambia a auto para permitir que las columnas se ajusten al contenido */
+        width: 100%; /* Ajusta la tabla para que ocupe todo el ancho disponible */
+    }
 
         .strikethrough {
             text-decoration: line-through; /* Tachado del contenido */
@@ -174,6 +175,7 @@
     }
 </script>
 
-121020242107
+131020242317
+
 </body>
 </html>
