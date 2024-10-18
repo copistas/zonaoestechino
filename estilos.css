@@ -3,15 +3,16 @@
     font-weight: bold; /* Negrita */
     text-decoration: underline; /* Subrayado */
     border: 1px solid #000; /* Borde de 1px */
-  /*  border-radius: 50%; /* Envolver en círculo */
-  /*  width: 40px; /* Ajuste del tamaño del círculo */
-  /*  height: 40px ; */ 
-/*    display: inline-flex;
+    border-radius: 50%; /* Envolver en círculo */
+    width: 40px; /* Ajuste del tamaño del círculo */
+    height: 40px ; 
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     background-color: #ffffff; /* Fondo blanco para resaltar */
     padding: 5px;
 }
+
 
 
 /* Estilo general del cuerpo */
