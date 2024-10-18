@@ -281,32 +281,7 @@
 <!-- Sección para mostrar la resolución -->
 <div id="screen-resolution" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
 
-<script>
-    // Obtener la resolución de la pantalla
-    const width = window.innerWidth; // Ancho en píxeles
-    const height = window.innerHeight; // Alto en píxeles
 
-    // Mostrar la resolución en el div
-    document.getElementById('screen-resolution').innerText = `Su resolución de pantalla es: ${width} px por ${height} px`;
-</script>
-
-<!-- Aquí va el resto de tu contenido -->
-<div id="device-type" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
-
-<script>
-    // Obtener el ancho de la pantalla
-    const screenWidth = window.innerWidth; // Cambia 'width' por 'screenWidth'
-
-    // Seleccionar el div para mostrar el mensaje
-    const deviceTypeDiv = document.getElementById('device-type');
-
-    // Determinar si es móvil o escritorio
-    if (screenWidth < 860) {
-        deviceTypeDiv.innerText = "Estás usando la versión móvil.";
-    } else {
-        deviceTypeDiv.innerText = "Estás usando la versión de escritorio.";
-    }
-</script>
 
 ult.mod.181020241536
 
