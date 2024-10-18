@@ -1,3 +1,21 @@
+/* Estilo general de la tabla */
+th, td {
+    border: 1px solid black;
+    background-color: white;
+    padding: 8px;
+    width: auto; /* Ajusta esta línea o elimina el ancho fijo */
+    text-align: center;
+    vertical-align: top;
+    overflow: hidden;
+    white-space: normal; /* Permitir ajuste de línea */
+    text-overflow: clip;
+}
+
+table {
+    table-layout: auto; /* Cambia a auto para permitir que las columnas se ajusten al contenido */
+    width: 100%; /* Ajusta la tabla para que ocupe todo el ancho disponible */
+}
+
 /* Estilo para el día actual */
 .highlight-today {
     font-weight: bold; /* Negrita */
@@ -5,15 +23,13 @@
     border: 1px solid #000; /* Borde de 1px */
     border-radius: 50%; /* Envolver en círculo */
     width: 40px; /* Ajuste del tamaño del círculo */
-    height: 40px ; 
+    height: 40px; 
     display: inline-flex;
     justify-content: center;
     align-items: center;
     background-color: #ffffff; /* Fondo blanco para resaltar */
     padding: 5px;
 }
-
-
 
 /* Estilo general del cuerpo */
 body {
@@ -38,31 +54,6 @@ body {
     overflow-x: auto; /* Permitir desplazamiento horizontal si es necesario */
 }
 
-/* Estilo para la tabla */
-table {
-    width: auto; /* Ajustar la tabla al tamaño de las columnas */
-    border-collapse: collapse; /* Colapsar los bordes de las celdas */
-    /* Quita o cambia esta línea: */
-    /* table-layout: fixed; /* Quita esta línea para permitir el ajuste dinámico */
-}
-
-/* Estilo para celdas */
-th, td {
-    border: 1px solid rgb(10, 26, 241);
-    background-color: rgb(255, 255, 255);
-    padding: 8px;
-    white-space: normal; /* Permitir el ajuste de línea automático */
-    word-wrap: break-word; /* Dividir palabras largas si es necesario */
-    overflow-wrap: break-word; /* Alternativa para dividir palabras largas */
-    text-overflow: clip; /* Mostrar el texto completo sin puntos suspensivos */
-}
-
-/* Hacer que el contenido de las celdas sea desplazable */
-td {
-    text-overflow: clip; /* Mostrar el texto completo sin puntos suspensivos */
-    white-space: normal; /* Permitir el ajuste de línea automático */
-}
-
 /* Media query para pantallas más pequeñas */
 @media (max-width: 600px) {
     .table-responsive {
@@ -76,4 +67,10 @@ td {
     th, td {
         width: auto; /* Ajustar el ancho de las columnas en pantallas pequeñas */
     }
+}
+
+/* Clase para tachado */
+.strikethrough {
+    text-decoration: line-through; /* Tachado del contenido */
+    color: gray;
 }
