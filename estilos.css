@@ -1,3 +1,16 @@
+/* Estilo para el día actual */
+.highlight-today {
+    background-color: #f0f8ff; /* Sombreado */
+    text-decoration: underline; /* Subrayado */
+    border: 1px solid #000; /* Borde de 1px */
+    border-radius: 50%; /* Envolver en círculo */
+    width: 40px; /* Ajuste del tamaño del círculo */
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Estilo general del cuerpo */
 body {
     font-family: 'Roboto', sans-serif;
