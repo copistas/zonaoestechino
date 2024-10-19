@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="estilos.css">
-    <script src="script.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendario Octubre 2024</title>
-   
+    <style>
+    th, td {
+        border: 1px solid black;
+        background-color: white;
+        padding: 8px;
+        width: auto; /* Ajusta esta línea o elimina el ancho fijo de 180px */
+        text-align: center;
+        vertical-align: top;
+        overflow: hidden;
+        white-space: normal; /* Permitir ajuste de línea */
+        text-overflow: clip;
+    }
+
+    table {
+        table-layout: auto; /* Cambia a auto para permitir que las columnas se ajusten al contenido */
+        width: 100%; /* Ajusta la tabla para que ocupe todo el ancho disponible */
+    }
+
+        .strikethrough {
+            text-decoration: line-through; /* Tachado del contenido */
+            color: gray;
+        }
+    </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
+
+
+    
 
 <div class="contenido-centrado">
     <section id="salidas-ministerio">
@@ -18,6 +43,8 @@
                 <li><a href="#reunion-fin-semana">Reunión de fin de semana</a></li>
                 <li><a href="#tesoros-seamos-mejores">Tesoros y Seamos Mejores Maestros (Ch)</a></li>
                 <li><a href="#discurso-domingo">Discurso Domingo</a></li>
+                <li><a href="#limpieza">Arreglo de Limpieza</a></li>
+                <li><a href="#salidas_sj">Salidas en Español</a></li>
             </ul>
         </nav>
 
@@ -71,7 +98,7 @@
                                 <td class="day" data-day="16">16<br>Encargado: Andres Cistriani<br>17:30hs<br>Arieta y Triunvirato<br>Terri 55</td>
                                 <td class="day" data-day="17">17</td>
                                 <td class="day" data-day="18">18<br>Encargado: Noelia Aguirre<br>9:30hs<br>Ruta 3 y Colón<br>Terri 9</td>
-                                <td class="day" data-day="19">19<br>Salida con la congregación</td>
+                                <td class="day" data-day="19">19<br>Salida con la congregación<br>10:00hs</td>
                             </tr>
                             <tr>
                                 <td class="day" data-day="20">20<br>Encargado: Rosana Gomez<br>10:00hs<br>Salón de Laferrere<br>Terri 81</td>
@@ -80,7 +107,7 @@
                                 <td class="day" data-day="23">23<br>Encargado: Laureano Millan<br>17:30hs<br>Brandsen y Av. de Mayo<br>Terri 36</td>
                                 <td class="day" data-day="24">24</td>
                                 <td class="day" data-day="25">25<br>Encargado: Jessica Cistriani<br>9:30hs<br>Plaza del Cañón<br>Terri 7 y 8</td>
-                                <td class="day" data-day="26">26<br>Encargado: Andres Cistriani<br>10:00hs<br>Salón del Reino<br>Terri a definir</td>
+                                <td class="day" data-day="26">26<br>Encargado: Andres Cistriani<br>9:45hs<br>Salón del Reino<br>Terri a definir</td>
                             </tr>
                             <tr>
                                 <td class="day" data-day="27">27</td>
@@ -134,7 +161,7 @@
                     <tr>
                         <td>20/10/2024</td>
                         <td>Pedro O.<br>欧彼得</td>
-                        <td>Andrés C.<br>安德烈</td>
+                        <td>Chtistian R.<br>罗克理</td>
                         <td>Daiana F.<br>戴娜</td>
                         <td>Alicia S.<br>爱丽<br>Anabella M.<br>哈娜</td>
                         <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
@@ -152,7 +179,7 @@
                         <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
                     </tr>
                     <tr>
-                        <td>noviembre</td>
+                        <td>03/11/2024</td>
                         <td>Chtistian R.<br>罗克理</td>
                         <td>Andrés C.<br>安德烈</td>
                         <td>Jazmin O.<br>欧佳敏</td>
@@ -177,8 +204,8 @@
                         <th>Español</th>
                     </tr>
                     <tr>
-                        <td>10月26日</td>
-                        <td>26 de Octubre</td>
+                        <td>10月24日</td>
+                        <td>24 de Octubre</td>
                     </tr>
                     <tr>
                         <td>诗篇100-102篇</td>
@@ -237,48 +264,26 @@
 
     <section id="discurso-domingo">
         <h2>Discurso Domingo</h2>
-        <br>Asamblea Regional 
-        <br>(en español)
-        <br><a href="https://www.youtube.com/watch?v=K1daiiZK7hU">Ver por YouTube</a>
+        <br>基督徒正视考验忠贞不渝
+        <br>Jīdūtú zhèngshì kǎoyàn zhōngzhēnbùyú
+        <br><a href="https://www.youtube.com/watch?v=K1daiiZK7hU">Ver por YouTube (ult.)</a>
     </section>
 
-    <section id="Salidas en español">
-        <h2>Imagen Final</h2>
-        <img src="predi sp.jpg" alt="Salidas español" onclick="toggleSize(this)">
+    <section id="salidas_sj"">
+        <h2>Salidas en Español</h2>
+        <br>Ver en grupo Whatsapp de Anuncios Centro San Justo
+        <br>o en <a href="https://www.centrosanjusto.ar">Sitio Centro San Justo</a>
+    </section>
+
+    <section id="limpieza">
+        <h2>Limpieza</h2>
+        <br>Día asignado al grupo Chino
+        <br>Jueves 24 de Octubre
     </section>
 </div>
-
-<!-- Sección para mostrar la resolución -->
-<div id="screen-resolution" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
-
-<script>
-    // Obtener la resolución de la pantalla
-    const width = window.innerWidth; // Ancho en píxeles
-    const height = window.innerHeight; // Alto en píxeles
-
-    // Mostrar la resolución en el div
-    document.getElementById('screen-resolution').innerText = `Su resolución de pantalla es: ${width} px por ${height} px`;
-</script>
-
-<!-- Aquí va el resto de tu contenido -->
+<div id="screen-resolution"></div> <!-- Asegúrate de que este div esté presente -->
 <div id="device-type" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
-
-<script>
-    // Obtener el ancho de la pantalla
-    const screenWidth = window.innerWidth; // Cambia 'width' por 'screenWidth'
-
-    // Seleccionar el div para mostrar el mensaje
-    const deviceTypeDiv = document.getElementById('device-type');
-
-    // Determinar si es móvil o escritorio
-    if (screenWidth < 860) {
-        deviceTypeDiv.innerText = "Estás usando la versión móvil.";
-    } else {
-        deviceTypeDiv.innerText = "Estás usando la versión de escritorio.";
-    }
-</script>
-
-131020242317
-
+ult.mod.181020242317
+<script src="script.js"></script>
 </body>
 </html>
