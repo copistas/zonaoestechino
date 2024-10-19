@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
             // Si la fecha es mayor a 7 días, tachar los contenidos de la fila
-            if (diffDays <= 7) {
+            if (diffDays < 0)) {
                 row.querySelectorAll('td').forEach(cell => {
                     cell.style.textDecoration = 'line-through'; // Aplica el estilo de tachado
                     cell.style.color = 'grey'; // Opcional: cambia el color del texto
