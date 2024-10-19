@@ -29,9 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const diffTime = rowDate - today; // Diferencia en milisegundos
             const diffDays = diffTime / (1000 * 60 * 60 * 24); // Diferencia en días
 
-
             // Si la fecha es mayor a 7 días, tachar los contenidos de la fila
-            if (diffDays <= -1)) {
+            if (diffDays >= -1) {
                 row.querySelectorAll('td').forEach(cell => {
                     cell.style.textDecoration = 'line-through'; // Aplica el estilo de tachado
                     cell.style.color = 'grey'; // Opcional: cambia el color del texto
