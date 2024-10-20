@@ -34,8 +34,21 @@ document.addEventListener("DOMContentLoaded", function() {
             const diffTime = rowDate - today;
             const diffDays = diffTime / (1000 * 60 * 60 * 24);
 
+/*<<<<<<< HEAD
             // Condición ajustada para que la fecha mayor a 7 días no esté tachada
             if (diffDays < -7) {
+======= */
+            console.log("Fecha de la fila:", rowDate); // Muestra la fecha de la fila
+            console.log("Diferencia en días:", (rowDate - today) / (1000 * 60 * 60 * 24)); // Muestra la diferencia en días
+
+
+            // Calcula la diferencia en días entre hoy y la fecha de la fila
+            const diffTime = rowDate - today; // Diferencia en milisegundos
+            const diffDays = diffTime / (1000 * 60 * 60 * 24); // Diferencia en días
+
+            // Si la fecha es mayor a 7 días, tachar los contenidos de la fila
+            if (diffDays >= -1) {
+/*>>>>>>> origin/main*/
                 row.querySelectorAll('td').forEach(cell => {
                     cell.style.textDecoration = 'line-through';
                     cell.style.color = 'grey';
