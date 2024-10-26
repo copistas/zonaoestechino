@@ -27,276 +27,363 @@
             text-decoration: line-through; /* Tachado del contenido */
             color: gray;
         }
-    </style>
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-size: cover; /* Ajusta la imagen al tamaño del fondo */
-            background-repeat: no-repeat;
-            background-position: center center; /* Centra la imagen */
+    /* Estilos para la capa flotante */
+    .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+        }
+
+        .popup {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        .iframe-content {
+            width: 100%;
+            height: 600px;
+            border: none;
         }
     </style>
+    <script src="script.js" defer>
 
+/*   script para abrir en enlace vym español en una pestaña nueva */
     
+    </script>
+/*   script para abrir en enlace vym español en una pestaña nueva */
+</head>
+<body>
+        <!--
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-size: cover; /* Ajusta la imagen al tamaño del fondo */
+                background-repeat: no-repeat;
+                background-position: center center; /* Centra la imagen */
+            }
+        </style> 
+        -->
 
-<div class="contenido-centrado">
-    <section id="salidas-ministerio">
-        <nav>
-            <ul>
-                <li><a href="#salidas-ministerio">Salidas al ministerio</a></li>
-                <li><a href="#reunion-fin-semana">Reunión de fin de semana</a></li>
-                <li><a href="#tesoros-seamos-mejores">Tesoros y Seamos Mejores Maestros (Ch)</a></li>
-                <li><a href="#discurso-domingo">Discurso Domingo</a></li>
-                <li><a href="#limpieza">Arreglo de Limpieza</a></li>
-                <li><a href="#salidas_sj">Salidas en Español</a></li>
-            </ul>
-        </nav>
-<img src="texto.png" width=30%>
-    <table><tr>
-    <td><a href="https://us02web.zoom.us/j/85723916731?pwd=waF77XpgVDcxSHEqWiTub34xWswrSM.1"><img src="zoom.png" width=26%></a></td>
-    <td><a href="https://www.youtube.com/live/zUsU_jDRkU4?si=RjJwye5N0EiNnvPi"><img src="youtube.png"></a></td></tr>
+        
+
+    <div class="contenido-centrado">
+        <section id="salidas-ministerio">
+            <nav>
+                <ul>
+                    <li><a href="#salidas-ministerio">aSalidas al ministerio</a></li>
+                    <li><a href="#reunion-fin-semana">Reunión de fin de semana</a></li>
+                    <li><a href="#tesoros-seamos-mejores">Tesoros y Seamos Mejores Maestros (Ch)</a></li>
+                    <li><a href="#discurso-domingo">Discurso Domingo</a></li>
+                    <li><a href="#limpieza">Arreglo de Limpieza</a></li>
+                    <li><a href="#salidas_sj">Salidas en Español</a></li>
+                    <li><a href="#reunion vida y ministerio SJ">Reunión entre semana español</a></li>
+                    <li><a href="#anuncios y mensajes importantes">Anuncios y mensajes importantes</a></li>
+                </ul>
+            </nav>
+        </section>
+
+    <div class="contenedor">  <!-- Este es el contenedor principal -->
+        <div class="contenedor-imagen">  <!-- Contenedor específico para la imagen -->
+            <img src="texto.png" width="612px">  <!-- La imagen que deseas centrar -->
+        </div>
+    </div>
+    
+    <table class="tabla-612" width="612px">  <!-- Tabla que se ajusta a 612px -->
+        <tr>
+            <td class="tabla-612 td"><a href="https://us02web.zoom.us/j/85723916731?pwd=waF77XpgVDcxSHEqWiTub34xWswrSM.1"><img src="zoom.png" class="imagen2"></a>
+            </td>
+        </tr>
+        <tr>
+            <td class="tabla-612 td"><a href="https://www.youtube.com/live/zUsU_jDRkU4?si=RjJwye5N0EiNnvPi"><img src="youtube.png" class="imagen2"></a>
+            </td>
+        </tr>
     </table>
+    </div>
 
-        <div class="contenido-centrado">
-            <section id="salidas-al-ministerio">
-                <h2>Salidas al Ministerio</h2>
-                
-                <div class="contenedor">
-                    <div class="table-responsive">
-                        <table>
-                            <tr>
-                                <th>Domingo</th>
-                                <th>Lunes</th>
-                                <th>Martes</th>
-                                <th>Miércoles</th>
-                                <th>Jueves</th>
-                                <th>Viernes</th>
-                                <th>Sábado</th>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td class="day" data-day="1">1</td> <!-- Día 1 -->
-                                <td class="day" data-day="2">2
-                                    <br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Ramos<br>Terri 45
+            <div class="contenido-centrado">
+                <section id="salidas-al-ministerio">
+                    <h2>Salidas al Ministerio</h2>
+                    
+                    <div class="contenedor">
+                        <div class="table-responsive">
+                            <table>
+                                <tr>
+                                    <th>Domingo</th>
+                                    <th>Lunes</th>
+                                    <th>Martes</th>
+                                    <th>Miércoles</th>
+                                    <th>Jueves</th>
+                                    <th>Viernes</th>
+                                    <th>Sábado</th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="day" data-day="1">1</td> <!-- Día 1 -->
+                                    <td class="day" data-day="2">2
+                                        <br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Ramos<br>Terri 45
+                                    </td>
+                                    <td class="day" data-day="3">3</td> <!-- Día 3 -->
+                                    <td class="day" data-day="4">
+                                        4<br>Encargado: Daiana Ferrando<br>9:30hs<br>Brandsen y Ruta 3<br>Terri 10
                                 </td>
-                                <td class="day" data-day="3">3</td> <!-- Día 3 -->
-                                <td class="day" data-day="4">
-                                    4<br>Encargado: Daiana Ferrando<br>9:30hs<br>Brandsen y Ruta 3<br>Terri 10
-                               </td>
-                                <td class="day" data-day="5">
-                                    5<br>Encargado: Laureano Millan<br>9:45hs<br>Plaza Tapiales<br>Tuyuti y Altolaguirre<br>
-                                    <a href="https://maps.app.goo.gl/rjB1k5kqteVRxJED8">Coordenadas</a><br>Terri 22
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="day" data-day="6">6<br>Encargado: Alicia Souza<br>10:00hs<br>Salón de Laferrere<br>Terri 80</td>
-                                <td class="day" data-day="7">7<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Ing. Brian<br>Terri 41</td>
-                                <td class="day" data-day="8">8</td>
-                                <td class="day" data-day="9">
-                                    9<br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Haedo<br>Terri 51
-                                </td>
-                                <td class="day" data-day="10">10</td>
-                                <td class="day" data-day="11">11<br>Asamblea</td>
-                                <td class="day" data-day="12">12<br>Asamblea</td>
-                            </tr>
-                            <tr>
-                                <td class="day" data-day="13">13<br>Asamblea</td>
-                                <td class="day" data-day="14">14<br>Encargado: Daiana Ferrando<br>9:30hs<br>Estación Ing. Brian<br>Terri 42</td>
-                                <td class="day" data-day="15">15</td>
-                                <td class="day" data-day="16">16<br>Encargado: Andres Cistriani<br>17:30hs<br>Arieta y Triunvirato<br>Terri 55</td>
-                                <td class="day" data-day="17">17</td>
-                                <td class="day" data-day="18">18<br>Encargado: Noelia Aguirre<br>9:30hs<br>Ruta 3 y Colón<br>Terri 9</td>
-                                <td class="day" data-day="19">19<br>Salida con la congregación<br>10:00hs</td>
-                            </tr>
-                            <tr>
-                                <td class="day" data-day="20">20<br>Encargado: Rosana Gomez<br>10:00hs<br>Salón de Laferrere<br>Terri 81</td>
-                                <td class="day" data-day="21">21<br>Encargado: Debora Millan<br>9:30hs<br>Estación Haedo<br>Terri 49</td>
-                                <td class="day" data-day="22">22</td>
-                                <td class="day" data-day="23">23<br>Encargado: Laureano Millan<br>17:30hs<br>Brandsen y Av. de Mayo<br>Terri 36</td>
-                                <td class="day" data-day="24">24</td>
-                                <td class="day" data-day="25">25<br>Encargado: Jessica Cistriani<br>9:30hs<br>Plaza del Cañón<br>Terri 7 y 8</td>
-                                <td class="day" data-day="26">26<br>Encargado: Andres Cistriani<br>9:45hs<br>Salón del Reino<br>Terri a definir</td>
-                            </tr>
-                            <tr>
-                                <td class="day" data-day="27">27</td>
-                                <td class="day" data-day="28">28<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Haedo<br>Terri 50</td>
-                                <td class="day" data-day="29">29</td>
-                                <td class="day" data-day="30">30<br>Encargado: Christian Rodriguez<br>17:30hs<br>San Martin y Florencio Varela<br>Terri 37</td>
-                                <td class="day" data-day="31">31</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            
-                        </table>
+                                    <td class="day" data-day="5">
+                                        5<br>Encargado: Laureano Millan<br>9:45hs<br>Plaza Tapiales<br>Tuyuti y Altolaguirre<br>
+                                        <a href="https://maps.app.goo.gl/rjB1k5kqteVRxJED8">Coordenadas</a><br>Terri 22
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="day" data-day="6">6<br>Encargado: Alicia Souza<br>10:00hs<br>Salón de Laferrere<br>Terri 80</td>
+                                    <td class="day" data-day="7">7<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Ing. Brian<br>Terri 41</td>
+                                    <td class="day" data-day="8">8</td>
+                                    <td class="day" data-day="9">
+                                        9<br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Haedo<br>Terri 51
+                                    </td>
+                                    <td class="day" data-day="10">10</td>
+                                    <td class="day" data-day="11">11<br>Asamblea</td>
+                                    <td class="day" data-day="12">12<br>Asamblea</td>
+                                </tr>
+                                <tr>
+                                    <td class="day" data-day="13">13<br>Asamblea</td>
+                                    <td class="day" data-day="14">14<br>Encargado: Daiana Ferrando<br>9:30hs<br>Estación Ing. Brian<br>Terri 42</td>
+                                    <td class="day" data-day="15">15</td>
+                                    <td class="day" data-day="16">16<br>Encargado: Andres Cistriani<br>17:30hs<br>Arieta y Triunvirato<br>Terri 55</td>
+                                    <td class="day" data-day="17">17</td>
+                                    <td class="day" data-day="18">18<br>Encargado: Noelia Aguirre<br>9:30hs<br>Ruta 3 y Colón<br>Terri 9</td>
+                                    <td class="day" data-day="19">19<br>Salida con la congregación<br>10:00hs</td>
+                                </tr>
+                                <tr>
+                                    <td class="day" data-day="20">20<br>Encargado: Rosana Gomez<br>10:00hs<br>Salón de Laferrere<br>Terri 81</td>
+                                    <td class="day" data-day="21">21<br>Encargado: Debora Millan<br>9:30hs<br>Estación Haedo<br>Terri 49</td>
+                                    <td class="day" data-day="22">22</td>
+                                    <td class="day" data-day="23">23<br>Encargado: Laureano Millan<br>17:30hs<br>Brandsen y Av. de Mayo<br>Terri 36</td>
+                                    <td class="day" data-day="24">24</td>
+                                    <td class="day" data-day="25">25<br>Encargado: Jessica Cistriani<br>9:30hs<br>Plaza del Cañón<br>Terri 7 y 8</td>
+                                    <td class="day" data-day="26">26<br>Encargado: Cistrian Rodriguez<br>9:45hs<br>Estacion Ituzaingó<br>Terri a definir</td>
+                                </tr>
+                                <tr>
+                                    <td class="day" data-day="27">27</td>
+                                    <td class="day" data-day="28">28<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Haedo<br>Terri 50</td>
+                                    <td class="day" data-day="29">29</td>
+                                    <td class="day" data-day="30">30<br>Encargado: Christian Rodriguez<br>17:30hs<br>San Martin y Florencio Varela<br>Terri 37</td>
+                                    <td class="day" data-day="31">31</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </section>
-        </div>
-    </section>
-</div>
+                </section>
+            </div>
 
-<div>
-    <section id="reunion-fin-semana">
-        <h2>Reunión de fin de semana</h2>
-        <!-- <img src="Captura de pantalla 2024-10-06 170823.jpg" alt="Contenido relacionado con la reunión de fin de semana" onclick="toggleSize(this)"> ->
-    
-        <!- Tabla de horarios y participantes -->
-        <div class="table-responsive">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>主席 Presidente</th>
-                        <th>主持人 Conductor W</th>
-                        <th>读者 Lector</th>
-                        <th>传话简者 Micrófonos</th>
-                        <th>Anfitrión Zoom</th>
-                        <th>Audio y Video</th>
-                        <th>Acomodador</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>6/10/2024</td>
-                        <td>Chtistian R.<br>罗克理</td>
-                        <td>Andrés C.<br>安德烈</td>
-                        <td>Araceli R.<br>小燕子</td>
-                        <td>Valeria R.<br>罗丁香<br>Debora M.<br>弥甜蜜</td>
-                        <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
-                        <td>Jessica C.<br>明美<br>Daiana F.<br>戴娜</td>
-                        <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
-                    </tr>
-                    <tr>
-                        <td>20/10/2024</td>
-                        <td>Pedro O.<br>欧彼得</td>
-                        <td>Chtistian R.<br>罗克理</td>
-                        <td>Daiana F.<br>戴娜</td>
-                        <td>Alicia S.<br>爱丽<br>Anabella M.<br>哈娜</td>
-                        <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
-                        <td>Araceli R.<br>小燕子<br>Debora M.<br>弥甜蜜</td>
-                        <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
-                    </tr>
-                    <tr>
-                        <td>27/10/2024</td>
-                        <td>Laureano M.<br>弥劳累</td>
-                        <td>Andrés C.<br>安德烈</td>
-                        <td>Anabella M.<br>哈娜</td>
-                        <td>Araceli R.<br>小燕子<br>Daiana F.<br>戴娜</td>
-                        <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
-                        <td>Ana<br>Rosana G.<br>柔喜</td>
-                        <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
-                    </tr>
-                    <tr>
-                        <td>03/11/2024</td>
-                        <td>Chtistian R.<br>罗克理</td>
-                        <td>Andrés C.<br>安德烈</td>
-                        <td>Jazmin O.<br>欧佳敏</td>
-                        <td>Jessica C.<br>明美<br>Tatiana P.<br>平塔蒂</td>
-                        <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
-                        <td>Noelia A.<br>娜雅<br>Valeria R.<br>罗丁香</td>
-                        <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    
 
-    <section id="tesoros-seamos-mejores">
-        <h2>Tesoros y Seamos Mejores Maestros (Ch)</h2>
-        <div class="contenedor">
+    <div>
+        <section id="reunion-fin-semana">
+            <h2>Reunión de fin de semana</h2>
+            <!-- <img src="Captura de pantalla 2024-10-06 170823.jpg" alt="Contenido relacionado con la reunión de fin de semana" onclick="toggleSize(this)"> ->
+        
+            <!- Tabla de horarios y participantes -->
             <div class="table-responsive">
                 <table>
-                    <tr>
-                        <th>Chino</th>
-                        <th>Español</th>
-                    </tr>
-                    <tr>
-                        <td>10月24日</td>
-                        <td>24 de Octubre</td>
-                    </tr>
-                    <tr>
-                        <td>诗篇100-102篇</td>
-                        <td>SALMOS 100-102</td>
-                    </tr>
-                    <tr>
-                        <td>主持人 Conductor: Laureano</td>
-                        <td>Conductor</td>
-                    </tr>
-                    <tr>
-                        <td>Christian. 经文宝石 诗102:6——诗篇执笔者为什么说自己好像“鹈鹕”？（《洞悉下》390页）</td>
-                        <td>Busquemos perlas escondidas (10 mins.) Sl 102:6. ¿Por qué dijo el salmista que se parecía al pelícano? (it-2 629).</td>
-                    </tr>
-                    <tr>
-                        <td>经文朗读</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>（4分钟）诗102:1-28（《教导》第12课）</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>用心准备传道工作</td>
-                        <td>SEAMOS MEJORES MAESTROS</td>
-                    </tr>
-                    <tr>
-                        <td>Valeria R./Rosana G. 开始交谈 kāishǐ jiāotán</td>
-                        <td>4. Empiece conversaciones</td>
-                    </tr>
-                    <tr>
-                        <td>（3分钟）挨家挨户。（《爱心》第2课第3点）</td>
-                        <td>(3 mins.) DE CASA EN CASA. (lmd lección 2 punto 3).</td>
-                    </tr>
-                    <tr>
-                        <td>Anahí Z./Ana V. 继续帮助对方</td>
-                        <td>5. Haga revisitas</td>
-                    </tr>
-                    <tr>
-                        <td>（5分钟）挨家挨户。邀请对方学习圣经。（《爱心》第9课第4点）</td>
-                        <td>(5 mins.) DE CASA EN CASA. Ofrezca un curso de la Biblia (lmd lección 9 punto 4).</td>
-                    </tr>
-                    <tr>
-                        <td>Araceli R./Anabela M. 解释自己的信仰</td>
-                        <td>6. Explique sus creencias</td>
-                    </tr>
-                    <tr>
-                        <td>（4分钟）示范。《圣经问答》第129篇——主题：圣经被人窜改过吗？（《教导》第8课）</td>
-                        <td>(4 mins.) Escenificación. ijwbq 129. Tema: ¿Se ha cambiado o manipulado la Biblia? (th lección 8).</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>主席 Presidente</th>
+                            <th>主持人 Conductor W</th>
+                            <th>读者 Lector</th>
+                            <th>传话简者 Micrófonos</th>
+                            <th>Anfitrión Zoom</th>
+                            <th>Audio y Video</th>
+                            <th>Acomodador</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>6/10/2024</td>
+                            <td>Chtistian R.<br>罗克理</td>
+                            <td>Andrés C.<br>安德烈</td>
+                            <td>Araceli R.<br>小燕子</td>
+                            <td>Valeria R.<br>罗丁香<br>Debora M.<br>弥甜蜜</td>
+                            <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
+                            <td>Jessica C.<br>明美<br>Daiana F.<br>戴娜</td>
+                            <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
+                        </tr>
+                        <tr>
+                            <td>20/10/2024</td>
+                            <td>Pedro O.<br>欧彼得</td>
+                            <td>Chtistian R.<br>罗克理</td>
+                            <td>Daiana F.<br>戴娜</td>
+                            <td>Alicia S.<br>爱丽<br>Anabella M.<br>哈娜</td>
+                            <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
+                            <td>Araceli R.<br>小燕子<br>Debora M.<br>弥甜蜜</td>
+                            <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
+                        </tr>
+                        <tr>
+                            <td>27/10/2024</td>
+                            <td>Laureano M.<br>弥劳累</td>
+                            <td>Andrés C.<br>安德烈</td>
+                            <td>Anabella M.<br>哈娜</td>
+                            <td>Araceli R.<br>小燕子<br>Daiana F.<br>戴娜</td>
+                            <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
+                            <td>Ana<br>Rosana G.<br>柔喜</td>
+                            <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
+                        </tr>
+                        <tr>
+                            <td>03/11/2024</td>
+                            <td>Chtistian R.<br>罗克理</td>
+                            <td>Andrés C.<br>安德烈</td>
+                            <td>Jazmin O.<br>欧佳敏</td>
+                            <td>Jessica C.<br>明美<br>Tatiana P.<br>平塔蒂</td>
+                            <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
+                            <td>Noelia A.<br>娜雅<br>Valeria R.<br>罗丁香</td>
+                            <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
-        </div>
-    </section>
-    
-    
+        </section>
+        
 
-    <section id="discurso-domingo">
-        <h2>Discurso Domingo</h2>
-        <br>基督徒正视考验忠贞不渝
-        <br>Jīdūtú zhèngshì kǎoyàn zhōngzhēnbùyú
-        <br><a href="https://www.youtube.com/live/zUsU_jDRkU4?si=RjJwye5N0EiNnvPi">Ver por YouTube (ult.)</a>
-    </section>
+        <section id="tesoros-seamos-mejores">
+            <h2>Tesoros y Seamos Mejores Maestros (Ch)</h2>
+            <div class="contenedor">
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Chino</th>
+                            <th>Español</th>
+                        </tr>
+                        <tr>
+                            <td>10月24日</td>
+                            <td>24 de Octubre</td>
+                        </tr>
+                        <tr>
+                            <td>诗篇100-102篇</td>
+                            <td>SALMOS 100-102</td>
+                        </tr>
+                        <tr>
+                            <td>主持人 Conductor: Laureano</td>
+                            <td>Conductor</td>
+                        </tr>
+                        <tr>
+                            <td>Christian. 经文宝石 诗102:6——诗篇执笔者为什么说自己好像“鹈鹕”？（《洞悉下》390页）</td>
+                            <td>Busquemos perlas escondidas (10 mins.) Sl 102:6. ¿Por qué dijo el salmista que se parecía al pelícano? (it-2 629).</td>
+                        </tr>
+                        <tr>
+                            <td>经文朗读</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>（4分钟）诗102:1-28（《教导》第12课）</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>用心准备传道工作</td>
+                            <td>SEAMOS MEJORES MAESTROS</td>
+                        </tr>
+                        <tr>
+                            <td>Valeria R./Rosana G. 开始交谈 kāishǐ jiāotán</td>
+                            <td>4. Empiece conversaciones</td>
+                        </tr>
+                        <tr>
+                            <td>（3分钟）挨家挨户。（《爱心》第2课第3点）</td>
+                            <td>(3 mins.) DE CASA EN CASA. (lmd lección 2 punto 3).</td>
+                        </tr>
+                        <tr>
+                            <td>Anahí Z./Ana V. 继续帮助对方</td>
+                            <td>5. Haga revisitas</td>
+                        </tr>
+                        <tr>
+                            <td>（5分钟）挨家挨户。邀请对方学习圣经。（《爱心》第9课第4点）</td>
+                            <td>(5 mins.) DE CASA EN CASA. Ofrezca un curso de la Biblia (lmd lección 9 punto 4).</td>
+                        </tr>
+                        <tr>
+                            <td>Araceli R./Anabela M. 解释自己的信仰</td>
+                            <td>6. Explique sus creencias</td>
+                        </tr>
+                        <tr>
+                            <td>（4分钟）示范。《圣经问答》第129篇——主题：圣经被人窜改过吗？（《教导》第8课）</td>
+                            <td>(4 mins.) Escenificación. ijwbq 129. Tema: ¿Se ha cambiado o manipulado la Biblia? (th lección 8).</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        
 
-    <section id="salidas_sj"">
-        <h2>Salidas en Español</h2>
-        <br>Ver en grupo Whatsapp de Anuncios Centro San Justo
-        <br>o en <a href="https://www.centrosanjusto.ar">Sitio Centro San Justo</a>
-    </section>
+        <section id="discurso-domingo">
+            <h2>Discurso Domingo</h2>
+            <br>基督徒正视考验忠贞不渝
+            <br>Jīdūtú zhèngshì kǎoyàn zhōngzhēnbùyú
+            <br><a href="https://www.youtube.com/live/zUsU_jDRkU4?si=RjJwye5N0EiNnvPi">Ver por YouTube (ult.)</a>
+        </section>
 
-    <section id="limpieza">
-        <h2>Limpieza</h2>
-        <br>Día asignado al grupo Chino
-        <br>Jueves 24 de Octubre
+        <section id="salidas_sj">
+            <h2>Salidas en Español</h2>
+            <br>Ver en grupo Whatsapp de Anuncios Centro San Justo
+            <br>o en <a href="https://www.centrosanjusto.ar">Sitio Centro San Justo</a>
+        </section>
+
+        <section id="limpieza">
+            <h2>Limpieza</h2>
+            <br>Día asignado al grupo Chino
+            <br>Jueves 24 de Octubre
+        </section>
+
+        <section id="reunion vida y ministerio SJ">
+            <h2>Reunión Vida y Ministerio (Español)</h2>
+
+    <!-- INICIO: Este es un enlace que se abre en una nueva ventana para la página de Centro San Justo -->
+    <button onclick="openInNewTab()">Abrir enlace de Vida y Ministerio</button>
+
+    <script>
+        function openInNewTab() {
+            window.open("https://www.centrosanjusto.ar/vida-y-ministerio-cristiano", "_blank");
+        }
+    </script>
+    <!-- FIN: trozo de código para linkear con salida en español -->
+
+        </section>
+    </div>
+    <div id="screen-resolution"></div> <!-- Asegúrate de que este div esté presente -->
+    <div id="device-type" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
+    ult.mod.trabajando....
+    <script src="script.js"></script>
+
+    <section id="anuncios y mensajes importantes">
+        <h2>Visita hermano viajante</h2>
+            <br> Hola queridos hermanos queremos que sepan que llegó la fecha para la visita al grupo. 
+            <br>Nos visita el hermano Alejandro Vidal del 18 al 23 de febrero. En breve estaremos 
+            <br>recibiendo más información sobre los arreglos que harán falta pero les adelantamos 
+            <br>la fecha para que puedan hacer sus arreglos para disfrutar lo que seguramente será 
+            <br>una semana de estímulo 
     </section>
-</div>
-<div id="screen-resolution"></div> <!-- Asegúrate de que este div esté presente -->
-<div id="device-type" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
-ult.mod.181020242317
-<script src="script.js"></script>
 </body>
 </html>

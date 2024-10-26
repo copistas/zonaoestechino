@@ -1,38 +1,60 @@
-/* Estilo general de la tabla */
-th, td {
-    border: 1px solid black;
-    background-color: white;
-    padding: 8px;
-    width: auto; /* Ajusta esta línea o elimina el ancho fijo */
-    text-align: center;
-    vertical-align: top;
-    overflow: hidden;
-    white-space: normal; /* Permitir ajuste de línea */
-    text-overflow: clip;
+/* mi invento imagenes zoom y youtube */
+.imagen2 {
+    border: 0px;
+    width: 302px;
+    height: auto;
 }
 
-table {
-    table-layout: auto; /* Cambia a auto para permitir que las columnas se ajusten al contenido */
-    width: 100%; /* Ajusta la tabla para que ocupe todo el ancho disponible */
+/* 
+Ajustes para pantallas móviles 
+/*
+@media (max-width: 612px) {
+    .contenedor {
+        max-width: 612px;
+        /*
+        width: 100%;  /* El contenedor se ajusta al 100% del ancho de la pantalla */
+    
+        /*padding: 10px;  /* Un poco de espacio para que no toque los bordes */
+        */
+    /*}
+
+    .contenedor-imagen img {
+        width: 306px;
+        max-width: 306px;  /* La imagen ocupa el ancho completo disponible */
+        /*height: auto;  /* Mantiene la proporción */
+    /*}
+}
+*/
+
+/* Define el ancho total de la tabla */
+.tabla-612 {
+    width: 612px;               /* Ancho total de la tabla */
+    max-width: 612px;
+    /* border-collapse: collapse;  /* Elimina los espacios entre las celdas */
+    /*margin: 20px auto;          /* Centra la tabla horizontalmente */
+    /*table-layout: fixed;        /* Fija el ancho de las celdas según el ancho total de la tabla */
+    border: none;               /* Elimina el borde de la tabla */
 }
 
-/* Estilo para el día actual */
-.highlight-today {
-    font-weight: bold; /* Negrita */
-    text-decoration: underline; /* Subrayado */
-    border: 1px solid #000; /* Borde de 1px */
-    border-radius: 50%; /* Envolver en círculo */
-    width: 40px; /* Ajuste del tamaño del círculo */
-    height: 40px; 
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff; /* Fondo blanco para resaltar */
-    padding: 5px;
+/* Divide las celdas de la tabla en partes iguales (50% cada una) */
+.tabla-612 td {
+    width: 50%;                 /* Cada celda ocupa el 50% del ancho de la tabla */
+    padding: 0;                 /* Elimina el espaciado interno de las celdas */
+    text-align: center;         /* Centra el contenido en las celdas */
+    border: none;               /* Elimina los bordes de las celdas */
+    box-sizing: border-box;     /* Asegura que el ancho incluya cualquier padding o borde */
 }
 
-/* Estilo general del cuerpo */
+
+
+/* Ajuste para que las imágenes ocupen el ancho proporcional de las celdas */
+.imagen {
+   /* width: 100%;                /* La imagen ocupa el 100% del ancho de la celda */
+    height: auto;               /* Mantiene la proporción de la imagen */
+}
+/* Estilos generales */
 body {
+    text-align: center;  
     font-family: 'Roboto', sans-serif;
     color: #333;
     margin: 0;
@@ -40,37 +62,34 @@ body {
     background-image: url('mmexport96f2debf9d1b3cffda7f04aef75d3b43_1629828275217.webp');
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;  /* Centra el contenido en pantallas grandes */
 }
 
-/* Estilo del contenedor */
+/* Contenedor principal de 612px */
 .contenedor {
-    width: 640px; /* Ancho del contenedor */
-    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    max-width: 612px;
+    width: 612px;  /* Ancho fijo de 612px */
+    margin: 20px auto;  /* Centra el contenedor horizontalmente */
+    padding: 10px;
+    background-color: #f0f0f0;  /* Fondo claro para resaltar el contenido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para la tabla */
-.table-responsive {
-    width: 100%; /* Asegurar que el contenedor de la tabla ocupe todo el ancho */
-    overflow-x: auto; /* Permitir desplazamiento horizontal si es necesario */
+/* Centrar imagen y agregar relleno */
+.contenedor-imagen {
+    width: 612px;
+    text-align: center; /* Centra la imagen */
+    background-color: #2e2e2e; /* Color de fondo entre gris medio y negro */
+    padding: 20px; /* Relleno para crear espacio alrededor de la imagen */
 }
 
-/* Media query para pantallas más pequeñas */
-@media (max-width: 600px) {
-    .table-responsive {
-        overflow-x: auto; /* Permitir desplazamiento horizontal */
-    }
-
-    .table-responsive table {
-        width: 100%; /* Ajustar la tabla al 100% en pantallas pequeñas */
-    }
-
-    th, td {
-        width: auto; /* Ajustar el ancho de las columnas en pantallas pequeñas */
-    }
+.contenedor-imagen img {
+    max-width: 100%;  /* Se ajusta al ancho del contenedor */
+    height: auto;  /* Mantiene la proporción de la imagen */
 }
 
-/* Clase para tachado */
-.strikethrough {
-    text-decoration: line-through; /* Tachado del contenido */
-    color: gray;
-}
+
+
+
+
