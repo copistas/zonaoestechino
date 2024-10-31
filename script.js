@@ -1,3 +1,35 @@
+// verificar si va primero, antes que el otro manejador de eventos //
+document.addEventListener("DOMContentLoaded", function () {
+    // Ruta del archivo CSV
+    const csvFilePath = 'ChnEspEscOct.csv';
+
+    // Función para cargar y procesar el CSV
+    fetch(csvFilePath)
+        .then(response => response.text())
+        .then(data => {
+            // Procesar los datos CSV
+            const rows = data.trim().split("\n"); // Cada línea del CSV
+            const tableBody = document.querySelector("#tablaTraducciones tbody");
+
+            rows.forEach((row, index) => {
+                if (index === 0) return; // Omite la primera fila de encabezado
+
+                const columns = row.split(","); // Divide las celdas de cada fila
+                const newRow = document.createElement("tr");
+
+                columns.forEach(cell => {
+                    const newCell = document.createElement("td");
+                    newCell.textContent = cell.replace(/"/g, ""); // Quita comillas si existen
+                    newRow.appendChild(newCell);
+                });
+
+                tableBody.appendChild(newRow);
+            });
+        })
+        .catch(error => console.error("Error al cargar el archivo CSV:", error));
+});
+
+// verificar si este manejador de eventos va después del anterior //
 document.addEventListener("DOMContentLoaded", function() {
     const today = new Date(); // Obtiene la fecha actual
     const currentDay = today.getDate(); // Obtiene el día del mes (1-31)
