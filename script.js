@@ -1,3 +1,5 @@
+console.log("El script está cargando correctamente.");
+
 // para que se marque fecha en salida //
 document.addEventListener("DOMContentLoaded", function() {
     const today = new Date().getDate(); // Obtiene el día actual del mes
