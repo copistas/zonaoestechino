@@ -1,3 +1,10 @@
+/*inserto a mano para resaltar fecha de salida */
+.highlight-today {
+    color: red;
+    font-weight: bold;
+}
+
+
 /* mi invento imagenes zoom y youtube */
 .imagen2 {
     border: 0px;
