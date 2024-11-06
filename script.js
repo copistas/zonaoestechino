@@ -1,3 +1,16 @@
+// para que se marque fecha en salida //
+document.addEventListener("DOMContentLoaded", function() {
+    const today = new Date().getDate(); // Obtiene el día actual del mes
+    const dayCells = document.querySelectorAll(".day"); // Selecciona todas las celdas con clase 'day'
+
+    dayCells.forEach(cell => {
+        const cellDay = parseInt(cell.getAttribute("data-day"), 10); // Obtiene el día de cada celda
+        if (cellDay === today) {
+            cell.classList.add("highlight-today"); // Agrega la clase de resaltado si coincide con el día actual
+        }
+    });
+});
+
 // verificar si va primero, antes que el otro manejador de eventos //
 document.addEventListener("DOMContentLoaded", function () {
     // Ruta del archivo CSV
