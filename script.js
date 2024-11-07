@@ -64,19 +64,25 @@ document.addEventListener("DOMContentLoaded", function() {
     rows.forEach(row => {
         const dateCell = row.querySelector('td:first-child');
         if (dateCell) {
-            const dateParts = dateCell.innerText.split('/');
-            const rowDate = new Date(currentYear, dateParts[1] - 1, dateParts[0]);
-            console.log("Fecha de la fila:", rowDate);
-
-            const diffDays = (rowDate - today) / (1000 * 60 * 60 * 24); 
-            console.log("Diferencia en días:", diffDays);
-
-            // Condición ajustada según la diferencia de días
-            if (diffDays <= -1) { 
-                row.querySelectorAll('td').forEach(cell => {
-                    cell.style.textDecoration = 'line-through';
-                    cell.style.color = 'grey';
-                });
+            const dateParts = dateCell.innerText.trim().split('/');
+            
+            // Validar que dateParts tenga al menos 3 elementos para construir la fecha
+            if (dateParts.length === 3) {
+                const rowDate = new Date(parseInt(dateParts[2], 10), parseInt(dateParts[1], 10) - 1, parseInt(dateParts[0], 10));
+                
+                console.log("Fecha de la fila:", rowDate); // Muestra la fecha de la fila
+                const diffDays = (rowDate - today) / (1000 * 60 * 60 * 24); 
+                console.log("Diferencia en días:", diffDays);
+                
+                // Condición ajustada según la diferencia de días
+                if (diffDays <= -1) { 
+                    row.querySelectorAll('td').forEach(cell => {
+                        cell.style.textDecoration = 'line-through';
+                        cell.style.color = 'grey';
+                    });
+                }
+            } else {
+                console.warn("Formato de fecha inválido en la fila:", dateCell.innerText);
             }
         } else {
             console.error("dateCell no encontrado en la fila:", row);
