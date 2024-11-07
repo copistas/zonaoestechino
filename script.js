@@ -90,8 +90,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
             // Calcula la diferencia en días entre hoy y la fecha de la fila
-            const diffTime = rowDate - today; // Diferencia en milisegundos
-            const diffDays = diffTime / (1000 * 60 * 60 * 24); // Diferencia en días
+            diffTime = rowDate - today; // Diferencia en milisegundos
+            diffDays = diffTime / (1000 * 60 * 60 * 24); // Diferencia en días
 
             // Si la fecha es mayor a 7 días, tachar los contenidos de la fila
             if (diffDays >= -1) {
