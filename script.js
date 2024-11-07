@@ -1,6 +1,7 @@
 console.log("El script está cargando correctamente.");
 
-const today = new Date().getDate(); // Obtiene el día actual del mes solo una vez
+// Solo declaramos 'today' una vez
+const today = new Date().getDate(); // Obtiene el día actual del mes
 console.log("El día actual es:", today);
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     dayCells.forEach(cell => {
         const cellDay = parseInt(cell.getAttribute("data-day"), 10); // Obtiene el día de cada celda
+
         if (cellDay === today) {
             cell.classList.add("highlight-today"); // Agrega la clase de resaltado si coincide con el día actual
         }
