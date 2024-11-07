@@ -4,6 +4,9 @@ console.log("El script está cargando correctamente.");
 const today = new Date().getDate(); // Obtiene el día actual del mes
 console.log("El día actual es:", today);
 
+console.log("Fecha de la fila:", rowDate); // Verifica la fecha creada
+console.log("Diferencia en días:", (rowDate - today) / (1000 * 60 * 60 * 24)); // Verifica el cálculo de días
+
 document.addEventListener("DOMContentLoaded", function() {
     const dayCells = document.querySelectorAll(".day"); // Selecciona todas las celdas con clase 'day'
 
