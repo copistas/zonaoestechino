@@ -1,8 +1,9 @@
 console.log("El script está cargando correctamente.");
 
-// para que se marque fecha en salida //
+const today = new Date().getDate(); // Obtiene el día actual del mes solo una vez
+console.log("El día actual es:", today);
+
 document.addEventListener("DOMContentLoaded", function() {
-    const today = new Date().getDate(); // Obtiene el día actual del mes
     const dayCells = document.querySelectorAll(".day"); // Selecciona todas las celdas con clase 'day'
 
     dayCells.forEach(cell => {
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
 
 // verificar si va primero, antes que el otro manejador de eventos //
 document.addEventListener("DOMContentLoaded", function () {
