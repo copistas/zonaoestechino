@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.backgroundImage = `url(${randomImage})`;
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundBlendMode = 'color';
+    document.body.style.backgroundBlendMode = 'color-dodge';
     console.log("Imagen aleatoria aplicada:", randomImage);
 });
 
