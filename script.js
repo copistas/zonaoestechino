@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error("Error al cargar el archivo CSV:", error));
 });
 
-// Aplicar fondo de imagen aleatorio
+/* Aplicar fondo de imagen aleatorio
 document.addEventListener("DOMContentLoaded", function () {
     const images = ['870-01-265101389.jpg', 'li-river-river-landscape.jpg', 'mmexport96f2debf9d1b3cffda7f04aef75d3b43_1629828275217.webp', 'paisChina.png'];
     const randomImage = images[Math.floor(Math.random() * images.length)];
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundBlendMode = 'color-dodge';
     console.log("Imagen aleatoria aplicada:", randomImage);
-});
+}); */
 
 // Calcular y marcar filas de la tabla con fechas pasadas
 document.addEventListener("DOMContentLoaded", function() {
