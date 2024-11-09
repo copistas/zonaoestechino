@@ -1,3 +1,70 @@
+//sección anuncios formato elegante
+document.addEventListener('DOMContentLoaded', function() {
+    const marqueeText = document.querySelector('.marquesina');
+    
+    // Puedes agregar algún efecto al cargar la página, como cambiar el color al hacer clic en el texto
+    marqueeText.addEventListener('click', function() {
+        this.style.color = '#ff6347'; // Cambia el color cuando se haga clic
+    });
+});
+
+//2da prueba fechas 
+document.addEventListener("DOMContentLoaded", function () {
+    // Obtener la fecha actual
+    const fechaHoy = new Date();
+    const diaHoy = fechaHoy.getDate();
+    const mesHoy = fechaHoy.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+    const añoHoy = fechaHoy.getFullYear();
+
+    // Seleccionar todas las celdas con la clase "day"
+    const diaCeldas = document.querySelectorAll(".day");
+
+    diaCeldas.forEach(celda => {
+        const dia = parseInt(celda.getAttribute("data-day"));
+        const mes = mesHoy; // Asumimos que el mes es el actual
+        const año = añoHoy; // Asumimos que el año es el actual
+
+        if (dia === diaHoy && mes === mesHoy && año === añoHoy) {
+            // Aplicar estilos CSS
+            celda.style.fontWeight = "bold";
+            celda.style.color = "red";
+        }
+    });
+});
+
+
+
+/* prueba para usar fechas
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecciona todas las celdas con la clase "day"
+    const diaCeldas = document.querySelectorAll(".day");
+    
+    if (diaCeldas.length > 0) {
+        // Toma el último valor del atributo "data-day" en la última celda
+        const ultimaDiaCelda = diaCeldas[diaCeldas.length - 1];
+        const ultimoDia = ultimaDiaCelda.getAttribute("data-day");
+        
+        // Define el mes y año actuales para este caso (noviembre de 2024)
+        const mes = 11; // Mes de noviembre
+        const año = 2024;
+
+        // Formatea la fecha en dd/mm/yyyy
+        const fechaFormateada = `${ultimoDia.padStart(2, '0')}/${mes.toString().padStart(2, '0')}/${año}`;
+
+        // Crea un pie de página y añade el texto de la fecha
+        const piePagina = document.createElement("footer");
+        piePagina.textContent = `Fecha del último día de la tabla: ${fechaFormateada}`;
+        piePagina.style.textAlign = "center";
+        piePagina.style.marginTop = "20px";
+
+        // Añadir el pie de página al final del cuerpo del HTML
+        document.body.appendChild(piePagina);
+    } else {
+        console.warn("No se encontraron celdas con la clase 'day'.");
+    }
+});
+*/
+
 // Mensaje de confirmación de carga del script
 console.log("El script está cargando correctamente.");
 

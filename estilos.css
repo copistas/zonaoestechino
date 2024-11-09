@@ -1,3 +1,82 @@
+/* Estilos generales para la sección */
+/* Estilos generales para la sección */
+#anuncios-mensajes-importantes {
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilo para la marquesina */
+.marquesina {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.marquesina h2 {
+    position: absolute;
+    white-space: nowrap;
+    animation: slideIn 10s linear infinite;
+}
+
+/* Efecto de animación de la marquesina */
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Efecto en el texto del encabezado H2 */
+#anuncios-mensajes-importantes h2 {
+    font-size: 2em;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: textEffect 1.5s ease-in-out infinite alternate;
+}
+
+/* Animación para el encabezado H2 */
+@keyframes textEffect {
+    0% {
+        color: #007bff;
+        transform: scale(1);
+    }
+    50% {
+        color: #ff6347;
+        transform: scale(1.05);
+    }
+    100% {
+        color: #007bff;
+        transform: scale(1);
+    }
+}
+
+/* Estilo para el párrafo dentro de la sección */
+#anuncios-mensajes-importantes p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    margin: 10px 0;
+}
+
+
 /*inserto a mano para resaltar fecha de salida */
 .highlight-today {
     color: red;
@@ -33,19 +112,20 @@ Ajustes para pantallas móviles
 }
 */
 
-/* Define el ancho total de la tabla */
+/* Define el ancho total de la tabla 
 .tabla-612 {
-    width: 612px;               /* Ancho total de la tabla */
+    width: 612px;               //Ancho total de la tabla 
     max-width: 612px;
-    /* border-collapse: collapse;  /* Elimina los espacios entre las celdas */
-    /*margin: 20px auto;          /* Centra la tabla horizontalmente */
-    /*table-layout: fixed;        /* Fija el ancho de las celdas según el ancho total de la tabla */
-    border: none;               /* Elimina el borde de la tabla */
-}
+    border-collapse: collapse;  //Elimina los espacios entre las celdas 
+    margin: 20px auto;          //* Centra la tabla horizontalmente 
+    table-layout: fixed;        //* Fija el ancho de las celdas según el ancho total de la tabla 
+    border: none;               // Elimina el borde de la tabla 
+} 
+*/
 
 /* Divide las celdas de la tabla en partes iguales (50% cada una) */
 .tabla-612 td {
-    width: 50%;                 /* Cada celda ocupa el 50% del ancho de la tabla */
+    width: 860px;                 /* Cada celda ocupa el 50% del ancho de la tabla */
     padding: 0;                 /* Elimina el espaciado interno de las celdas */
     text-align: center;         /* Centra el contenido en las celdas */
     border: none;               /* Elimina los bordes de las celdas */
