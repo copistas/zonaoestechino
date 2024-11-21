@@ -221,21 +221,35 @@
         <p>Nos visita el hermano Alejandro Vidal del 18 al 23 de febrero. En breve estaremos recibiendo más información sobre los arreglos que harán falta, pero les adelantamos la fecha para que puedan hacer sus arreglos para disfrutar lo que seguramente será una semana de estímulo.</p>
     </section>
 
-    <section id="acomodadores">
-        <h2>Programa Acomodadores Este San Justo</h2>
-        <!--borrar -->
-        <div class="iframe-container">
-        <<!--<div style="position: relative; width: 100%; height: 100%;"> -->
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTRe6TxfWpi4f23scgO6H5eEpmbN_7_b6o175EASAXL7CMBN2slvGabdTehe_3rb_b25zzrmmcnUFD/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600" style="border: none;"></iframe>
-        </div>
-        
-        <style>
-            /* Oculta el nombre de la hoja en la parte superior de la vista incrustada */
-            iframe {
-                display: block;
-            }
-        </style>
-    </section>
+<section id="acomodadores">
+    <h2>Programa Acomodadores Este San Justo</h2>
+    <div class="iframe-container">
+        <iframe 
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTRe6TxfWpi4f23scgO6H5eEpmbN_7_b6o175EASAXL7CMBN2slvGabdTehe_3rb_b25zzrmmcnUFD/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" 
+            width="100%" 
+            height="600" 
+            style="border: none; zoom: 1.5; transform-origin: 0 0;">
+        </iframe>
+    </div>
+    <style>
+        /* Ajusta el estilo del iframe y mejora la visualización */
+        .iframe-container {
+            position: relative;
+            overflow: hidden; /* Oculta cualquier borde no deseado */
+            padding-bottom: 75%; /* Mantiene la proporción de aspecto */
+            height: 0;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none; /* Quita los bordes */
+        }
+    </style>
+</section>
 
     <div class="contenedor">    
         <section id="novedades">
