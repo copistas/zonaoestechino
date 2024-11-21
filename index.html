@@ -180,20 +180,48 @@
             <br>Jueves 28 de Noviembre
         </section>
 
-        <section id="reunion vida y ministerio SJ">
-            <h2>Reunión Vida y Ministerio (Español)</h2>
+<section id="reunion-vida-y-ministerio-sj">
+    <h2>Reunión Vida y Ministerio (Español)</h2>
 
-    <!-- INICIO: Este es un enlace que se abre en una nueva ventana para la página de Centro San Justo -->
-    <button onclick="openInNewTab()">Abrir enlace de Vida y Ministerio</button>
+    <!-- Botón con estilo mejorado para dispositivos móviles -->
+    <button class="responsive-button" onclick="openInNewTab()">Abrir enlace de Vida y Ministerio</button>
 
     <script>
         function openInNewTab() {
             window.open("https://www.centrosanjusto.ar/vida-y-ministerio-cristiano", "_blank");
         }
     </script>
-    <!-- FIN: trozo de código para linkear con salida en español -->
 
-        </section>
+    <style>
+        /* Estilo del botón */
+        .responsive-button {
+            font-size: 1.2em; /* Aumenta el tamaño del texto */
+            padding: 15px 20px; /* Incrementa el espacio interno */
+            background-color: #007BFF; /* Color azul para el botón */
+            color: white; /* Texto blanco */
+            border: none; /* Sin bordes */
+            border-radius: 8px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            width: 100%; /* Botón se adapta al ancho del contenedor */
+            max-width: 400px; /* Define un tamaño máximo para pantallas grandes */
+            margin: 10px auto; /* Centra el botón horizontalmente */
+            display: block; /* Asegura el comportamiento de bloque */
+        }
+
+        .responsive-button:hover {
+            background-color: #0056b3; /* Cambia el color al pasar el cursor */
+        }
+
+        /* Ajustes para pantallas pequeñas */
+        @media (max-width: 600px) {
+            .responsive-button {
+                font-size: 1.5em; /* Texto más grande en móviles */
+                padding: 20px 25px; /* Más espacio en móviles */
+            }
+        }
+    </style>
+</section>
+
     </div>
     <div id="screen-resolution"></div> <!-- Asegúrate de que este div esté presente -->
     <div id="device-type" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
