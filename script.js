@@ -87,7 +87,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Cargar y procesar el archivo CSV
+//   SE  ESTABA  CARGANDO   REPETIDO
+
+
+/* Cargar y procesar el archivo CSV
 document.addEventListener("DOMContentLoaded", function() {
     const csvFilePath = 'ChnEspEscOct.csv';
     fetch(csvFilePath)
@@ -111,7 +114,10 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         })
         .catch(error => console.error("Error al cargar el archivo CSV:", error));
-});
+}); */
+//   SE  ESTABA  CARGANDO   REPETIDO
+
+
 
 /* Aplicar fondo de imagen aleatorio
 document.addEventListener("DOMContentLoaded", function () {
