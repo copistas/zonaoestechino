@@ -6,70 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendario Noviembre 2024</title>
-    <style>
-    th, td {
-        border: 1px solid black;
-        background-color: white;
-        padding: 8px;
-        width: auto; /* Ajusta esta línea o elimina el ancho fijo de 180px */
-        text-align: center;
-        vertical-align: top;
-        overflow: hidden;
-        white-space: normal; /* Permitir ajuste de línea */
-        text-overflow: clip;
-    }
-
-    table {
-        table-layout: auto; /* Cambia a auto para permitir que las columnas se ajusten al contenido */
-        width: 100%; /* Ajusta la tabla para que ocupe todo el ancho disponible */
-    }
-
-        .strikethrough {
-            text-decoration: line-through; /* Tachado del contenido */
-            color: gray;
-        }
-    /* Estilos para la capa flotante */
-    .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            visibility: hidden;
-        }
-
-        .popup {
-            position: relative;
-            width: 80%;
-            max-width: 800px;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: red;
-            color: white;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-        }
-
-        .iframe-content {
-            width: 100%;
-            height: 600px;
-            border: none;
-        }
-    </style>
+    <link rel="stylesheet" href="estilos.css"> 
     <script src="script.js" defer>
 
 /*   script para abrir en enlace vym español en una pestaña nueva */
@@ -78,17 +15,7 @@
 <!---  script para abrir en enlace vym español en una pestaña nueva */ -->
 </head>
 <body>
-        <!--
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                background-size: cover; /* Ajusta la imagen al tamaño del fondo */
-                background-repeat: no-repeat;
-                background-position: center center; /* Centra la imagen */
-            }
-        </style> 
-        -->
+
 
         
 
@@ -110,160 +37,98 @@
             </nav>
         </section>
 
-    <div class="contenedor">  <!-- Este es el contenedor principal -->
-        <div class="contenedor-imagen">  <!-- Contenedor específico para la imagen -->
-            <img src="texto.png" width="860px">  <!-- La imagen que deseas centrar -->
+    <!-- imagen texto
+    <div class="contenedor">  <-- Este es el contenedor principal ->
+        <div class="contenedor-imagen">  <!- Contenedor específico para la imagen ->
+            <img src="texto.png" width="860px">  <!- La imagen que deseas centrar ->
         </div>
     </div>
+    -->
     
-    <table class="tabla-860" width="860px">  <!-- Tabla que se ajusta a 860px -->
+    <!-- img zoom y yt
+    <table class="tabla-612" width="860px">  <!- Tabla que se ajusta a 860px ->
         <tr>
-            <td class="tabla-860 td"><a href="https://us02web.zoom.us/j/85723916731?pwd=waF77XpgVDcxSHEqWiTub34xWswrSM.1"><img src="zoom.png" class="imagen2"></a>
+            <td class="tabla-612 td"><a href="https://us02web.zoom.us/j/85723916731?pwd=waF77XpgVDcxSHEqWiTub34xWswrSM.1"><img src="zoom.png" class="imagen2"></a>
             </td>
         </tr>
         <tr>
-            <td class="tabla-860 td"><a href="https://www.youtube.com/live/zUsU_jDRkU4?si=RjJwye5N0EiNnvPi"><img src="youtube.png" class="imagen2"></a>
+            <td class="tabla-612 td"><a href="https://www.youtube.com/live/zUsU_jDRkU4?si=RjJwye5N0EiNnvPi"><img src="youtube.png" class="imagen2"></a>
             </td>
         </tr>
     </table>
+    -->
     </div>
 
-            <div class="contenido-centrado">
-                <section id="salidas-al-ministerio">
-                    <h2>Salidas al Ministerio</h2>
-                    
-                    <div class="contenedor">
-                        <div class="table-responsive"> <!--
-                            <table>
-                                <tr>
-                                    <th>Domingo</th>
-                                    <th>Lunes</th>
-                                    <th>Martes</th>
-                                    <th>Miércoles</th>
-                                    <th>Jueves</th>
-                                    <th>Viernes</th>
-                                    <th>Sábado</th>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="day" data-day="1">1</td>
-                                    <td class="day" data-day="2">2
-                                        <br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Ramos<br>Terri 45
-                                    </td>
-                                    <td class="day" data-day="3">3</td> 
-                                    <td class="day" data-day="4">
-                                        4<br>Encargado: Daiana Ferrando<br>9:30hs<br>Brandsen y Ruta 3<br>Terri 10<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)">
-                                </td>
-                                    <td class="day" data-day="5">
-                                        5<br>Encargado: Laureano Millan<br>9:45hs<br>Plaza Tapiales<br>Tuyuti y Altolaguirre<br>
-                                        <a href="https://maps.app.goo.gl/rjB1k5kqteVRxJED8">Coordenadas</a><br>Terri 22<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="day" data-day="6">6<br>Encargado: Alicia Souza<br>10:00hs<br>Salón de Laferrere<br>Terri 80<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="7">7<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Ing. Brian<br>Terri 41<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="8">8</td>
-                                    <td class="day" data-day="9">
-                                        9<br>Encargado: Christian Rodriguez<br>17:30hs<br>Estación Haedo<br>Terri 51<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)">
-                                    </td>
-                                    <td class="day" data-day="10">10</td>
-                                    <td class="day" data-day="11">11<br>Asamblea</td>
-                                    <td class="day" data-day="12">12<br>Asamblea</td>
-                                </tr>
-                                <tr>
-                                    <td class="day" data-day="13">13<br>Asamblea</td>
-                                    <td class="day" data-day="14">14<br>Encargado: Daiana Ferrando<br>9:30hs<br>Estación Ing. Brian<br>Terri 42<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="15">15</td>
-                                    <td class="day" data-day="16">16<br>Encargado: Andres Cistriani<br>17:30hs<br>Arieta y Triunvirato<br>Terri 55<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="17">17</td>
-                                    <td class="day" data-day="18">18<br>Encargado: Noelia Aguirre<br>9:30hs<br>Ruta 3 y Colón<br>Terri 9<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="19">19<br>Salida con la congregación<br>10:00hs<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                </tr>
-                                <tr>
-                                    <td class="day" data-day="20">20<br>Encargado: Rosana Gomez<br>10:00hs<br>Salón de Laferrere<br>Terri 81<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="21">21<br>Encargado: Debora Millan<br>9:30hs<br>Estación Haedo<br>Terri 49<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="22">22</td>
-                                    <td class="day" data-day="23">23<br>Encargado: Laureano Millan<br>17:30hs<br>Brandsen y Av. de Mayo<br>Terri 36<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="24">24</td>
-                                    <td class="day" data-day="25">25<br>Encargado: Jessica Cistriani<br>9:30hs<br>Plaza del Cañón<br>Terri 7 y 8<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="26">26<br>Encargado: Cistrian Rodriguez<br>9:45hs<br>Estacion Ituzaingó<br>Terri a definir<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                </tr>
-                                <tr>
-                                    <td class="day" data-day="27">27</td>
-                                    <td class="day" data-day="28">28<br>Encargado: Jessica Cistriani<br>9:30hs<br>Estación Haedo<br>Terri 50<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="29">29</td>
-                                    <td class="day" data-day="30">30<br>Encargado: Christian Rodriguez<br>17:30hs<br>San Martin y Florencio Varela<br>Terri 37<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                    <td class="day" data-day="31">31</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                
-                            </table>-->
-                            <table>
-                                <tr>
-                                  <th>Domingo</th>
-                                  <th>Lunes</th>
-                                  <th>Martes</th>
-                                  <th>Miércoles</th>
-                                  <th>Jueves</th>
-                                  <th>Viernes</th>
-                                  <th>Sábado</th>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td class="day" data-day="1">1<br>Encargado: Daiana Ferrando<br>09:30hs<br>Estacion Ing Brian<br>Terri 41<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td class="day" data-day="2">2<br>Encargado: Andres Cistriani<br>09:45hs<br>Estacion Ituzaingo<br>Terri 119<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                </tr>
-                                <tr>
-                                  <td class="day" data-day="3">3<br>Encargado: Alicia Souza<br>10:00hs<br>Estacion Laferrere<br>Terri 74<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td class="day" data-day="6">7<br>Encargado: Christian Rodriguez<br>17:30hs<br>Arieta y Ruta 3<br>Terri 25<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td></td>
-                                  <td class="day" data-day="8">8<br>Encargado: Noelia Aguirre<br>09:30hs<br>Estacion Ing Brian<br>Terri 42<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td class="day" data-day="9">9<br>Encargado: Laureano Millan<br>09:45hs<br>Estacion Ituzaingo<br>Terri 121<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td class="day" data-day="13">13<br>Encargado: Christian Rodriguez<br>17:30hs<br>Plaza San Justo<br>Terri 27<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td></td>
-                                  <td class="day" data-day="15">15<br>Encargado: Jessica Cistriani<br>09:30hs<br>Estacion Haedo<br>Terri 50<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td class="day" data-day="17">17<br>Encargado: Rosana Gomez<br>10:00hs<br>Estacion Laferrere<br>Terri 76<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td class="day" data-day="20">20<br>Encargado: Andres Cistriani<br>17:30hs<br>Illia y Arieta<br>Terri 28<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td></td>
-                                  <td class="day" data-day="22">22<br>Encargado: Daiana Ferrando<br>09:30hs<br>Estacion Haedo<br>Terri 51<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td class="day" data-day="23">23<br>Encargado: Andres Cistriani<br>09:45hs<br>Flia Sanchez<br>Terri 151<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td class="day" data-day="27">27<br>Encargado: Christian Rodriguez<br>17:30hs<br>Arieta y Ruta 3<br>Terri 24<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td></td>
-                                  <td class="day" data-day="29">29<br>Encargado: Noelia Aguirre<br>09:30hs<br>Brandsen y Av de Mayo<br>Terri 36<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                  <td class="day" data-day="30">30<br>Encargado: Laureano Millan<br>09:45hs<br>Estacion Ituzaingo<br>Terri 126<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
-                                </tr>
-                                <tr>
-                                </tr>
-                              </table>
-                              
-                        </div>
-                    
-                    </div>
-                </section>
+    <div class="contenido-centrado">
+        <section id="salidas-al-ministerio">
+            <h2>Salidas al Ministerio</h2>
+            
+            <div class="contenedor">
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Domingo</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                            <th>Sábado</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="day" data-day="1">1<br>Encargado: Daiana Ferrando<br>09:30hs<br>Estacion Ing Brian<br>Terri 41<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td class="day" data-day="2">2<br>Encargado: Andres Cistriani<br>09:45hs<br>Estacion Ituzaingo<br>Terri 119<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                        </tr>
+                        <tr>
+                            <td class="day" data-day="3">3<br>Encargado: Alicia Souza<br>10:00hs<br>Estacion Laferrere<br>Terri 74<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="day" data-day="6">7<br>Encargado: Christian Rodriguez<br>17:30hs<br>Arieta y Ruta 3<br>Terri 25<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td></td>
+                            <td class="day" data-day="8">8<br>Encargado: Noelia Aguirre<br>09:30hs<br>Estacion Ing Brian<br>Terri 42<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td class="day" data-day="9">9<br>Encargado: Laureano Millan<br>09:45hs<br>Estacion Ituzaingo<br>Terri 121<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="day" data-day="13">13<br>Encargado: Christian Rodriguez<br>17:30hs<br>Plaza San Justo<br>Terri 27<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td></td>
+                            <td class="day" data-day="15">15<br>Encargado: Jessica Cistriani<br>09:30hs<br>Estacion Haedo<br>Terri 50<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="day" data-day="17">17<br>Encargado: Rosana Gomez<br>10:00hs<br>Estacion Laferrere<br>Terri 76<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td></td>
+                            <td></td>
+                            <td class="day" data-day="20">20<br>Encargado: Andres Cistriani<br>17:30hs<br>Illia y Arieta<br>Terri 28<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td></td>
+                            <td class="day" data-day="22">22<br>Encargado: Daiana Ferrando<br>09:30hs<br>Estacion Haedo<br>Terri 51<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td class="day" data-day="23">23<br>Encargado: Andres Cistriani<br>09:45hs<br>Flia Sanchez<br>Terri 151<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="day" data-day="27">27<br>Encargado: Christian Rodriguez<br>17:30hs<br>Arieta y Ruta 3<br>Terri 24<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td></td>
+                            <td class="day" data-day="29">29<br>Encargado: Noelia Aguirre<br>09:30hs<br>Brandsen y Av de Mayo<br>Terri 36<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                            <td class="day" data-day="30">30<br>Encargado: Laureano Millan<br>09:45hs<br>Estacion Ituzaingo<br>Terri 126<br><img src="share_icon.jpg" alt="Share Icon" onclick="copyContent(this)"></td>
+                        </tr>
+                        <tr>
+                        </tr>
+                        </table>
+                        
+                </div>
+            
             </div>
+        </section>
+    </div>
 
 
     <div>
@@ -272,63 +137,65 @@
             <!-- <img src="Captura de pantalla 2024-10-06 170823.jpg" alt="Contenido relacionado con la reunión de fin de semana" onclick="toggleSize(this)"> ->
         
             <!- Tabla de horarios y participantes -->
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>主席 Presidente</th>
-                            <th>主持人 Conductor W</th>
-                            <th>读者 Lector</th>
-                            <th>传话简者 Micrófonos</th>
-                            <th>Anfitrión Zoom</th>
-                            <th>Audio y Video</th>
-                            <th>Acomodador</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>20/10/2024</td>
-                            <td>Pedro O.<br>欧彼得</td>
-                            <td>Chtistian R.<br>罗克理</td>
-                            <td>Daiana F.<br>戴娜</td>
-                            <td>Alicia S.<br>爱丽<br>Anabella M.<br>哈娜</td>
-                            <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
-                            <td>Araceli R.<br>小燕子<br>Debora M.<br>弥甜蜜</td>
-                            <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
-                        </tr>
-                        <tr>
-                            <td>27/10/2024</td>
-                            <td>Laureano M.<br>弥劳累</td>
-                            <td>Andrés C.<br>安德烈</td>
-                            <td>Anabella M.<br>哈娜</td>
-                            <td>Araceli R.<br>小燕子<br>Daiana F.<br>戴娜</td>
-                            <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
-                            <td>Ana<br>Rosana G.<br>柔喜</td>
-                            <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
-                        </tr>
-                        <tr>
-                            <td>03/11/2024</td>
-                            <td>Chtistian R.<br>罗克理</td>
-                            <td>Andrés C.<br>安德烈</td>
-                            <td>Jazmin O.<br>欧佳敏</td>
-                            <td>Jessica C.<br>明美<br>Tatiana P.<br>平塔蒂</td>
-                            <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
-                            <td>Noelia A.<br>娜雅<br>Valeria R.<br>罗丁香</td>
-                            <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
-                        </tr>
-                        <tr>
-                            <td>10/11/2024</td>
-                            <td>Pedro O.<br>欧彼得</td>
-                            <td>Laureano M.<br>弥劳累</td>
-                            <td>Noelia A.<br>娜雅<</td>
-                            <td>Rosana G.<br>柔喜<br>Alicia S.<br>爱丽<</td>
-                            <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
-                            <td>Anabella M.<br>哈娜<br>Debora M.<br>弥甜蜜</td>
-                            <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="contenedor">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>主席 Presidente</th>
+                                <th>主持人 Conductor W</th>
+                                <th>读者 Lector</th>
+                                <th>传话简者 Micrófonos</th>
+                                <th>Anfitrión Zoom</th>
+                                <th>Audio y Video</th>
+                                <th>Acomodador</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>20/10/2024</td>
+                                <td>Pedro O.<br>欧彼得</td>
+                                <td>Chtistian R.<br>罗克理</td>
+                                <td>Daiana F.<br>戴娜</td>
+                                <td>Alicia S.<br>爱丽<br>Anabella M.<br>哈娜</td>
+                                <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
+                                <td>Araceli R.<br>小燕子<br>Debora M.<br>弥甜蜜</td>
+                                <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
+                            </tr>
+                            <tr>
+                                <td>27/10/2024</td>
+                                <td>Laureano M.<br>弥劳累</td>
+                                <td>Andrés C.<br>安德烈</td>
+                                <td>Anabella M.<br>哈娜</td>
+                                <td>Araceli R.<br>小燕子<br>Daiana F.<br>戴娜</td>
+                                <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
+                                <td>Ana<br>Rosana G.<br>柔喜</td>
+                                <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
+                            </tr>
+                            <tr>
+                                <td>03/11/2024</td>
+                                <td>Chtistian R.<br>罗克理</td>
+                                <td>Andrés C.<br>安德烈</td>
+                                <td>Jazmin O.<br>欧佳敏</td>
+                                <td>Jessica C.<br>明美<br>Tatiana P.<br>平塔蒂</td>
+                                <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
+                                <td>Noelia A.<br>娜雅<br>Valeria R.<br>罗丁香</td>
+                                <td>Laureano M.<br>弥劳累<br>Debora M.<br>弥甜蜜</td>
+                            </tr>
+                            <tr>
+                                <td>10/11/2024</td>
+                                <td>Pedro O.<br>欧彼得</td>
+                                <td>Laureano M.<br>弥劳累</td>
+                                <td>Noelia A.<br>娜雅</td>
+                                <td>Rosana G.<br>柔喜<br>Alicia S.<br>爱丽</td>
+                                <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
+                                <td>Anabella M.<br>哈娜<br>Debora M.<br>弥甜蜜</td>
+                                <td>Chtistian R.<br>罗克理<br>Valeria R.<br>罗丁香</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
         
@@ -357,9 +224,9 @@
 
         <section id="discurso-domingo">
             <h2>Discurso Domingo</h2>
-            <br>¿Confía usted en la ciencia o en la Biblia?
-            <br>你 奇望 于 科学 还是 圣经?
-            <br>Nǐ qí wàng yú kēxué háishì shèngjīng?
+            <br>A definir
+            <br>待处理
+            <br>dài chǔ lǐ
             <br><a href="https://www.youtube.com/watch?v=m9li53gVbFQ">Ver por YouTube (disponible el mismo domingo)</a>
         </section>
 
@@ -418,7 +285,9 @@
 
     <section id="acomodadores">
         <h2>Programa Acomodadores Este San Justo</h2>
-        <div style="position: relative; width: 100%; height: 100%;">
+        <!--borrar -->
+        <div class="iframe-container">
+        <<!--<div style="position: relative; width: 100%; height: 100%;"> -->
             <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTRe6TxfWpi4f23scgO6H5eEpmbN_7_b6o175EASAXL7CMBN2slvGabdTehe_3rb_b25zzrmmcnUFD/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600" style="border: none;"></iframe>
         </div>
         
@@ -430,11 +299,13 @@
         </style>
     </section>
 
-    <section id="novedades">
-        <h2>Novedades del salidas-al-ministerio</h2>
-            <br> Función compartir en la tabla de Salidas al ministerio.
-            <br> <iframe width="560" height="315" src="https://www.youtube.com/embed/aEwiNmMjOXs?si=w3OL615yqvVtJpJS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </section>
+    <div class="contenedor">    
+        <section id="novedades">
+            <h2>Novedades del salidas-al-ministerio</h2>
+                <br> Función compartir en la tabla de Salidas al ministerio.
+                <br> <iframe width="560" height="315" src="https://www.youtube.com/embed/aEwiNmMjOXs?si=w3OL615yqvVtJpJS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+    </div>
 
 <!-- verificacion tabla dinamica -->
 <script>
@@ -471,6 +342,6 @@
     });
     </script>
     <!-- ultima modificacion -->
-        ult.mod.0811241605
+        ult.mod.0911241805
 </body>
 </html>

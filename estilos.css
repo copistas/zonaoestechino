@@ -1,80 +1,92 @@
-/* Estilos generales para la sección */
-/* Estilos generales para la sección */
-#anuncios-mensajes-importantes {
-    background-color: #f4f4f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
-    font-family: 'Arial', sans-serif;
-}
-
-/* Estilo para la marquesina */
-.marquesina {
-    background-color: #333;
-    color: white;
-    padding: 10px;
+.th, td {
+    border: 1px solid black;
+    background-color: white;
+    padding: 8px;
+    width: auto;
     text-align: center;
-    font-size: 1.5em;
-    font-weight: bold;
-    border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
+    vertical-align: top;
+ /*   overflow: hidden; */
+ box-sizing: border-box;     /* Asegura que el borde y el padding no afecten el ancho total */
 }
 
-.marquesina h2 {
-    position: absolute;
-    white-space: nowrap;
-    animation: slideIn 10s linear infinite;
+.tabla-612 td {
+    border: none;               /* Elimina los bordes de las celdas */
+    padding: 0;                 /* Elimina el espaciado interno de las celdas */
+    text-align: center;         /* Asegura que el contenido esté centrado */
+    box-sizing: border-box;     /* Asegura que el ancho incluya cualquier padding o borde */
 }
 
-/* Efecto de animación de la marquesina */
-@keyframes slideIn {
-    0% {
-        transform: translateX(100%);
-    }
-    50% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+
+.table {
+    margin-bottom: 20px;         /* Espacio entre las tablas */
+    table-layout: auto;          /* Ajusta las columnas según el contenido */
+    width: 100%;                 /* La tabla ocupa todo el ancho disponible */
+    border-collapse: collapse;  /* Elimina el espacio entre celdas */
 }
 
-/* Efecto en el texto del encabezado H2 */
-#anuncios-mensajes-importantes h2 {
-    font-size: 2em;
-    color: #007bff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    animation: textEffect 1.5s ease-in-out infinite alternate;
+/* Estilo de las celdas dentro de la tabla */
+.table td, .table th {
+    padding: 10px;               /* Espaciado interno de las celdas */
+    text-align: center;          /* Centra el contenido de las celdas */
+    border: 1px solid #ddd;      /* Borde sutil para las celdas */
+    box-sizing: border-box;      /* Asegura que el padding y el borde estén dentro del tamaño total */
 }
 
-/* Animación para el encabezado H2 */
-@keyframes textEffect {
-    0% {
-        color: #007bff;
-        transform: scale(1);
+    .strikethrough {
+        text-decoration: line-through; /* Tachado del contenido */
+        color: gray;
     }
-    50% {
-        color: #ff6347;
-        transform: scale(1.05);
+/* Estilos para la capa flotante */
+.overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
     }
-    100% {
-        color: #007bff;
-        transform: scale(1);
+
+    .popup {
+        position: relative;
+        width: 80%;
+        max-width: 100%;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
     }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: red;
+        color: white;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 50%;
+    }
+
+    .iframe-content {
+        width: 100%;
+        height: 600px;
+        border: none;
+    }
+
+.marquesina {
+    background-color: #4a90e2;  /* Color de fondo azul */
+    color: #ffffff;             /* Color de texto blanco */
+    padding: 10px;              /* Espacio alrededor del texto */
+    text-align: center;         /* Centrar el texto */
+    font-weight: bold;          /* Texto en negrita */
+    border-radius: 5px;         /* Bordes redondeados */
 }
 
-/* Estilo para el párrafo dentro de la sección */
-#anuncios-mensajes-importantes p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #333;
-    margin: 10px 0;
-}
 
 
 /*inserto a mano para resaltar fecha de salida */
@@ -86,9 +98,11 @@
 
 /* mi invento imagenes zoom y youtube */
 .imagen2 {
+    display: block;             /* Asegura que la imagen se comporte como un bloque */
     border: 0px;
-    width: 302px;
-    height: auto;
+    width: 100%;        /* La imagen ocupará el 100% del ancho de la celda */
+    height: auto;       /* Mantiene la proporción de la imagen */
+    /* max-width: 100%;     Evita que la imagen sea más grande que la celda */
 }
 
 /* 
@@ -123,21 +137,12 @@ Ajustes para pantallas móviles
 } 
 */
 
-/* Divide las celdas de la tabla en partes iguales (50% cada una) */
-.tabla-612 td {
-    width: 860px;                 /* Cada celda ocupa el 50% del ancho de la tabla */
-    padding: 0;                 /* Elimina el espaciado interno de las celdas */
-    text-align: center;         /* Centra el contenido en las celdas */
-    border: none;               /* Elimina los bordes de las celdas */
-    box-sizing: border-box;     /* Asegura que el ancho incluya cualquier padding o borde */
-}
-
-
 
 /* Ajuste para que las imágenes ocupen el ancho proporcional de las celdas */
 .imagen {
-   /* width: 100%;                /* La imagen ocupa el 100% del ancho de la celda */
-    height: auto;               /* Mantiene la proporción de la imagen */
+    width: 100%;        /* La imagen ocupará el 100% del ancho de la celda */
+    height: auto;       /* Mantiene la proporción de la imagen */
+    max-width: 100%;    /* Evita que la imagen sea más grande que la celda */
 }
 /* Estilos generales */
 body {
@@ -146,37 +151,120 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    background-image: url('mmexport96f2debf9d1b3cffda7f04aef75d3b43_1629828275217.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
+    /* display: flex; */
     justify-content: center;  /* Centra el contenido en pantallas grandes */
 }
 
 /* Contenedor principal de 612px */
 .contenedor {
-    max-width: 612px;
-    width: 612px;  /* Ancho fijo de 612px */
-    margin: 20px auto;  /* Centra el contenedor horizontalmente */
+    max-width: 612px;           /* Establece el máximo ancho para el contenedor */
+    width: 100%;                /* Hace que el contenedor ocupe el 100% del ancho disponible */
+    margin: 20px auto;          /* Centra el contenedor horizontalmente */
     padding: 10px;
-    background-color: #f0f0f0;  /* Fondo claro para resaltar el contenido */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;  /* Fondo claro para el contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra sutil para el contenedor */
+    display: flex;              /* Usamos flexbox para centrar el contenido */
+    flex-direction: column;     /* Alinea los elementos dentro del contenedor de manera vertical */
+    align-items: center;        /* Centra los elementos en el contenedor */
 }
 
-/* Centrar imagen y agregar relleno */
+/* Contenedor de imagen */
 .contenedor-imagen {
-    width: 612px;
-    text-align: center; /* Centra la imagen */
-    background-color: #2e2e2e; /* Color de fondo entre gris medio y negro */
-    padding: 20px; /* Relleno para crear espacio alrededor de la imagen */
+    width: 100%;                /* Asegura que el contenedor de la imagen ocupe todo el ancho disponible */
+    text-align: center;         /* Centra la imagen */
+    background-color: #2e2e2e;  /* Fondo oscuro para resaltar la imagen */
+    padding: 20px;              /* Agrega relleno alrededor de la imagen */
 }
 
+/* Asegura que la imagen esté bien ajustada */
 .contenedor-imagen img {
-    max-width: 100%;  /* Se ajusta al ancho del contenedor */
-    height: auto;  /* Mantiene la proporción de la imagen */
+    max-width: 100%;            /* La imagen ocupará el 100% del ancho disponible dentro de su contenedor */
+    height: auto;               /* Mantiene la proporción de la imagen */
 }
 
+nav ul li {
+    list-style-type: none; /* Elimina el punto de lista */
+    margin-bottom: 10px;    /* Agrega espacio entre cada enlace */
+}
 
+nav ul li a {
+    display: block;         /* Hace que cada enlace ocupe una línea completa */
+    padding: 8px;           /* Añade espacio alrededor del texto */
+    background-color: #f0f0f0; /* Fondo claro */
+    color: #333;            /* Color del texto */
+    text-decoration: none;  /* Elimina el subrayado */
+}
 
+nav ul li a:hover {
+    background-color: #e0e0e0; /* Cambia el fondo al pasar el mouse */
+}
+nav {
+    display: flex;
+    justify-content: center;  /* Centra la barra de navegación en la pantalla */
+    padding: 10px;
+}
 
+nav ul {
+    max-width: 100%; /* estaba en 400px Ajusta el ancho de la barra de navegación */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
 
+/* Estilo para tablas dentro de .table-responsive */
+.table-responsive table {
+    border-collapse: collapse; /* Elimina bordes duplicados */
+    margin: 20px 0; /* Espaciado superior e inferior */
+    font-size: 16px; /* Ajuste del tamaño del texto */
+}
+
+/* Estilo específico para encabezados de tabla */
+.table-responsive th {
+    background-color: #f4f4f4; /* Fondo gris claro */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Texto oscuro */
+}
+
+#anuncios-mensajes-importantes p {
+    font-family: Arial, sans-serif; /* Cambia la fuente */
+    font-size: 16px;               /* Tamaño del texto */
+    line-height: 1.5;              /* Espaciado entre líneas */
+    color: #333;                   /* Color del texto */
+    background-color: #f9f9f9;     /* Fondo claro */
+    padding: 10px;                 /* Espacio alrededor del texto */
+    border: 1px solid #ddd;        /* Borde gris claro */
+    border-radius: 5px;            /* Bordes redondeados */
+    margin-bottom: 10px;           /* Espacio entre párrafos */
+}
+
+/* Centrar el contenido de #acomodadores */
+#acomodadores {
+    text-align: center; /* Centra el texto */
+    margin: 20px auto;  /* Agrega espacio alrededor */
+}
+
+/* Aumentar el tamaño del encabezado en un 20% */
+#acomodadores h2 {
+    font-size: 120%; /* Incrementa el tamaño en un 20% */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+    font-family: Arial, sans-serif; /* Fuente más estilizada */
+}
+
+/* Estilo para el contenedor del iframe */
+.iframe-container {
+    display: flex; /* Flexbox para centrar */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 100%; /* Ocupa el ancho completo */
+    height: auto; /* Ajusta la altura automáticamente */
+    margin: 20px 0; /* Espacio entre elementos */
+}
+
+/* Tamaño y bordes del iframe */
+.iframe-container iframe {
+    width: 80%; /* Reduce el ancho al 80% */
+    height: 720px; /* Aumenta la altura un 20% */
+    border: none; /* Quita el borde */
+    border-radius: 10px; /* Bordes redondeados (opcional) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un diseño elegante */
+}
