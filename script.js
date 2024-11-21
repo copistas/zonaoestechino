@@ -156,3 +156,93 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const csvURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRuLTRwnl9nW40-b2ncbUMDanMAjlmmHWhxQ9NszK0480-ChqyJfgEe7FAqHwygqBWpGTiO6zqb8tqG/pub?gid=0&single=true&output=csv";
+    const today = new Date();
+
+    fetch(csvURL)
+        .then(response => response.text())
+        .then(data => {
+            const rows = parseCSV(data); // Usa la función de parsing avanzada
+            const tableBody = document.querySelector("#reunion-fin-semana table tbody");
+            tableBody.innerHTML = ""; // Limpia la tabla antes de agregar datos
+
+            rows.forEach((row, index) => {
+                if (index === 0) return; // Omite el encabezado
+                const newRow = document.createElement("tr");
+
+                // Extraer y comparar fechas
+                const fechaParts = row[0]?.trim().split("/");
+                if (fechaParts.length === 3) {
+                    const rowDate = new Date(
+                        parseInt(fechaParts[2], 10),
+                        parseInt(fechaParts[1], 10) - 1,
+                        parseInt(fechaParts[0], 10)
+                    );
+
+                    if (rowDate < today) {
+                        newRow.classList.add("strikethrough");
+                    }
+                }
+
+                // Crear celdas
+                row.forEach(cellText => {
+                    const cell = document.createElement("td");
+                    cell.textContent = cellText.trim();
+                    newRow.appendChild(cell);
+                });
+
+                tableBody.appendChild(newRow);
+            });
+        })
+        .catch(error => console.error("Error al cargar el archivo CSV:", error));
+
+    /**
+     * Función para parsear el CSV correctamente, manejando saltos de línea en las celdas.
+     * @param {string} csvText - Texto del archivo CSV.
+     * @return {Array<Array<string>>} - Matriz de filas y columnas.
+     */
+    function parseCSV(csvText) {
+        const rows = [];
+        let currentRow = [];
+        let currentCell = '';
+        let insideQuotes = false;
+
+        for (let i = 0; i < csvText.length; i++) {
+            const char = csvText[i];
+            const nextChar = csvText[i + 1];
+
+            if (char === '"' && insideQuotes && nextChar === '"') {
+                // Doble comilla dentro de una celda: agregar una comilla literal
+                currentCell += '"';
+                i++;
+            } else if (char === '"') {
+                // Alternar entre dentro y fuera de las comillas
+                insideQuotes = !insideQuotes;
+            } else if (char === ',' && !insideQuotes) {
+                // Nueva celda
+                currentRow.push(currentCell.trim());
+                currentCell = '';
+            } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+                // Nueva fila
+                if (currentCell) {
+                    currentRow.push(currentCell.trim());
+                    currentCell = '';
+                }
+                if (currentRow.length > 0) {
+                    rows.push(currentRow);
+                    currentRow = [];
+                }
+            } else {
+                // Continuar construyendo la celda
+                currentCell += char;
+            }
+        }
+
+        // Agregar la última celda y fila si no están vacías
+        if (currentCell) currentRow.push(currentCell.trim());
+        if (currentRow.length > 0) rows.push(currentRow);
+
+        return rows;
+    }
+});

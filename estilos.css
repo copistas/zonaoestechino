@@ -268,3 +268,7 @@ nav ul {
     border-radius: 10px; /* Bordes redondeados (opcional) */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un diseño elegante */
 }
+.strikethrough {
+    text-decoration: line-through; /* Tachado */
+    color: grey; /* Color atenuado */
+}
