@@ -320,3 +320,19 @@ html.desktop {
     font-size: 16px;
 }
 
+/* Estilo específico para dispositivos móviles */
+@media (max-width: 600px) {
+    .contenido-centrado {
+        display: flex;
+        flex-direction: column; /* Alinea los elementos de forma vertical */
+        align-items: center;   /* Centra horizontalmente los elementos */
+        justify-content: center; /* Centra verticalmente los elementos */
+        padding: 10px;         /* Espacio interno */
+        text-align: center;    /* Centra el texto */
+        margin: 0 auto;        /* Centra el contenedor horizontalmente */
+        width: 100%;           /* Ocupa todo el ancho de la pantalla */
+        max-width: 480px;      /* Máximo ancho en dispositivos móviles */
+    }
+}
+
+
