@@ -272,3 +272,51 @@ nav ul {
     text-decoration: line-through; /* Tachado */
     color: grey; /* Color atenuado */
 }
+/* Estilo para la barra deslizable */
+#version-toggle {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-btn {
+    flex: 1;
+    margin: 0 10px;
+    padding: 10px;
+    color: #fff;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+    background-color: #357ab7;
+}
+
+html.mobile {
+    /* Ajustes de estilo para la versión móvil */
+    font-size: 14px;
+}
+
+html.desktop {
+    /* Ajustes de estilo para la versión de escritorio */
+    font-size: 16px;
+}
+

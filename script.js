@@ -252,3 +252,45 @@ document.addEventListener("DOMContentLoaded", function () {
         return rows;
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileBtn = document.getElementById("mobile-version");
+    const desktopBtn = document.getElementById("desktop-version");
+    const rootElement = document.documentElement;
+
+    mobileBtn.addEventListener("click", function () {
+        // Forzar estilos y clases para la vista móvil
+        rootElement.classList.add("mobile-view");
+        rootElement.classList.remove("desktop-view");
+    });
+
+    desktopBtn.addEventListener("click", function () {
+        // Forzar estilos y clases para la vista de escritorio
+        rootElement.classList.add("desktop-view");
+        rootElement.classList.remove("mobile-view");
+    });
+});
+
+document.getElementById("mobile-version-btn").addEventListener("click", function () {
+    document.documentElement.classList.remove("desktop");
+    document.documentElement.classList.add("mobile");
+    localStorage.setItem("viewMode", "mobile");
+    location.reload(); // Recarga la página para aplicar el cambio
+});
+
+document.getElementById("desktop-version-btn").addEventListener("click", function () {
+    document.documentElement.classList.remove("mobile");
+    document.documentElement.classList.add("desktop");
+    localStorage.setItem("viewMode", "desktop");
+    location.reload(); // Recarga la página para aplicar el cambio
+});
+
+// Al cargar la página, aplica el modo según lo almacenado
+document.addEventListener("DOMContentLoaded", function () {
+    const viewMode = localStorage.getItem("viewMode");
+    if (viewMode === "mobile") {
+        document.documentElement.classList.add("mobile");
+    } else if (viewMode === "desktop") {
+        document.documentElement.classList.add("desktop");
+    }
+});
