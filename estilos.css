@@ -320,3 +320,8 @@ html.desktop {
     font-size: 16px;
 }
 
+/* esto va al final del archivo para forzar la vista a desktop */
+body {
+    min-width: 1024px;
+    overflow-x: scroll;
+}
