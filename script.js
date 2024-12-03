@@ -148,10 +148,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log("Diferencia en días:", diffDays);
                 
                 // Condición ajustada según la diferencia de días
-                if (diffDays <= -1) { 
+                if (diffDays < 0) { 
                     row.querySelectorAll('td').forEach(cell => {
                         cell.style.textDecoration = 'line-through';
-                        cell.style.color = 'grey';
+                        cell.style.color = 'blue';
                     });
                 }
             } else {
