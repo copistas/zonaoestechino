@@ -33,7 +33,7 @@
 }
 
     .strikethrough {
-        text-decoration: line-through; /* Tachado del contenido */
+        /*text-decoration: line-through; /* Tachado del contenido */
         color: gray;
     }
 /* Estilos para la capa flotante */
@@ -269,7 +269,7 @@ nav ul {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un diseño elegante */
 }
 .strikethrough {
-    text-decoration: line-through; /* Tachado */
+    /*text-decoration: line-through; /* Tachado */
     color: grey; /* Color atenuado */
 }
 /* Estilo para la barra deslizable */

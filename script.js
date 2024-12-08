@@ -131,26 +131,24 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Imagen aleatoria aplicada:", randomImage);
 }); */
 
-// Calcular y marcar filas de la tabla con fechas pasadas
+/**   C   O   R   R   E   G   I   R   !   !
+// Calcular y marcar filas de la tabla con fechas pasadas */
 document.addEventListener("DOMContentLoaded", function() {
+    const today = new Date();
+    const yesterday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1);
+
     const rows = document.querySelectorAll('tbody tr');
     rows.forEach(row => {
         const dateCell = row.querySelector('td:first-child');
         if (dateCell) {
             const dateParts = dateCell.innerText.trim().split('/');
-            
-            // Validar que dateParts tenga al menos 3 elementos para construir la fecha
+
             if (dateParts.length === 3) {
                 const rowDate = new Date(parseInt(dateParts[2], 10), parseInt(dateParts[1], 10) - 1, parseInt(dateParts[0], 10));
-                
-                console.log("Fecha de la fila:", rowDate); // Muestra la fecha de la fila
-                const diffDays = (rowDate - today) / (1000 * 60 * 60 * 24); 
-                console.log("Diferencia en días:", diffDays);
-                
-                // Condición ajustada según la diferencia de días
-                if (diffDays < 0) { 
+
+                if (rowDate < yesterday) {
                     row.querySelectorAll('td').forEach(cell => {
-                        cell.style.textDecoration = 'line-through';
+                        // cell.style.textDecoration = 'line-through';
                         cell.style.color = 'blue';
                     });
                 }
@@ -162,6 +160,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+/** */
+
 document.addEventListener("DOMContentLoaded", function () {
     const csvURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRuLTRwnl9nW40-b2ncbUMDanMAjlmmHWhxQ9NszK0480-ChqyJfgEe7FAqHwygqBWpGTiO6zqb8tqG/pub?gid=0&single=true&output=csv";
     const today = new Date();
