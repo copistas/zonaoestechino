@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Compartir URL</title>
+</head>
+<body>
+    <h1>Generar URL para compartir</h1>
+    <label for="urlYoutube">Ingrese la URL de YouTube:</label>
+    <input type="text" id="urlYoutube" placeholder="https://www.youtube.com/watch?v=XXXX">
+    <button onclick="generarEnlace()">Generar Enlace</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function generarEnlace() {
+            const urlBase = "index.html";
+            const urlYoutube = document.getElementById("urlYoutube").value;
+
+            if (!urlYoutube) {
+                alert("Por favor, ingrese una URL válida.");
+                return;
+            }
+
+            // Generar URL con parámetros
+            const urlFinal = `${urlBase}?url=${encodeURIComponent(urlYoutube)}`;
+            document.getElementById("resultado").innerHTML = 
+                `<a href="${urlFinal}" target="_blank">Compartir enlace</a>`;
+        }
+    </script>
+</body>
+</html>
