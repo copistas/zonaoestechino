@@ -175,31 +175,23 @@
             <br>---
             <br>--
             <br>---
-            <br>
             <p id="resultado"></p>
         </section>
-        
+    
         <script>
-            // Función para obtener parámetros de la URL
-            function obtenerParametro(nombre) {
-                const params = new URLSearchParams(window.location.search);
-                return params.get(nombre);
-            }
-        
-            const urlYoutube = obtenerParametro("url");
-        
+            // Recuperar la URL de YouTube desde el almacenamiento local
+            const urlYoutube = localStorage.getItem("youtubeURL");
+    
             if (urlYoutube) {
-                // Insertar el enlace en la posición deseada dentro del <section>
                 document.getElementById("resultado").innerHTML = 
                     `<a href="${urlYoutube}" target="_blank">Ver por YouTube (disponible el mismo domingo)</a>`;
             } else {
                 document.getElementById("resultado").innerText = 
-                    "No se proporcionó ninguna URL.";
+                    "El enlace no está disponible. Actualícelo desde linkYoutube.html.";
             }
         </script>
-
         
-        <section id="salidas_sj">
+            <section id="salidas_sj">
             <h2>Salidas en Español</h2>
             <br>Ver en grupo Whatsapp de Anuncios Centro San Justo
             <br>o en <h2><a href="https://www.centrosanjusto.ar">Sitio Centro San Justo</a></h2>

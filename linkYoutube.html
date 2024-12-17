@@ -1,20 +1,19 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Compartir URL</title>
+    <title>Actualizar URL de YouTube</title>
 </head>
 <body>
-    <h1>Generar URL para compartir</h1>
+    <h1>Actualizar enlace para YouTube</h1>
     <label for="urlYoutube">Ingrese la URL de YouTube:</label>
     <input type="text" id="urlYoutube" placeholder="https://www.youtube.com/watch?v=XXXX">
-    <button onclick="generarEnlace()">Generar Enlace</button>
-    
+    <button onclick="generarEnlace()">Actualizar Enlace</button>
     <p id="resultado"></p>
 
     <script>
         function generarEnlace() {
-            const urlBase = "index.html";
             const urlYoutube = document.getElementById("urlYoutube").value;
 
             if (!urlYoutube) {
@@ -22,11 +21,13 @@
                 return;
             }
 
-            // Generar URL con parámetros
-            const urlFinal = `${urlBase}?url=${encodeURIComponent(urlYoutube)}`;
+            // Guardar la URL en el almacenamiento local para compartir entre archivos
+            localStorage.setItem("youtubeURL", urlYoutube);
+
             document.getElementById("resultado").innerHTML = 
-                `<a href="${urlFinal}" target="_blank">Compartir enlace</a>`;
+                `<a href="index.html" target="_blank">Abrir index.html para ver el enlace actualizado</a>`;
         }
     </script>
 </body>
 </html>
+
