@@ -294,3 +294,19 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.classList.add("desktop");
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const csvURLTraducciones = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQruOBwIcBJ5GGPzCzU0bidoCBq3F6ISLVEImUHEz1V9ao0uXsWYD40YiiTbqTG2Crx0vaIN69r7q65/pub?gid=525900315&single=true&output=csv";
+
+    // Intentar obtener el contenido del CSV
+    fetch(csvURLTraducciones)
+        .then(response => {
+            if (!response.ok) throw new Error(`Error al cargar el archivo: ${response.statusText}`);
+            return response.text();
+        })
+        .then(data => {
+            console.log("Contenido del CSV:");
+            console.log(data);
+        })
+        .catch(error => console.error("Error al obtener el archivo CSV:", error));
+});
