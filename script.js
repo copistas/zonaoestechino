@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /**   C   O   R   R   E   G   I   R   !   !
 // Calcular y marcar filas de la tabla con fechas pasadas */
 document.addEventListener("DOMContentLoaded", function() {
-    const today = new Date();
+    // NOconst today = new Date();
     const yesterday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1);
 
     const rows = document.querySelectorAll('tbody tr');
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function () {
     const csvURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRuLTRwnl9nW40-b2ncbUMDanMAjlmmHWhxQ9NszK0480-ChqyJfgEe7FAqHwygqBWpGTiO6zqb8tqG/pub?gid=0&single=true&output=csv";
-    const today = new Date();
+    //NOconst today = new Date();
 
     fetch(csvURL)
         .then(response => response.text())
@@ -258,19 +258,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const desktopBtn = document.getElementById("desktop-version");
     const rootElement = document.documentElement;
 
-    mobileBtn.addEventListener("click", function () {
-        // Forzar estilos y clases para la vista móvil
-        rootElement.classList.add("mobile-view");
-        rootElement.classList.remove("desktop-view");
-    });
+    // Verificar si mobileBtn existe antes de agregar el evento
+    if (mobileBtn) {
+        mobileBtn.addEventListener("click", function () {
+            rootElement.classList.add("mobile-view");
+            rootElement.classList.remove("desktop-view");
+            console.log("Vista móvil activada");
+        });
+    } else {
+        console.warn("El botón 'mobile-version' no existe.");
+    }
 
-    desktopBtn.addEventListener("click", function () {
-        // Forzar estilos y clases para la vista de escritorio
-        rootElement.classList.add("desktop-view");
-        rootElement.classList.remove("mobile-view");
-    });
+    // Verificar si desktopBtn existe antes de agregar el evento
+    if (desktopBtn) {
+        desktopBtn.addEventListener("click", function () {
+            rootElement.classList.add("desktop-view");
+            rootElement.classList.remove("mobile-view");
+            console.log("Vista de escritorio activada");
+        });
+    } else {
+        console.warn("El botón 'desktop-version' no existe.");
+    }
 });
 
+/*
 document.getElementById("mobile-version-btn").addEventListener("click", function () {
     document.documentElement.classList.remove("desktop");
     document.documentElement.classList.add("mobile");
@@ -284,6 +295,7 @@ document.getElementById("desktop-version-btn").addEventListener("click", functio
     localStorage.setItem("viewMode", "desktop");
     location.reload(); // Recarga la página para aplicar el cambio
 });
+ eliminado porque  para mi que está dupicado con el atnerior */
 
 // Al cargar la página, aplica el modo según lo almacenado
 document.addEventListener("DOMContentLoaded", function () {
@@ -297,16 +309,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const csvURLTraducciones = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQruOBwIcBJ5GGPzCzU0bidoCBq3F6ISLVEImUHEz1V9ao0uXsWYD40YiiTbqTG2Crx0vaIN69r7q65/pub?gid=525900315&single=true&output=csv";
+    const tableBody = document.querySelector("#tablaTraducciones tbody");
 
-    // Intentar obtener el contenido del CSV
-    fetch(csvURLTraducciones)
-        .then(response => {
-            if (!response.ok) throw new Error(`Error al cargar el archivo: ${response.statusText}`);
-            return response.text();
-        })
-        .then(data => {
-            console.log("Contenido del CSV:");
-            console.log(data);
-        })
-        .catch(error => console.error("Error al obtener el archivo CSV:", error));
+    if (tableBody) {
+        fetch(csvURLTraducciones)
+            .then(response => {
+                if (!response.ok) throw new Error(`Error al cargar el archivo CSV: ${response.statusText}`);
+                return response.text();
+            })
+            .then(data => {
+                const rows = data.trim().split("\n"); // Separar las filas
+                
+                rows.forEach((row, index) => {
+                    if (index === 0) return; // Omitir encabezado
+
+                    const columns = row.split(","); // Separar columnas
+                    const newRow = document.createElement("tr");
+
+                    columns.forEach(cellText => {
+                        const newCell = document.createElement("td");
+                        newCell.textContent = cellText.trim();
+                        newRow.appendChild(newCell);
+                    });
+
+                    tableBody.appendChild(newRow); // Añadir la fila a la tabla
+                });
+
+                console.log("Datos cargados en la tabla.");
+            })
+            .catch(error => console.error("Error al cargar los datos del CSV:", error));
+    } else {
+        console.error("No se encontró la tabla con ID 'tablaTraducciones'.");
+    }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("El DOM está completamente cargado.");
+    // Tu código para trabajar con elementos del DOM aquí
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileBtn = document.getElementById("mobile-version-btn");
+    if (mobileBtn) {
+        // Si el botón existe, asignar el evento
+        mobileBtn.addEventListener("click", function () {
+            console.log("Botón de versión móvil clickeado");
+        });
+    } else {
+        // Si el botón no existe, mostrar un mensaje en la consola
+        console.warn("El botón 'mobile-version-btn' no existe en el DOM.");
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const tableBody = document.querySelector("#tablaTraducciones tbody");
+    if (tableBody) {
+        console.log("#tablaTraducciones tbody La tabla fue encontrada en el DOM.");
+    } else {
+        console.error("No se encontró la tabla con ID 'tablaTraducciones'.");
+    }
 });

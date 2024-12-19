@@ -158,11 +158,11 @@
                                 <th>Chino</th>
                                 <th>Español</th>
                             </tr>
+                        </thead>
                         <tbody>
-                         <!-- Filas generadas dinámicamente acá -->  
+                         <!-- Filas generadas dinámicamente acá desde https://docs.google.com/spreadsheets/d/1KFaMVX-JCW5SHX1H6qHy653xt4bxYXQbpcYqtVnB0zU/edit?gid=525900315#gid=525900315 -->  
                             <!-- Chequear si el <script src="script.js"></script> debe ir acá o no, está bien donde está -->
                         </tbody>
-                        </thead>
                     </table>
                 </div>
             </div>
@@ -249,7 +249,6 @@
     <div id="screen-resolution"></div> <!-- Asegúrate de que este div esté presente -->
     <div id="device-type" style="margin-top: 20px; font-size: 18px; text-align: center;"></div>
 
-    <script src="script.js"></script>
     <script>
     function copyContent(element) {
         // Obtiene el contenido de la celda padre de la imagen
@@ -312,39 +311,7 @@
     </div>
 
 <!-- verificacion tabla dinamica -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Variable para almacenar el nombre del archivo
-        const csvFileName = 'ChnEspEscNov.csv';  // Cambia aquí el nombre para otros meses
 
-        fetch(csvFileName)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`No se pudo cargar el archivo: ${response.statusText}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-                const rows = data.trim().split("\n");
-                const tableBody = document.querySelector("#tablaTraducciones tbody");
-
-                rows.forEach((row, index) => {
-                    if (index === 0) return; // Omite el encabezado
-                    const columns = row.split(",");
-                    const newRow = document.createElement("tr");
-
-                    columns.forEach(cell => {
-                        const newCell = document.createElement("td");
-                        newCell.textContent = cell.replace(/"/g, ""); // Quita comillas
-                        newRow.appendChild(newCell);
-                    });
-
-                    tableBody.appendChild(newRow);
-                });
-            })
-            .catch(error => console.error("Error al cargar el archivo CSV:", error));
-    });
-    </script>
 <section id="ultima-modificacion">
     <p>Última modificación: <span id="modificacion"></span></p>
 
@@ -368,8 +335,8 @@
     </script>
 </section>
 <div class="switch-container">
-    <button id="mobile-version-btn">Versión Móvil</button>
-    <button id="desktop-version-btn">Versión Escritorio</button>
+    <button id="mobile-version" style="display:none;">Versión Móvil</button>
+    <button id="desktop-version">Versión Escritorio</button>
 </div>
 
 </body>
