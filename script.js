@@ -33,38 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-/* prueba para usar fechas
-document.addEventListener("DOMContentLoaded", function () {
-    // Selecciona todas las celdas con la clase "day"
-    const diaCeldas = document.querySelectorAll(".day");
-    
-    if (diaCeldas.length > 0) {
-        // Toma el último valor del atributo "data-day" en la última celda
-        const ultimaDiaCelda = diaCeldas[diaCeldas.length - 1];
-        const ultimoDia = ultimaDiaCelda.getAttribute("data-day");
-        
-        // Define el mes y año actuales para este caso (noviembre de 2024)
-        const mes = 11; // Mes de noviembre
-        const año = 2024;
-
-        // Formatea la fecha en dd/mm/yyyy
-        const fechaFormateada = `${ultimoDia.padStart(2, '0')}/${mes.toString().padStart(2, '0')}/${año}`;
-
-        // Crea un pie de página y añade el texto de la fecha
-        const piePagina = document.createElement("footer");
-        piePagina.textContent = `Fecha del último día de la tabla: ${fechaFormateada}`;
-        piePagina.style.textAlign = "center";
-        piePagina.style.marginTop = "20px";
-
-        // Añadir el pie de página al final del cuerpo del HTML
-        document.body.appendChild(piePagina);
-    } else {
-        console.warn("No se encontraron celdas con la clase 'day'.");
-    }
-});
-*/
-
 // Mensaje de confirmación de carga del script
 console.log("El script está cargando correctamente.");
 
@@ -86,38 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-
-//   SE  ESTABA  CARGANDO   REPETIDO
-
-
-/* Cargar y procesar el archivo CSV
-document.addEventListener("DOMContentLoaded", function() {
-    const csvFilePath = 'ChnEspEscOct.csv';
-    fetch(csvFilePath)
-        .then(response => response.text())
-        .then(data => {
-            const rows = data.trim().split("\n");
-            const tableBody = document.querySelector("#tablaTraducciones tbody");
-
-            rows.forEach((row, index) => {
-                if (index === 0) return; // Saltar la primera fila (encabezado)
-                const columns = row.split(",");
-                const newRow = document.createElement("tr");
-
-                columns.forEach(cell => {
-                    const newCell = document.createElement("td");
-                    newCell.textContent = cell.replace(/"/g, "");
-                    newRow.appendChild(newCell);
-                });
-
-                tableBody.appendChild(newRow);
-            });
-        })
-        .catch(error => console.error("Error al cargar el archivo CSV:", error));
-}); */
-//   SE  ESTABA  CARGANDO   REPETIDO
-
-
 
 /* Aplicar fondo de imagen aleatorio
 document.addEventListener("DOMContentLoaded", function () {
@@ -164,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function () {
     const csvURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRuLTRwnl9nW40-b2ncbUMDanMAjlmmHWhxQ9NszK0480-ChqyJfgEe7FAqHwygqBWpGTiO6zqb8tqG/pub?gid=0&single=true&output=csv";
-    //NOconst today = new Date();
+    // csv que publica la sheet https://docs.google.com/spreadsheets/d/1BZ2ItFzX65cEPMXqPlt1odOwZrz8UZgMW7t_XhDZF4s/edit?gid=0#gid=0
 
     fetch(csvURL)
         .then(response => response.text())
@@ -281,22 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-/*
-document.getElementById("mobile-version-btn").addEventListener("click", function () {
-    document.documentElement.classList.remove("desktop");
-    document.documentElement.classList.add("mobile");
-    localStorage.setItem("viewMode", "mobile");
-    location.reload(); // Recarga la página para aplicar el cambio
-});
-
-document.getElementById("desktop-version-btn").addEventListener("click", function () {
-    document.documentElement.classList.remove("mobile");
-    document.documentElement.classList.add("desktop");
-    localStorage.setItem("viewMode", "desktop");
-    location.reload(); // Recarga la página para aplicar el cambio
-});
- eliminado porque  para mi que está dupicado con el atnerior */
-
 // Al cargar la página, aplica el modo según lo almacenado
 document.addEventListener("DOMContentLoaded", function () {
     const viewMode = localStorage.getItem("viewMode");
@@ -369,3 +289,96 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("No se encontró la tabla con ID 'tablaTraducciones'.");
     }
 });
+
+
+/** pausado
+document.addEventListener("DOMContentLoaded", function () {
+    const csvURL = "https:||docs.google.com/spreadsheets/d/e/2PACX-1vTj8thVkh9QGR4lNMT-3vgsQEkZrRZ2QQZnPL07Josc6OH_d4_HrMQ_n-eErECLWg6NkNMqfr-s8Dwb/pub?gid=0&single=true&output=csv";
+    const tableBody = document.querySelector("#salidas-ministerio table tbody");
+    const tituloSalidasMinisterio = document.getElementById("tituloSalidasMinisterio");
+
+    fetch(csvURL)
+        .then(response => response.text())
+        .then(data => {
+            const rows = parseCSV(data); || Usa la función de parsing proporcionada
+
+            || Título de la tabla (primera fila, segunda columna)
+            if (rows.length > 0 && rows[0].length > 1) {
+                tituloSalidasMinisterio.textContent = rows[0][1];
+            }
+
+            || Crear las filas de la tabla
+            for (let i = 1; i < rows.length; i++) { || Comienza desde la fila 1 (sin saltar encabezados vacíos)
+                const tr = document.createElement("tr");
+
+                rows[i].forEach((cell, j) => {
+                    const td = document.createElement("td");
+
+                    || Si la celda contiene "Encargado:", reemplazar los saltos de línea por <br> y asegurarse de que se vea en el formato adecuado
+                    if (cell?.includes("Encargado:")) {
+                        td.innerHTML = cell.replace(/\n/g, "<br>"); || Reemplazar saltos de línea por <br> para una presentación adecuada
+                        td.rowSpan = 2; || Definir un `rowSpan` si es necesario
+                    } else {
+                        td.textContent = cell || ""; || Si no hay contenido, dejar la celda vacía
+                    }
+
+                    tr.appendChild(td);
+                });
+
+                || Completar celdas vacías al final si faltan columnas
+                while (tr.children.length < 7) {
+                    const emptyTd = document.createElement("td");
+                    tr.appendChild(emptyTd);
+                }
+
+                tableBody.appendChild(tr);
+            }
+        })
+        .catch(error => console.error("Error al cargar el archivo CSV:", error));
+
+    || Función para parsear el CSV correctamente
+    function parseCSV(csvText) {
+        const rows = [];
+        let currentRow = [];
+        let currentCell = '';
+        let insideQuotes = false;
+
+        for (let i = 0; i < csvText.length; i++) {
+            const char = csvText[i];
+            const nextChar = csvText[i + 1];
+
+            if (char === '"' && insideQuotes && nextChar === '"') {
+                currentCell += '"';
+                i++;
+            } else if (char === '"') {
+                insideQuotes = !insideQuotes;
+            } else if (char === ',' && !insideQuotes) {
+                currentRow.push(currentCell.trim());
+                currentCell = '';
+            } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+                if (currentCell || currentRow.length > 0) {
+                    currentRow.push(currentCell.trim());
+                    rows.push(currentRow);
+                    currentRow = [];
+                    currentCell = '';
+                }
+            } else {
+                currentCell += char;
+            }
+        }
+
+        if (currentCell || currentRow.length > 0) {
+            currentRow.push(currentCell.trim());
+            rows.push(currentRow);
+        }
+
+        return rows;
+    }
+}); 
+*/
+
+
+
+const rows = parseCSV(data); // Usa la función de parsing proporcionada
+console.log(rows); // Esto imprimirá el array de datos procesados
+

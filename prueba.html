@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario HTML</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      text-align: center;
+      padding: 8px;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calendario Generado</h1>
+  <div id="calendario"></div>
+
+  <script>
+    function generarCalendario() {
+      // Simulación del contenido del documento para pruebas
+      const contenido = `
+        15 Encargado: Christian Rodriguez 17:30hs Estación Ramos Terri 44,46
+        17 Encargado: Debora Millan 9:30hs Estación Ciudadela Terri 1
+        18 Encargado: Laureano Millan 9:45hs Jose Maria Paz y Bacacay (Ituzaingo) Terri 122
+        19 Encargado: Rosana Gómez 10:00hs Av Luro y Ruiz de los Llanos (Laferrere) Terri 77
+        22 Encargado: Christian Rodriguez 17:30hs Estación Ramos Terri 45
+        24 Encargado: Daiana Ferrando 9:30hs Flia Ferrando Terri 92
+        25 Encargado: Andres Cistriani 9:45hs Ruta 3 y Paso (Lomas del Mirador) Terri 5,6
+        29 Encargado: Christian Rodriguez 17:30hs Estación Ramos Terri 47,48
+        31 Encargado: Jessica Ferrando 9:30hs Arenales y Campos (Moron) Terri 91
+      `;
+
+      const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+      let html = '<table>\n  <tr>\n';
+
+      diasSemana.forEach(dia => html += `    <th>${dia}</th>\n`);
+      html += '  </tr>\n  <tr>\n';
+
+      const diaInicio = 3; // Miércoles como día de inicio
+      let diaActual = 1;
+      let columnaActual = 0;
+
+      for (let i = 0; i < diaInicio; i++) {
+        html += '    <td>...<br></td>\n';
+        columnaActual++;
+      }
+
+      const regex = /^(\d+)\s+Encargado:\s+([\w\s]+)\s+(\d{2}:\d{2}hs)\s+([\w\s\(\)]+)\s+Terri\s+([\d,]+)/gm;
+      let match;
+
+      while (diaActual <= 31) {
+        if ((match = regex.exec(contenido)) !== null && parseInt(match[1]) === diaActual) {
+          html += `    <td class="day" data-day="${match[1]}">${match[1]}<br>Encargado: ${match[2]}<br>${match[3]}<br>${match[4]}<br>Terri ${match[5]}</td>\n`;
+        } else {
+          html += `    <td>${diaActual}<br>...<br></td>\n`;
+        }
+        columnaActual++;
+        if (columnaActual % 7 === 0 && diaActual < 31) html += '  </tr>\n  <tr>\n';
+        diaActual++;
+      }
+
+      while (columnaActual % 7 !== 0) {
+        html += '    <td>...<br></td>\n';
+        columnaActual++;
+      }
+      html += '  </tr>\n</table>';
+
+      document.getElementById('calendario').innerHTML = html;
+    }
+
+    generarCalendario();
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Salidas Ministerio</title>
+    <style>
+        /* Estilos para el contenedor */
+        .contenedor {
+            max-width: 612px;
+            width: 100%;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #f0f0f0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: block; /* Cambiado de flex a block */
+        }
+
+        /* Estilos para la tabla */
+        table {
+            width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+            border-collapse: collapse; /* Hace que los bordes se unan */
+        }
+
+        th, td {
+            padding: 8px; /* Añade espacio entre el texto y los bordes de las celdas */
+            border: 1px solid #ccc; /* Añade bordes ligeros a las celdas */
+            text-align: center; /* Centra el contenido en las celdas */
+            word-wrap: break-word; /* Asegura que el texto largo se ajuste correctamente */
+        }
+
+        th {
+            background-color: #f2f2f2; /* Fondo claro para las cabeceras */
+            font-weight: bold;
+        }
+
+        /* Estilo para la fila destacada */
+        .highlight-today {
+            font-weight: bold;
+            text-decoration: underline;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <section id="salidas-ministerio">
+        <h2 id="tituloSalidasMinisterio">Salidas Ministerio</h2>
+        <div class="contenedor">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Do.</th>
+                            <th>Lu.</th>
+                            <th>Ma.</th>
+                            <th>Mi.</th>
+                            <th>Ju.</th>
+                            <th>Vi.</th>
+                            <th>Sá.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las filas serán generadas dinámicamente por el script -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Ejemplo de datos para probar la tabla
+        const datos = [
+            ["", "", "", "1", "2", "3", "4"],
+            ["5", "6", "7", "8", "9", "10", "11"],
+            ["12", "13", "14", "15", "", "", ""],
+            ["", "", "Encargado: Christian Rodriguez\n17:30hs", "", "", "", ""],
+            ["", "", "Encargado: Debora Millan\n9:30hs", "", "", "", ""],
+            // Puedes agregar más filas según sea necesario
+        ];
+
+        // Función para generar las filas de la tabla
+        const tbody = document.querySelector("tbody");
+        datos.forEach(rowData => {
+            const tr = document.createElement("tr");
+            rowData.forEach(cellData => {
+                const td = document.createElement("td");
+                td.innerText = cellData || ""; // Si la celda está vacía, dejarla vacía
+                tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+        });
+    </script>
+</body>
+</html>

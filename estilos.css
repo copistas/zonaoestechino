@@ -105,38 +105,6 @@
     /* max-width: 100%;     Evita que la imagen sea más grande que la celda */
 }
 
-/* 
-Ajustes para pantallas móviles 
-/*
-@media (max-width: 612px) {
-    .contenedor {
-        max-width: 612px;
-        /*
-        width: 100%;  /* El contenedor se ajusta al 100% del ancho de la pantalla */
-    
-        /*padding: 10px;  /* Un poco de espacio para que no toque los bordes */
-        */
-    /*}
-
-    .contenedor-imagen img {
-        width: 306px;
-        max-width: 306px;  /* La imagen ocupa el ancho completo disponible */
-        /*height: auto;  /* Mantiene la proporción */
-    /*}
-}
-*/
-
-/* Define el ancho total de la tabla 
-.tabla-612 {
-    width: 612px;               //Ancho total de la tabla 
-    max-width: 612px;
-    border-collapse: collapse;  //Elimina los espacios entre las celdas 
-    margin: 20px auto;          //* Centra la tabla horizontalmente 
-    table-layout: fixed;        //* Fija el ancho de las celdas según el ancho total de la tabla 
-    border: none;               // Elimina el borde de la tabla 
-} 
-*/
-
 
 /* Ajuste para que las imágenes ocupen el ancho proporcional de las celdas */
 .imagen {
@@ -157,16 +125,15 @@ body {
 
 /* Contenedor principal de 612px */
 .contenedor {
-    max-width: 612px;           /* Establece el máximo ancho para el contenedor */
-    width: 100%;                /* Hace que el contenedor ocupe el 100% del ancho disponible */
-    margin: 20px auto;          /* Centra el contenedor horizontalmente */
+    max-width: 612px;
+    width: 100%;
+    margin: 20px auto;
     padding: 10px;
-    background-color: #f0f0f0;  /* Fondo claro para el contenedor */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra sutil para el contenedor */
-    display: flex;              /* Usamos flexbox para centrar el contenido */
-    flex-direction: column;     /* Alinea los elementos dentro del contenedor de manera vertical */
-    align-items: center;        /* Centra los elementos en el contenedor */
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block; /* Cambiar de flex a block */
 }
+
 
 /* Contenedor de imagen */
 .contenedor-imagen {
@@ -324,4 +291,21 @@ html.desktop {
 body {
     min-width: 1024px;
     overflow-x: scroll;
+}
+
+#tablaSalidas {
+    width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+    border-collapse: collapse; /* Hace que los bordes se unan */
+}
+
+#tablaSalidas th, td {
+    padding: 8px; /* Añade espacio entre el texto y los bordes de las celdas */
+    border: 1px solid #ccc; /* Añade bordes ligeros a las celdas */
+    text-align: center; /* Centra el contenido en las celdas */
+    word-wrap: break-word; /* Asegura que el texto largo se ajuste correctamente */
+}
+
+#tablaSalidas th {
+    background-color: #f2f2f2; /* Fondo claro para las cabeceras */
+    font-weight: bold;
 }
