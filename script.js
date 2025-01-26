@@ -382,3 +382,33 @@ document.addEventListener("DOMContentLoaded", function () {
 const rows = parseCSV(data); // Usa la función de parsing proporcionada
 console.log(rows); // Esto imprimirá el array de datos procesados
 
+const corsProxy = "https://cors-anywhere.herokuapp.com/";
+const csvURLAcom = corsProxy + "https://docs.google.com/spreadsheets/d/e/2PACX-1vSTRe6TxfWpi4f23scgO6H5eEpmbN_7_b6o175EASAXL7CMBN2slvGabdTehe_3rb_b25zzrmmcnUFD/pub?output=csv";
+
+document.addEventListener("DOMContentLoaded", function () {
+    const csvURLAcom = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSTRe6TxfWpi4f23scgO6H5eEpmbN_7_b6o175EASAXL7CMBN2slvGabdTehe_3rb_b25zzrmmcnUFD/pub?output=csv";
+    const tablaBody = document.querySelector("#acomod tbody");
+
+    if (!tablaBody) {
+        console.error("No se encontró la tabla con ID 'acomod'.");
+        return;
+    }
+
+    fetch(csvURLAcom)
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.trim().split("\n").slice(1); // Omitir encabezado
+            rows.forEach(row => {
+                const columns = row.split(",");
+                const newRow = document.createElement("tr");
+                columns.forEach(text => {
+                    const cell = document.createElement("td");
+                    cell.textContent = text.trim();
+                    newRow.appendChild(cell);
+                });
+                tablaBody.appendChild(newRow);
+            });
+            console.log("Datos cargados correctamente.");
+        })
+        .catch(error => console.error("Error al cargar los datos del CSV:", error));
+});
