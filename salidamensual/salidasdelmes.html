@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Meta viewport para un diseño responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salidas del Mes en Chino</title>
+  <!-- Vinculación a la hoja de estilos -->
+  <link rel="stylesheet" href="estilosSalidaMensual.css">
+</head>
+<body>
+  <header>
+    <h1>Salidas del Mes</h1>
+  </header>
+  
+  <main>
+    <!-- Contenedor principal para los controles del calendario -->
+    <div class="calendar-container">
+      <!-- Recuadro de Período con menús desplegables -->
+      <div class="period-box">
+        <div class="period-title">Período</div>
+        <div class="dropdowns">
+          <select name="mes" id="mes">
+            <option value="enero">Enero</option>
+            <option value="febrero">Febrero</option>
+            <option value="marzo">Marzo</option>
+            <option value="abril">Abril</option>
+            <option value="mayo">Mayo</option>
+            <option value="junio">Junio</option>
+            <option value="julio">Julio</option>
+            <option value="agosto">Agosto</option>
+            <option value="septiembre">Septiembre</option>
+            <option value="octubre">Octubre</option>
+            <option value="noviembre">Noviembre</option>
+            <option value="diciembre">Diciembre</option>
+          </select>
+          <select name="anio" id="anio">
+            <!-- Opciones de años del 2025 al 2040 -->
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+            <option value="2030">2030</option>
+            <option value="2031">2031</option>
+            <option value="2032">2032</option>
+            <option value="2033">2033</option>
+            <option value="2034">2034</option>
+            <option value="2035">2035</option>
+            <option value="2036">2036</option>
+            <option value="2037">2037</option>
+            <option value="2038">2038</option>
+            <option value="2039">2039</option>
+            <option value="2040">2040</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Contenedor para los botones -->
+      <div class="button-box">
+        <button id="generar">GENERAR CALENDARIO</button>
+        <button id="publicar">PUBLICAR CONTENIDO</button>
+      </div>
+    </div>
+    
+    <!-- Contenedor para la tabla del calendario -->
+    <div class="calendar-table-container">
+       <table id="calendarTable" class="calendar-table">
+        <thead>
+          <tr>
+            <th>Domingo</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sábado</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody">
+          <!-- Aquí se generará dinámicamente el calendario -->
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Otro contenido principal, si fuera necesario -->
+    <p>Acá se muestra la información de las salidas del mes.</p>
+  </main>
+  
+  <footer>
+    <p>&copy; grupo chino San Justo</p>
+  </footer>
+  
+  <!-- Vinculación al archivo JavaScript -->
+  <script src="scriptsSalidaMensual.js"></script>
+</body>
+</html>
