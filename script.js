@@ -1,30 +1,73 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("El DOM ha sido cargado completamente.");
 
-    // Ruta al archivo CSV
-    const csvURL = 'salidas.csv';
-    console.log("Intentando cargar el archivo CSV desde:", csvURL);
+    // 1. Cargar y procesar la tabla de salidas
+    const csvURLSalidas = 'salidas.csv';
+    console.log("Intentando cargar el archivo CSV de salidas desde:", csvURLSalidas);
 
-    // Función para cargar y procesar el CSV
-    function cargarCSV(url) {
+    function procesarCeldasSalidas(tabla) {
+        const filas = tabla.querySelectorAll("tbody tr");
+        const today = new Date(); // Obtener la fecha actual
+        const currentDay = today.getDate(); // Obtener el día actual del mes
+
+        filas.forEach((fila, filaIndex) => {
+            const celdas = fila.querySelectorAll("td");
+
+            celdas.forEach((celda, celdaIndex) => {
+                const contenido = celda.textContent.trim();
+
+                // Verificar si la celda contiene un número seguido de un guion
+                if (/^\d+\s*-/.test(contenido)) {
+                    // Extraer el número inicial
+                    const numeroInicial = contenido.match(/^\d+/)[0];
+
+                    // Extraer el resto del contenido después del guion
+                    const restoContenido = contenido.replace(/^\d+\s*-\s*/, "");
+
+                    // Asignar un ID único al número
+                    const idUnico = `fila-${filaIndex}-celda-${celdaIndex}`;
+                    celda.setAttribute("data-id", idUnico);
+
+                    // Verificar si el número inicial es el día actual
+                    const esDiaActual = parseInt(numeroInicial, 10) === currentDay;
+
+                    // Crear el contenido final con las clases CSS
+                    const contenidoFinal = `
+                        <span class="numero-destacado ${esDiaActual ? 'dia-actual' : ''}">${numeroInicial}</span><br>${restoContenido}
+                    `;
+
+                    // Actualizar el contenido de la celda
+                    celda.innerHTML = contenidoFinal;
+
+                    console.log(`Celda procesada: ID = ${idUnico}, Contenido = ${contenidoFinal}`);
+                }
+            });
+        });
+    }
+
+    function cargarCSVSalidas(url) {
         fetch(url)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`Error al cargar el CSV: ${response.status} ${response.statusText}`);
+                    throw new Error(`Error al cargar el CSV de salidas: ${response.status} ${response.statusText}`);
                 }
                 return response.text();
             })
             .then(data => {
-                console.log("CSV cargado correctamente:", data);
+                console.log("CSV de salidas cargado correctamente:", data);
 
                 const filas = data.split('\n'); // Divide el CSV por líneas
-                console.log("Número de filas en el CSV:", filas.length);
+                console.log("Número de filas en el CSV de salidas:", filas.length);
 
                 const tbody = document.querySelector("#tablaSalidas tbody");
                 if (!tbody) {
-                    throw new Error("No se encontró el elemento <tbody> en la tabla.");
+                    throw new Error("No se encontró el elemento <tbody> en la tabla de salidas.");
                 }
 
+                // Limpiar la tabla antes de agregar datos
+                tbody.innerHTML = "";
+
+                // Agregar las filas al tbody
                 filas.forEach((fila, index) => {
                     const celdas = fila.split(','); // Divide cada línea por comas
                     console.log(`Fila ${index + 1}:`, celdas);
@@ -49,32 +92,30 @@ document.addEventListener("DOMContentLoaded", function () {
                     tbody.appendChild(tr);
                 });
 
-                console.log("Tabla generada correctamente.");
+                console.log("Tabla de salidas generada correctamente.");
+
+                // Procesar las celdas de la tabla de salidas
+                procesarCeldasSalidas(document.querySelector("#tablaSalidas"));
             })
             .catch(error => {
-                console.error("Error durante la carga o procesamiento del CSV:", error);
+                console.error("Error durante la carga o procesamiento del CSV de salidas:", error);
             });
     }
 
-    // Llamar a la función para cargar el CSV
-    cargarCSV(csvURL);
-});
+    // Llamar a la función para cargar el CSV de salidas
+    cargarCSVSalidas(csvURLSalidas);
 
-// Script para la marquesina de anuncios
-document.addEventListener('DOMContentLoaded', function() {
+    // 2. Script para la marquesina de anuncios
     const marqueeText = document.querySelector('.marquesina');
-    
     if (marqueeText) {
-        marqueeText.addEventListener('click', function() {
+        marqueeText.addEventListener('click', function () {
             this.style.color = '#ff6347'; // Cambia el color cuando se haga clic
         });
     } else {
         console.warn("No se encontró el elemento '.marquesina'.");
     }
-});
 
-// Script para marcar el día actual en el calendario
-document.addEventListener("DOMContentLoaded", function () {
+    // 3. Script para marcar el día actual en el calendario
     const today = new Date();
     const currentDay = today.getDate();
 
@@ -85,14 +126,12 @@ document.addEventListener("DOMContentLoaded", function () {
             cell.classList.add("highlight-today");
         }
     });
-});
 
-// Script para cargar la tabla de traducciones
-document.addEventListener("DOMContentLoaded", function () {
+    // 4. Script para cargar la tabla de traducciones
     const csvURLTraducciones = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQruOBwIcBJ5GGPzCzU0bidoCBq3F6ISLVEImUHEz1V9ao0uXsWYD40YiiTbqTG2Crx0vaIN69r7q65/pub?gid=525900315&single=true&output=csv";
-    const tableBody = document.querySelector("#tablaTraducciones tbody");
+    const tableBodyTraducciones = document.querySelector("#tablaTraducciones tbody");
 
-    if (tableBody) {
+    if (tableBodyTraducciones) {
         fetch(csvURLTraducciones)
             .then(response => {
                 if (!response.ok) throw new Error(`Error al cargar el archivo CSV: ${response.statusText}`);
@@ -100,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(data => {
                 const rows = data.trim().split("\n"); // Separar las filas
-                
+
                 rows.forEach((row, index) => {
                     if (index === 0) return; // Omitir encabezado
 
@@ -113,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         newRow.appendChild(newCell);
                     });
 
-                    tableBody.appendChild(newRow); // Añadir la fila a la tabla
+                    tableBodyTraducciones.appendChild(newRow); // Añadir la fila a la tabla
                 });
 
                 console.log("Datos cargados en la tabla de traducciones.");
@@ -122,17 +161,11 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error("No se encontró la tabla con ID 'tablaTraducciones'.");
     }
-});
 
-//script para reuniones fin de semana
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("El DOM ha sido cargado completamente.");
-
-    // Ruta al archivo CSV de Reunión de Fin de Semana
+    // 5. Script para cargar la tabla de Reunión de Fin de Semana
     const csvURLReunion = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRuLTRwnl9nW40-b2ncbUMDanMAjlmmHWhxQ9NszK0480-ChqyJfgEe7FAqHwygqBWpGTiO6zqb8tqG/pub?gid=0&single=true&output=csv";
     console.log("Intentando cargar el archivo CSV de reunión desde:", csvURLReunion);
 
-    // Función para parsear el CSV correctamente
     function parseCSV(csvText) {
         const rows = [];
         let currentRow = [];
@@ -177,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return rows;
     }
 
-    // Función para cargar y procesar el CSV de reunión
     function cargarCSVReunion(url) {
         fetch(url)
             .then(response => {
