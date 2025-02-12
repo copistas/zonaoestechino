@@ -74,16 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const tr = document.createElement("tr");
 
-                    // Eliminar valores nulos al principio de la fila
-                    const celdasFiltradas = celdas.filter(celda => celda.trim() !== "");
-                    console.log(`Celdas filtradas en la fila ${index + 1}:`, celdasFiltradas);
-
                     // Asegurarse de que siempre haya 7 celdas (una para cada día de la semana)
-                    while (celdasFiltradas.length < 7) {
-                        celdasFiltradas.unshift(""); // Añadir celdas vacías al principio si es necesario
+                    while (celdas.length < 7) {
+                        celdas.unshift(""); // Añadir celdas vacías al principio si es necesario
                     }
 
-                    celdasFiltradas.forEach(celda => {
+                    celdas.forEach((celda, celdaIndex) => {
                         const td = document.createElement("td");
                         td.textContent = celda.trim().replace(/"/g, ''); // Elimina comillas y espacios
                         tr.appendChild(td);
@@ -259,4 +255,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Llamar a la función para cargar el CSV de reunión
     cargarCSVReunion(csvURLReunion);
+
+    // 6. Script para cargar la tabla de Acomodadores
+    const csvURLAcomodadores = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSTRe6TxfWpi4f23scgO6H5eEpmbN_7_b6o175EASAXL7CMBN2slvGabdTehe_3rb_b25zzrmmcnUFD/pub?output=csv";
+    const tableBodyAcomodadores = document.querySelector("#tablaAcomodadores tbody");
+
+    if (tableBodyAcomodadores) {
+        fetch(csvURLAcomodadores)
+            .then(response => {
+                if (!response.ok) throw new Error(`Error al cargar el archivo CSV: ${response.statusText}`);
+                return response.text();
+            })
+            .then(data => {
+                const rows = data.trim().split("\n"); // Separar las filas
+
+                rows.forEach((row, index) => {
+                    if (index === 0) return; // Omitir encabezado
+
+                    const columns = row.split(","); // Separar columnas
+                    const newRow = document.createElement("tr");
+
+                    columns.forEach(cellText => {
+                        const newCell = document.createElement("td");
+                        newCell.textContent = cellText.trim();
+                        newRow.appendChild(newCell);
+                    });
+
+                    tableBodyAcomodadores.appendChild(newRow); // Añadir la fila a la tabla
+                });
+
+                console.log("Datos cargados en la tabla de acomodadores.");
+            })
+            .catch(error => console.error("Error al cargar los datos del CSV:", error));
+    } else {
+        console.error("No se encontró la tabla con ID 'tablaAcomodadores'.");
+    }
 });

@@ -22,10 +22,7 @@
 
 </head>
 <body>
-
-
-        
-
+      
     <div class="contenido-centrado">
         <section id="salidasministerio">
             <nav>
@@ -37,13 +34,18 @@
                     <li><a href="#limpieza">Arreglo de Limpieza</a></li>
                     <li><a href="#salidas_sj">Salidas en Español</a></li>
                     <li><a href="#reunion vida y ministerio SJ">Reunión entre semana español</a></li>
-                    <li><a href="#anuncios y mensajes importantes">Anuncios y mensajes importantes</a></li>
+                    <li><a href="#anuncios-mensajes-importantes">Anuncios y mensajes importantes</a></li>
                     <li><a href="#acomodadores">Programa Acomodadores Este San Justo</a></li>
                     <li><a href="#novedades">Novedades en el Sitio Web</a></li>
                 </ul>
             </nav>
         </section>
 
+    </div>
+
+    <div class="contenido-centrado">
+        <a href="#discurso-domingo"><img src="youtube.png"></a>
+        <br><a href="https://us02web.zoom.us/j/85723916731?pwd=waF77XpgVDcxSHEqWiTub34xWswrSM.1"><img src="zoom.png"></a>
     </div>
 
     <div>
@@ -136,21 +138,22 @@
             <p id="resultado"></p>
         </section>
 
-        <a href="https://www.youtube.com/">ver en YouTube</a>
-        <script>
-            // Recuperar la URL de YouTube desde el almacenamiento local
-            const urlYoutube = localStorage.getItem("youtubeURL");
-    
-            if (urlYoutube) {
-                document.getElementById("resultado").innerHTML = 
-                    `<a href="${urlYoutube}" target="_blank">Ver por YouTube (disponible el mismo domingo)</a>`;
-            } else {
-                document.getElementById("resultado").innerText = 
-                    "El enlace no está disponible. Actualícelo desde la página preparada.";
-            }
-        </script>
+
+            <script>
+                // Recuperar la URL de YouTube desde el almacenamiento local
+                const urlYoutube = localStorage.getItem("youtubeURL");
         
-            <section id="salidas_sj">
+                if (urlYoutube) {
+                    document.getElementById("resultado").innerHTML = 
+                        `<a href="${urlYoutube}" target="_blank">Ver por YouTube (disponible el mismo domingo)</a>`;
+                } else {
+                    document.getElementById("resultado").innerText = 
+                        "El enlace no está disponible. Actualícelo desde la página preparada.";
+                }
+            </script>
+
+
+        <section id="salidas_sj">
             <h2>Salidas en Español</h2>
             <br>Ver en grupo Whatsapp de Anuncios Centro San Justo
             <br>o en <h2><a href="https://www.centrosanjusto.ar">Sitio Centro San Justo</a></h2>
@@ -230,35 +233,13 @@
         <p>Nos visita el hermano Alejandro Vidal del 18 al 23 de febrero. En breve estaremos recibiendo más información sobre los arreglos que harán falta, pero les adelantamos la fecha para que puedan hacer sus arreglos para disfrutar lo que seguramente será una semana de estímulo.</p>
     </section>
 
-<section id="acomodadores">
-    <!--  el archivo a modificar es https://docs.google.com/spreadsheets/d/1vtffzzrTnpc6Vb46WSXL96fglEetcDyKx8wrlp4XICg/edit?gid=0#gid=0   -->
-    <h2>Programa Acomodadores Este San Justo</h2> 
-    <style>
-        /* Ajusta el estilo del iframe y mejora la visualización */
-        .iframe-container {
-            position: relative;
-            overflow: hidden; /* Oculta cualquier borde no deseado */
-            padding-bottom: 75%; /* Mantiene la proporción de aspecto */
-            height: 0;
-        }
-
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none; /* Quita los bordes */
-        }
-    </style>
-</section>
 
 <div>
-    <section id="programaAcomodadores">
+    <section id="acomodadores">
         <h2> Programa de acomodadores</h2>
         <div class="contenedor">
             <div class="table-responsive">
-                <table id="acomod">
+                <table id="tablaAcomodadores">
                     <thead>
                         <tr> 
                             <th>ACOMODADORES</th>
@@ -267,7 +248,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <!-- Filas generadas dinámicamente acá desde https://docs.google.com/spreadsheets/d/e/2PACX-1vSTRe6TxfWpi4f23scgO6H5eEpmbN_7_b6o175EASAXL7CMBN2slvGabdTehe_3rb_b25zzrmmcnUFD/pub?output=csv -->        
+                      <!-- Filas generadas dinámicamente acá desde https://docs.google.com/spreadsheets/d/1vtffzzrTnpc6Vb46WSXL96fglEetcDyKx8wrlp4XICg/edit?gid=0#gid=0 -->        
                     </tbody>   
                 </table>
             </div>
@@ -277,9 +258,10 @@
 
     <div class="contenedor">    
         <section id="novedades">
+            <!--
             <h2>Novedades del salidas-al-ministerio</h2>
                 <br> Función compartir en la tabla de Salidas al ministerio.
-                <br> <iframe width="560" height="315" src="https://www.youtube.com/embed/aEwiNmMjOXs?si=w3OL615yqvVtJpJS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <br> <iframe width="560" height="315" src="https://www.youtube.com/embed/aEwiNmMjOXs?si=w3OL615yqvVtJpJS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
         </section>
     </div>
 
