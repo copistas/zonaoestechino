@@ -52,11 +52,40 @@
         <div class="input-section">
             <textarea id="inputText" placeholder="Escribe aquí..."></textarea>
             <button id="publishButton" onclick="guardarTexto()">Publicar</button>
+            <!-- Añade los SDKs de Firebase -->
+            <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+
             <script>
-                function guardarTexto() {
+                // Configuración de Firebase (usa tus propios datos)
+                const firebaseConfig = {
+                    apiKey: "AIzaSyCgCRBMOSEBbY5_ggDpoXOZirpxXqw5ldo",
+                    authDomain: "datosconfe-ae7d3.firebaseapp.com",
+                    projectId: "datosconfe-ae7d3",
+                    storageBucket: "datosconfe-ae7d3.firebasestorage.app",
+                    messagingSenderId: "107638334816",
+                    appId: "1:107638334816:web:4105356d6456e43fa06a05"
+                };
+
+                // Inicializar Firebase
+                const app = firebase.initializeApp(firebaseConfig);
+                const db = firebase.getFirestore(app);
+
+                async function guardarTexto() {
                     const texto = document.getElementById("inputText").value;
-                    localStorage.setItem("discursoDomingo", texto);
-                    alert("Texto guardado correctamente.");
+                    const lines = texto.split("\n");
+
+                    try {
+                        // Guardar en Firestore
+                        await firebase.setDoc(firebase.doc(db, "conferencias", "ultima"), {
+                            temaCaracteres: lines[0] || "(vacío)",
+                            temaPinyin: lines[1] || "(vacío)",
+                            orador: lines[2] || "(vacío)"
+                        });
+                        alert("Texto guardado en la base de datos.");
+                    } catch (error) {
+                        alert("Error al guardar: " + error.message);
+                    }
                 }
             </script>
             

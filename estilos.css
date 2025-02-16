@@ -134,6 +134,17 @@ body {
     display: block; /* Cambiar de flex a block */
 }
 
+/* Contenedor reufinde de 712px */
+.contenedor-reufinde {
+    max-width: 712px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block; /* Cambiar de flex a block */
+}
+
 
 /* Contenedor de imagen */
 .contenedor-imagen {
