@@ -307,7 +307,9 @@ body {
 #tablaSalidas {
     width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
     border-collapse: collapse; /* Hace que los bordes se unan */
+
 }
+
 
 #tablaSalidas th, td {
     padding: 8px; /* Añade espacio entre el texto y los bordes de las celdas */
