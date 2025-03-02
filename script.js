@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("El DOM ha sido cargado completamente.");
 
     // 1. Cargar y procesar la tabla de salidas
-    const csvURLSalidas = 'salidas.csv';
+    const csvURLSalidas = 'salidasdelmes032025.csv';
     console.log("Intentando cargar el archivo CSV de salidas desde:", csvURLSalidas);
 
     function procesarCeldasSalidas(tabla) {
