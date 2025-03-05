@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtener Datos de Google Sheets</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<table id="resultTable">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Idioma</th>
+            <th>Congregacion</th>
+            <th>Bosquejo</th>
+            <th>Telefono</th>
+            <th>Titulo Español</th>
+            <th>Titulo Chino</th>
+            <th>Titulo Pinyin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Aquí se mostrarán los datos -->
+    </tbody>
+</table>
+
+<script>
+    async function fetchData() {
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTHYnzxtllhxt9-CuCrSVYGGi2Uht0f-n6CwdmpWn64EJ2xx-wtK63vFfm6t1KNpDqcsekhsDtTilYI/pubhtml?gid=91131297&single=true';
+        
+        // Realizar la solicitud para obtener la página HTML
+        const response = await fetch(url);
+        const html = await response.text();
+
+        // Crear un parser para convertir el HTML en un documento DOM
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        // Obtener todas las filas de la tabla (sin contar los encabezados)
+        const rows = doc.querySelectorAll('table tbody tr');
+
+        // Fecha objetivo (próximo domingo)
+        const today = new Date();
+        const dayOfWeek = today.getDay(); // 0 (domingo) a 6 (sábado)
+        const daysUntilNextSunday = dayOfWeek === 0 ? 0 : 7 - dayOfWeek;
+        const nextSunday = new Date(today);
+        nextSunday.setDate(today.getDate() + daysUntilNextSunday);
+
+        // Función para parsear la fecha en formato dd/mm/yyyy
+        function parseDate(dateStr) {
+            const [day, month, year] = dateStr.split('/').map(num => parseInt(num, 10));
+            return new Date(year, month - 1, day); // Convertimos a un objeto Date
+        }
+
+        // Buscar la fila que corresponda al próximo domingo
+        let found = false;
+        rows.forEach(row => {
+            const dateCell = row.querySelector('td'); // La primera celda contiene la fecha
+            const rowDateText = dateCell.innerText.trim();
+            
+            // Parsear la fecha desde la celda
+            const rowDate = parseDate(rowDateText);
+
+            // Comprobamos si la fecha se ha parseado correctamente
+            if (!isNaN(rowDate.getTime())) {
+                // Comparamos si la fecha corresponde al próximo domingo
+                if (rowDate.getFullYear() === nextSunday.getFullYear() &&
+                    rowDate.getMonth() === nextSunday.getMonth() &&
+                    rowDate.getDate() === nextSunday.getDate()) {
+                    found = true;
+                    const cells = row.querySelectorAll('td');
+                    const tbody = document.querySelector('#resultTable tbody');
+                    const newRow = document.createElement('tr');
+                    cells.forEach(cell => {
+                        const newCell = document.createElement('td');
+                        newCell.innerText = cell.innerText.trim();
+                        newRow.appendChild(newCell);
+                    });
+                    tbody.appendChild(newRow);
+                }
+            }
+        });
+
+        // Si no se encontró una fila con la fecha del próximo domingo, mostrar la primera fila de datos
+        if (!found && rows.length > 0) {
+            const firstRow = rows[0];
+            const cells = firstRow.querySelectorAll('td');
+            const tbody = document.querySelector('#resultTable tbody');
+            const newRow = document.createElement('tr');
+            cells.forEach(cell => {
+                const newCell = document.createElement('td');
+                newCell.innerText = cell.innerText.trim();
+                newRow.appendChild(newCell);
+            });
+            tbody.appendChild(newRow);
+        }
+    }
+
+    // Llamar a la función para obtener los datos al cargar la página
+
+    const resultTableHTML = document.getElementById('resultTable').outerHTML;
+    localStorage.setItem('confeTableHTML', resultTableHTML);
+    
+    fetchData();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtener Datos de Google Sheets</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<table id="resultTable">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Idioma</th>
+            <th>Congregacion</th>
+            <th>Bosquejo</th>
+            <th>Telefono</th>
+            <th>Titulo Español</th>
+            <th>Titulo Chino</th>
+            <th>Titulo Pinyin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Aquí se mostrarán los datos -->
+    </tbody>
+</table>
+
+<script>
+    async function fetchData() {
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTHYnzxtllhxt9-CuCrSVYGGi2Uht0f-n6CwdmpWn64EJ2xx-wtK63vFfm6t1KNpDqcsekhsDtTilYI/pubhtml?gid=91131297&single=true';
+        
+        // Realizar la solicitud para obtener la página HTML
+        const response = await fetch(url);
+        const html = await response.text();
+
+        // Crear un parser para convertir el HTML en un documento DOM
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        // Obtener todas las filas de la tabla (sin contar los encabezados)
+        const rows = doc.querySelectorAll('table tbody tr');
+
+        // Crear un array para almacenar los datos de la tabla
+        const tableData = [];
+
+        // Recorrer las filas y extraer los datos
+        rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            const rowData = [];
+            cells.forEach(cell => {
+                rowData.push(cell.innerText.trim());
+            });
+            tableData.push(rowData);
+        });
+
+        // Convertir los datos a un formato de constantes en JavaScript
+        const jsContent = `// Este archivo se genera automáticamente
+const TABLE_DATA = ${JSON.stringify(tableData, null, 2)};`;
+
+        // Crear un archivo JavaScript con los datos
+        const blob = new Blob([jsContent], { type: 'application/javascript' });
+        const urlBlob = URL.createObjectURL(blob);
+
+        // Crear un enlace para descargar el archivo
+        const a = document.createElement('a');
+        a.href = urlBlob;
+        a.download = 'tableData.js';
+        a.textContent = 'Descargar archivo con constantes';
+        document.body.appendChild(a);
+
+        console.log('Archivo tableData.js generado exitosamente.');
+    }
+
+    // Llamar a la función para obtener los datos al cargar la página
+    fetchData();
+</script>
+
+</body>
+</html>

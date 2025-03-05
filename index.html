@@ -21,7 +21,7 @@
 </script>
 
 </head>
-<body>
+<body onload="fetchData()">
       
     <div class="contenido-centrado">
         <section id="salidasministerio">
@@ -132,8 +132,108 @@
 
         <section id="discurso-domingo">
             <h2>Discurso Publico</h2>
-            <h3>-Asamblea Circuito Español-</h3>
 
+            <table id="resultTable" align="center">
+                <thead>
+                    <tr>
+                        <th>Fecha</th> <!-- Columna 1 -->
+                        <th>Nombre</th> <!-- Columna 2 -->
+                        <th>Titulo Español</th> <!-- Columna 7 -->
+                        <th>Titulo Chino</th> <!-- Columna 8 -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se mostrarán los datos -->
+                </tbody>
+            </table>
+            
+            <script>
+                async function fetchData() {
+                    const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTHYnzxtllhxt9-CuCrSVYGGi2Uht0f-n6CwdmpWn64EJ2xx-wtK63vFfm6t1KNpDqcsekhsDtTilYI/pubhtml?gid=91131297&single=true';
+                    
+                    // Realizar la solicitud para obtener la página HTML
+                    const response = await fetch(url);
+                    const html = await response.text();
+            
+                    // Crear un parser para convertir el HTML en un documento DOM
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+            
+                    // Obtener todas las filas de la tabla (sin contar los encabezados)
+                    const rows = doc.querySelectorAll('table tbody tr');
+            
+                    // Fecha objetivo (próximo domingo)
+                    const today = new Date();
+                    const dayOfWeek = today.getDay(); // 0 (domingo) a 6 (sábado)
+                    const daysUntilNextSunday = dayOfWeek === 0 ? 0 : 7 - dayOfWeek;
+                    const nextSunday = new Date(today);
+                    nextSunday.setDate(today.getDate() + daysUntilNextSunday);
+            
+                    // Función para parsear la fecha en formato dd/mm/yyyy
+                    function parseDate(dateStr) {
+                        const [day, month, year] = dateStr.split('/').map(num => parseInt(num, 10));
+                        return new Date(year, month - 1, day); // Convertimos a un objeto Date
+                    }
+            
+                    // Limpiar el contenido del tbody antes de agregar nuevas filas
+                    const tbody = document.querySelector('#resultTable tbody');
+                    tbody.innerHTML = ''; // Limpiar el contenido existente
+            
+                    // Buscar la fila que corresponda al próximo domingo
+                    let found = false;
+                    rows.forEach(row => {
+                        const cells = row.querySelectorAll('td'); // Obtener todas las celdas de la fila
+                        const dateCell = cells[0]; // Columna 1: Fecha
+                        const rowDateText = dateCell.innerText.trim();
+                        
+                        // Parsear la fecha desde la celda
+                        const rowDate = parseDate(rowDateText);
+            
+                        // Comprobamos si la fecha se ha parseado correctamente
+                        if (!isNaN(rowDate.getTime())) {
+                            // Comparamos si la fecha corresponde al próximo domingo
+                            if (rowDate.getFullYear() === nextSunday.getFullYear() &&
+                                rowDate.getMonth() === nextSunday.getMonth() &&
+                                rowDate.getDate() === nextSunday.getDate()) {
+                                found = true;
+            
+                                // Crear una nueva fila con solo las columnas 1, 2, 7 y 8
+                                const newRow = document.createElement('tr');
+                                const columnsToShow = [0, 1, 6, 7]; // Índices de las columnas 1, 2, 7 y 8
+            
+                                columnsToShow.forEach(index => {
+                                    const newCell = document.createElement('td');
+                                    newCell.innerText = cells[index].innerText.trim();
+                                    newRow.appendChild(newCell);
+                                });
+            
+                                tbody.appendChild(newRow);
+                            }
+                        }
+                    });
+            
+                    // Si no se encontró una fila con la fecha del próximo domingo, mostrar la primera fila de datos
+                    if (!found && rows.length > 0) {
+                        const firstRow = rows[0];
+                        const cells = firstRow.querySelectorAll('td');
+                        const newRow = document.createElement('tr');
+                        const columnsToShow = [0, 1, 6, 7]; // Índices de las columnas 1, 2, 7 y 8
+            
+                        columnsToShow.forEach(index => {
+                            const newCell = document.createElement('td');
+                            newCell.innerText = cells[index].innerText.trim();
+                            newRow.appendChild(newCell);
+                        });
+            
+                        tbody.appendChild(newRow);
+                    }
+                }
+            
+                // Llamar a la función para obtener los datos al cargar la página
+                fetchData();
+            </script>
+
+        <div id="comentarios">
             <!-- <div id="contenidoDiscurso">
 
             </div>
@@ -191,6 +291,8 @@
                         "El enlace no está disponible. Actualícelo desde la página preparada.";
                 }
             </script> fin firebase -->
+            </div>
+        </section>  
 
 
         <section id="salidas_sj">
@@ -264,7 +366,7 @@
         const whatsappURL = `https://wa.me/?text=${whatsappMessage}`;
         window.open(whatsappURL, '_blank');
     }
-</script>
+    </script>
 
     <section id="anuncios-mensajes-importantes">
         <div class="marquesina">

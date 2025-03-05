@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Datos de confe.html</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenido-confe">
+        <!-- Aquí se mostrará la tabla de confe.html -->
+    </div>
+
+    <script>
+        // Obtener el HTML almacenado en localStorage
+        const confeHTML = localStorage.getItem('confeTableHTML');
+
+        if (confeHTML) {
+            // Mostrar el HTML directamente
+            document.getElementById('contenido-confe').innerHTML = confeHTML;
+        } else {
+            // Si no hay datos, mostrar un mensaje
+            document.getElementById('contenido-confe').innerHTML = 
+                '<p>No hay datos disponibles. Abre primero confe.html</p>';
+        }
+    </script>
+</body>
+</html>
