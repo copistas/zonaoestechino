@@ -1,3 +1,74 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-width: 1024px;
+    overflow-x: scroll;
+}
+
+.contenido-centrado {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos para el menú */
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul li {
+    margin: 5px 0;
+}
+
+#menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+#menu ul li a:hover {
+    background-color: #ddd;
+}
+
+/* Ocultar el menú inicialmente en dispositivos móviles */
+@media (max-width: 768px) {
+    #menu ul {
+        display: none; /* Oculta la lista por defecto */
+    }
+    #menu ul.mostrar {
+        display: block; /* Muestra la lista cuando tiene la clase "mostrar" */
+    }
+    #menu ul li:first-child {
+        display: block; /* Siempre muestra el primer elemento (Menú) */
+    }
+}
+
+/* Estilos para .movil y .pc */
+.movil {
+    background-color: #ffcccc; /* Fondo rojo claro para móvil */
+    color: #cc0000; /* Texto rojo oscuro */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.pc {
+    background-color: #ccffcc; /* Fondo verde claro para PC */
+    color: #006600; /* Texto verde oscuro */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Estilos para tablas */
 .th, td {
     border: 1px solid black;
     background-color: white;
@@ -5,125 +76,45 @@
     width: auto;
     text-align: center;
     vertical-align: top;
- /*   overflow: hidden; */
- box-sizing: border-box;     /* Asegura que el borde y el padding no afecten el ancho total */
+    box-sizing: border-box;
 }
 
 .tabla-612 td {
-    border: none;               /* Elimina los bordes de las celdas */
-    padding: 0;                 /* Elimina el espaciado interno de las celdas */
-    text-align: center;         /* Asegura que el contenido esté centrado */
-    box-sizing: border-box;     /* Asegura que el ancho incluya cualquier padding o borde */
+    border: none;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
 }
-
 
 .table {
-    margin-bottom: 20px;         /* Espacio entre las tablas */
-    table-layout: auto;          /* Ajusta las columnas según el contenido */
-    width: 100%;                 /* La tabla ocupa todo el ancho disponible */
-    border-collapse: collapse;  /* Elimina el espacio entre celdas */
+    margin-bottom: 20px;
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
 }
 
-/* Estilo de las celdas dentro de la tabla */
 .table td, .table th {
-    padding: 10px;               /* Espaciado interno de las celdas */
-    text-align: center;          /* Centra el contenido de las celdas */
-    border: 1px solid #ddd;      /* Borde sutil para las celdas */
-    box-sizing: border-box;      /* Asegura que el padding y el borde estén dentro del tamaño total */
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
 }
 
-    .strikethrough {
-        /*text-decoration: line-through; /* Tachado del contenido */
-        color: gray;
-    }
-/* Estilos para la capa flotante */
-.overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        visibility: hidden;
-    }
-
-    .popup {
-        position: relative;
-        width: 80%;
-        max-width: 100%;
-        background-color: white;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background-color: red;
-        color: white;
-        font-size: 18px;
-        border: none;
-        cursor: pointer;
-        padding: 5px;
-        border-radius: 50%;
-    }
-
-    .iframe-content {
-        width: 100%;
-        height: 600px;
-        border: none;
-    }
-
-.marquesina {
-    background-color: #4a90e2;  /* Color de fondo azul */
-    color: #ffffff;             /* Color de texto blanco */
-    padding: 10px;              /* Espacio alrededor del texto */
-    text-align: center;         /* Centrar el texto */
-    font-weight: bold;          /* Texto en negrita */
-    border-radius: 5px;         /* Bordes redondeados */
-}
-
-
-
-/*inserto a mano para resaltar fecha de salida */
-.highlight-today {
-    color: red;
-    font-weight: bold;
-}
-
-
-/* mi invento imagenes zoom y youtube */
+/* Estilos para imágenes */
 .imagen2 {
-    display: block;             /* Asegura que la imagen se comporte como un bloque */
+    display: block;
     border: 0px;
-    width: 100%;        /* La imagen ocupará el 100% del ancho de la celda */
-    height: auto;       /* Mantiene la proporción de la imagen */
-    /* max-width: 100%;     Evita que la imagen sea más grande que la celda */
+    width: 100%;
+    height: auto;
 }
 
-
-/* Ajuste para que las imágenes ocupen el ancho proporcional de las celdas */
 .imagen {
-    width: 100%;        /* La imagen ocupará el 100% del ancho de la celda */
-    height: auto;       /* Mantiene la proporción de la imagen */
-    max-width: 100%;    /* Evita que la imagen sea más grande que la celda */
-}
-/* Estilos generales */
-body {
-    text-align: center;  
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    /* display: flex; */
-    justify-content: center;  /* Centra el contenido en pantallas grandes */
+    width: 100%;
+    height: auto;
+    max-width: 100%;
 }
 
-/* Contenedor principal de 612px */
+/* Estilos para contenedores */
 .contenedor {
     max-width: 612px;
     width: 100%;
@@ -131,10 +122,9 @@ body {
     padding: 10px;
     background-color: #f0f0f0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: block; /* Cambiar de flex a block */
+    display: block;
 }
 
-/* Contenedor reufinde de 712px */
 .contenedor-reufinde {
     max-width: 712px;
     width: 100%;
@@ -142,115 +132,20 @@ body {
     padding: 10px;
     background-color: #f0f0f0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: block; /* Cambiar de flex a block */
+    display: block;
 }
 
-
-/* Contenedor de imagen */
-.contenedor-imagen {
-    width: 100%;                /* Asegura que el contenedor de la imagen ocupe todo el ancho disponible */
-    text-align: center;         /* Centra la imagen */
-    background-color: #2e2e2e;  /* Fondo oscuro para resaltar la imagen */
-    padding: 20px;              /* Agrega relleno alrededor de la imagen */
-}
-
-/* Asegura que la imagen esté bien ajustada */
-.contenedor-imagen img {
-    max-width: 100%;            /* La imagen ocupará el 100% del ancho disponible dentro de su contenedor */
-    height: auto;               /* Mantiene la proporción de la imagen */
-}
-
-nav ul li {
-    list-style-type: none; /* Elimina el punto de lista */
-    margin-bottom: 10px;    /* Agrega espacio entre cada enlace */
-}
-
-nav ul li a {
-    display: block;         /* Hace que cada enlace ocupe una línea completa */
-    padding: 8px;           /* Añade espacio alrededor del texto */
-    background-color: #f0f0f0; /* Fondo claro */
-    color: #333;            /* Color del texto */
-    text-decoration: none;  /* Elimina el subrayado */
-}
-
-nav ul li a:hover {
-    background-color: #e0e0e0; /* Cambia el fondo al pasar el mouse */
-}
-nav {
-    display: flex;
-    justify-content: center;  /* Centra la barra de navegación en la pantalla */
-    padding: 10px;
-}
-
-nav ul {
-    max-width: 100%; /* estaba en 400px Ajusta el ancho de la barra de navegación */
+.contenedor-acom {
+    max-width: 400px;
     width: 100%;
-    padding: 0;
-    margin: 0;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
 }
 
-/* Estilo para tablas dentro de .table-responsive */
-.table-responsive table {
-    border-collapse: collapse; /* Elimina bordes duplicados */
-    margin: 20px 0; /* Espaciado superior e inferior */
-    font-size: 16px; /* Ajuste del tamaño del texto */
-}
-
-/* Estilo específico para encabezados de tabla */
-.table-responsive th {
-    background-color: #f4f4f4; /* Fondo gris claro */
-    font-weight: bold; /* Negrita */
-    color: #333; /* Texto oscuro */
-}
-
-#anuncios-mensajes-importantes p {
-    font-family: Arial, sans-serif; /* Cambia la fuente */
-    font-size: 16px;               /* Tamaño del texto */
-    line-height: 1.5;              /* Espaciado entre líneas */
-    color: #333;                   /* Color del texto */
-    background-color: #f9f9f9;     /* Fondo claro */
-    padding: 10px;                 /* Espacio alrededor del texto */
-    border: 1px solid #ddd;        /* Borde gris claro */
-    border-radius: 5px;            /* Bordes redondeados */
-    margin-bottom: 10px;           /* Espacio entre párrafos */
-}
-
-/* Centrar el contenido de #acomodadores */
-#acomodadores {
-    text-align: center; /* Centra el texto */
-    margin: 20px auto;  /* Agrega espacio alrededor */
-}
-
-/* Aumentar el tamaño del encabezado en un 20% */
-#acomodadores h2 {
-    font-size: 120%; /* Incrementa el tamaño en un 20% */
-    margin-bottom: 20px; /* Espacio debajo del encabezado */
-    font-family: Arial, sans-serif; /* Fuente más estilizada */
-}
-
-/* Estilo para el contenedor del iframe */
-.iframe-container {
-    display: flex; /* Flexbox para centrar */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    width: 100%; /* Ocupa el ancho completo */
-    height: auto; /* Ajusta la altura automáticamente */
-    margin: 20px 0; /* Espacio entre elementos */
-}
-
-/* Tamaño y bordes del iframe */
-.iframe-container iframe {
-    width: 80%; /* Reduce el ancho al 80% */
-    height: 720px; /* Aumenta la altura un 20% */
-    border: none; /* Quita el borde */
-    border-radius: 10px; /* Bordes redondeados (opcional) */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un diseño elegante */
-}
-.strikethrough {
-    /*text-decoration: line-through; /* Tachado */
-    color: grey; /* Color atenuado */
-}
-/* Estilo para la barra deslizable */
+/* Estilos para la barra deslizable */
 #version-toggle {
     position: fixed;
     bottom: 0;
@@ -261,13 +156,6 @@ nav ul {
     justify-content: space-between;
     padding: 10px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.toggle-bar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .toggle-btn {
@@ -288,49 +176,112 @@ nav ul {
     background-color: #357ab7;
 }
 
-html.mobile {
-    /* Ajustes de estilo para la versión móvil */
-    font-size: 14px;
-}
-
-html.desktop {
-    /* Ajustes de estilo para la versión de escritorio */
-    font-size: 16px;
-}
-
-/* esto va al final del archivo para forzar la vista a desktop */
-body {
-    min-width: 1024px;
-    overflow-x: scroll;
-}
-
-#tablaSalidas {
-    width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
-    border-collapse: collapse; /* Hace que los bordes se unan */
-
-}
-
-
-#tablaSalidas th, td {
-    padding: 8px; /* Añade espacio entre el texto y los bordes de las celdas */
-    border: 1px solid #ccc; /* Añade bordes ligeros a las celdas */
-    text-align: center; /* Centra el contenido en las celdas */
-    word-wrap: break-word; /* Asegura que el texto largo se ajuste correctamente */
-}
-
-#tablaSalidas th {
-    background-color: #f2f2f2; /* Fondo claro para las cabeceras */
-    font-weight: bold;
-}
-
-
-/* Estilo para el número inicial (negrita y tamaño más grande) */
+/* Estilos para el número destacado */
 .numero-destacado {
     font-weight: bold;
     font-size: calc(100% + 2pt);
 }
 
-/* Estilo para el día actual (color rojo) */
+/* Estilos para el día actual */
 .dia-actual {
     color: red;
 }
+
+/* Estilos para la tabla de acomodadores */
+.tableAcomodadores {
+    margin-bottom: 20px;
+    table-layout: auto;
+    width: 350px;
+    border-collapse: collapse;
+}
+
+#acomodadores .tableAcomodadores {
+    width: 50%;
+}
+
+/* desde acá es para el menu desplegable */
+
+
+header {
+    background-color: #333;
+    padding: 10px 20px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Estilos del menú principal */
+  .nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-menu li {
+    position: relative;
+  }
+  
+  .nav-menu li a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Estilos del menú desplegable */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    z-index: 1;
+  }
+  
+  .dropdown-content li a {
+    padding: 10px;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Estilos para dispositivos móviles */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+  
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .nav-menu.active {
+      display: flex;
+    }
+  
+    .dropdown-content {
+      position: static;
+    }
+  }

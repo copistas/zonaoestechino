@@ -291,3 +291,54 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("No se encontró la tabla con ID 'tablaAcomodadores'.");
     }
 });
+
+
+// Función para mostrar/ocultar el menú
+function toggleMenu() {
+  const ul = document.querySelector("#menu ul");
+  ul.classList.toggle("mostrar"); // Alterna la clase "mostrar"
+}
+
+// Asignar el evento de clic al primer elemento del menú
+document.addEventListener("DOMContentLoaded", function () {
+  const menuLink = document.querySelector("#menu ul li:first-child a");
+  menuLink.addEventListener("click", function (event) {
+    event.preventDefault(); // Evita que el enlace recargue la página
+    toggleMenu(); // Muestra/oculta el menú
+  });
+});
+
+// Función para mostrar/ocultar el menú
+function toggleMenu() {
+    const ul = document.querySelector("#menu ul");
+    ul.classList.toggle("mostrar"); // Alterna la clase "mostrar"
+  }
+  
+  // Asignar el evento de clic al primer elemento del menú
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuLink = document.querySelector("#menu ul li:first-child a");
+    if (menuLink) { // Verifica si el enlace "Menú" existe
+      menuLink.addEventListener("click", function (event) {
+        event.preventDefault(); // Evita que el enlace recargue la página
+        toggleMenu(); // Muestra/oculta el menú
+      });
+    }
+  });
+
+  // esto se agrega despues de incorporar el menú desplegable
+ // Mostrar/ocultar menú en dispositivos móviles
+const mobileMenu = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('.nav-menu');
+
+mobileMenu.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+// Cerrar el menú al hacer clic en un enlace (opcional)
+const navLinks = document.querySelectorAll('.nav-menu li a');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+  });
+});

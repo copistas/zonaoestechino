@@ -1,32 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- semana del 28 10 2024 crear enlace en cada celda y/o linkear con territorios -->
-
-    <meta charset="UTF-8">
-   <!--   <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+      <meta charset="UTF-8">
     <title>Tablero Grupo Chino San Justo</title>
     <link rel="stylesheet" href="estilos.css"> 
-    <script src="script.js" defer>
-
-/*   script para abrir en enlace vym español en una pestaña nueva */
-    
-    </script>
-<!---  script para abrir en enlace vym español en una pestaña nueva */ -->
-
-<script>
-    if (screen.width < 1024) {
-        document.write('<meta name="viewport" content="width=1024">');
-    }
-</script>
-
+    <script src="script.js" defer></script>
 </head>
-<body onload="fetchData()">
-      
+<body>
+    <!---
     <div class="contenido-centrado">
-        <section id="salidasministerio">
+        <section id="menu">
             <nav>
                 <ul>
+                    <li><a href="#menu">Menu</a></li>
                     <li><a href="#salidas-ministerio">Salidas al ministerio</a></li>
                     <li><a href="#reunion-fin-semana">Reunión de fin de semana</a></li>
                     <li><a href="#tesoros-seamos-mejores">Tesoros y Seamos Mejores Maestros (Ch)</a></li>
@@ -40,8 +26,113 @@
                 </ul>
             </nav>
         </section>
-
     </div>
+    --->
+
+    <header>
+        <nav>
+          <!-- Botón para móviles -->
+          <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <!-- Menú principal -->
+          <ul class="nav-menu">
+            <li class="dropdown">
+              <a href="#" class="dropbtn">Menu <span class="arrow">▼</span></a>
+              <ul class="dropdown-content">
+                <li><a href="#salidas-ministerio">Salidas al ministerio</a></li>
+                <li><a href="#reunion-fin-semana">Reunión de fin de semana</a></li>
+                <li><a href="#tesoros-seamos-mejores">Tesoros y Seamos Mejores Maestros (Ch)</a></li>
+                <li><a href="#discurso-domingo">Discurso Domingo</a></li>
+                <li><a href="#limpieza">Arreglo de Limpieza</a></li>
+                <li><a href="#salidas_sj">Salidas en Español</a></li>
+                <li><a href="#reunion vida y ministerio SJ">Reunión entre semana español</a></li>
+                <li><a href="#anuncios-mensajes-importantes">Anuncios y mensajes importantes</a></li>
+                <li><a href="#acomodadores">Programa Acomodadores Este San Justo</a></li>
+                <li><a href="#novedades">Novedades en el Sitio Web</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+    </script>
+
+    <script>
+
+        // Función para detectar si es un dispositivo móvil
+        function esDispositivoMovil() {
+            // Verifica el ancho de la pantalla
+            const esPantallaPequena = window.innerWidth <= 768;
+
+            // Verifica el User Agent
+            const userAgent = navigator.userAgent.toLowerCase();
+            const esUserAgentMovil = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+
+            // Retorna true si es un dispositivo móvil
+            return esPantallaPequena || esUserAgentMovil;
+        }
+
+        // Función que se ejecuta al cargar la página
+        function detectarDispositivo() {
+        const mensaje = document.getElementById("mensaje");
+
+        if (mensaje) { // Verifica si el elemento existe
+            if (esDispositivoMovil()) {
+                mensaje.textContent = "Estás usando un dispositivo Móvil.";
+                mensaje.classList.add("movil"); // Aplica estilo para móvil
+            } else {
+                mensaje.textContent = "Estás usando una versión de PC.";
+                mensaje.classList.add("pc"); // Aplica estilo para PC
+            }
+        }
+    }
+
+    // Ejecutar la función al cargar la página
+    window.onload = detectarDispositivo;
+    </script>
+
+<img src="Texto 2025.jpg" alt="Texto del año" width="100%" height="100%">
+
 
     <div class="contenido-centrado">
         <a href="#discurso-domingo"><img src="youtube.png"></a>
@@ -121,14 +212,15 @@
             </div>
         </section>
         
-        <script>
+ <!--borrar
+ <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const textoGuardado = localStorage.getItem("discursoDomingo");
                 if (textoGuardado) {
                     document.getElementById("contenidoDiscurso").innerText = textoGuardado;
                 }
             });
-        </script>
+        </script>-->
 
         <section id="discurso-domingo">
             <h2>Discurso Publico</h2>
@@ -376,27 +468,26 @@
    </section>
 
 
-<div>
-    <section id="acomodadores">
-        <h2> Programa de acomodadores</h2>
-        <div class="contenedor">
-            <div class="table-responsive">
-                <table id="tablaAcomodadores">
-                    <thead>
-                        <tr> 
-                            <th>ACOMODADORES</th>
-                            <th>ASIGNADOS</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <!-- Filas generadas dinámicamente acá desde https://docs.google.com/spreadsheets/d/1vtffzzrTnpc6Vb46WSXL96fglEetcDyKx8wrlp4XICg/edit?gid=0#gid=0 -->        
-                    </tbody>   
-                </table>
+    <div>
+        <section  id="acomodadores">
+            <h2> Programa de acomodadores</h2>
+            <div class="contenedor-acom" align="center">
+                <div class="table-responsive">
+                    <table id="tablaAcomodadores">
+                        <thead>
+                            <tr text-type="bold"> 
+                                <th>ACOMODADORES</th>
+                                <th>ASIGNADOS</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Filas generadas dinámicamente acá desde https://docs.google.com/spreadsheets/d/1vtffzzrTnpc6Vb46WSXL96fglEetcDyKx8wrlp4XICg/edit?gid=0#gid=0 -->        
+                        </tbody>   
+                    </table>
+                </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 
     <div class="contenedor">    
         <section id="novedades">
@@ -435,6 +526,41 @@
     <button id="mobile-version" style="display:none;">Versión Móvil</button>
     <button id="desktop-version">Versión Escritorio</button>
 </div>
+
+          <!-- Agrega este div para mostrar el mensaje -->
+    <div id="mensaje"></div>
+    <script>
+        // Función para detectar si es un dispositivo móvil
+        function esDispositivoMovil() {
+            // Verifica el ancho de la pantalla
+            const esPantallaPequena = window.innerWidth <= 768;
+
+            // Verifica el User Agent
+            const userAgent = navigator.userAgent.toLowerCase();
+            const esUserAgentMovil = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+
+            // Retorna true si es un dispositivo móvil
+            return esPantallaPequena || esUserAgentMovil;
+        }
+
+        // Función que se ejecuta al cargar la página
+        function detectarDispositivo() {
+            const mensaje = document.getElementById("mensaje");
+
+            if (mensaje) { // Verifica si el elemento existe
+                if (esDispositivoMovil()) {
+                    mensaje.textContent = "Estás usando un dispositivo Móvil.";
+                    mensaje.classList.add("movil"); // Aplica estilo para móvil
+                } else {
+                    mensaje.textContent = "Estás usando una versión de PC.";
+                    mensaje.classList.add("pc"); // Aplica estilo para PC
+                }
+            }
+        }
+
+        // Ejecutar la función al cargar la página
+        window.onload = detectarDispositivo;
+    </script>
 
 </body>
 </html>
