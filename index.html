@@ -7,28 +7,6 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!---
-    <div class="contenido-centrado">
-        <section id="menu">
-            <nav>
-                <ul>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#salidas-ministerio">Salidas al ministerio</a></li>
-                    <li><a href="#reunion-fin-semana">Reunión de fin de semana</a></li>
-                    <li><a href="#tesoros-seamos-mejores">Tesoros y Seamos Mejores Maestros (Ch)</a></li>
-                    <li><a href="#discurso-domingo">Discurso Domingo</a></li>
-                    <li><a href="#limpieza">Arreglo de Limpieza</a></li>
-                    <li><a href="#salidas_sj">Salidas en Español</a></li>
-                    <li><a href="#reunion vida y ministerio SJ">Reunión entre semana español</a></li>
-                    <li><a href="#anuncios-mensajes-importantes">Anuncios y mensajes importantes</a></li>
-                    <li><a href="#acomodadores">Programa Acomodadores Este San Justo</a></li>
-                    <li><a href="#novedades">Novedades en el Sitio Web</a></li>
-                </ul>
-            </nav>
-        </section>
-    </div>
-    --->
-
     <header>
         <nav>
           <!-- Botón para móviles -->
@@ -554,9 +532,14 @@
                 } else {
                     mensaje.textContent = "Estás usando una versión de PC.";
                     mensaje.classList.add("pc"); // Aplica estilo para PC
-                }
+            
+            // Agregar clase "active" al menú en PC
+            if (navMenu) {
+                navMenu.classList.add("active");
             }
         }
+    }
+}
 
         // Ejecutar la función al cargar la página
         window.onload = detectarDispositivo;

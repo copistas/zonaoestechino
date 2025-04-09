@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("El DOM ha sido cargado completamente.");
 
     // 1. Cargar y procesar la tabla de salidas
-    const csvURLSalidas = 'salidasdelmes032025.csv';
+    const csvURLSalidas = 'salidasdelmes4.csv';
     console.log("Intentando cargar el archivo CSV de salidas desde:", csvURLSalidas);
 
     function procesarCeldasSalidas(tabla) {
@@ -301,12 +301,17 @@ function toggleMenu() {
 
 // Asignar el evento de clic al primer elemento del menú
 document.addEventListener("DOMContentLoaded", function () {
-  const menuLink = document.querySelector("#menu ul li:first-child a");
-  menuLink.addEventListener("click", function (event) {
-    event.preventDefault(); // Evita que el enlace recargue la página
-    toggleMenu(); // Muestra/oculta el menú
+    const menuLink = document.querySelector(".nav-menu li:first-child a");
+  
+    if (menuLink) {  // Verifica si el elemento existe
+      menuLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        toggleMenu();
+      });
+    } else {
+      console.error("El elemento del menú no fue encontrado");
+    }
   });
-});
 
 // Función para mostrar/ocultar el menú
 function toggleMenu() {

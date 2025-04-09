@@ -218,7 +218,8 @@ header {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
+    /* cambio flex por none */
+    display: none;
   }
   
   .nav-menu li {
@@ -230,6 +231,7 @@ header {
     padding: 10px 20px;
     text-decoration: none;
     display: block;
+    font-size: 28px;
   }
   
   /* Estilos del menú desplegable */
@@ -245,6 +247,7 @@ header {
   
   .dropdown-content li a {
     padding: 10px;
+    font-size: 28px;
   }
   
   .dropdown:hover .dropdown-content {
@@ -274,7 +277,7 @@ header {
     .nav-menu {
       display: none;
       flex-direction: column;
-      width: 100%;
+      width: 90%;
     }
   
     .nav-menu.active {
@@ -285,3 +288,9 @@ header {
       position: static;
     }
   }
+
+  @media (max-width: 768px) {
+    .dropdown-content a {
+        font-size: 100px;
+    }
+}
