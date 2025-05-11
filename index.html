@@ -5,36 +5,73 @@
     <title>Tablero Grupo Chino San Justo</title>
     <link rel="stylesheet" href="estilos.css"> 
     <script src="script.js" defer></script>
+      <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .contenedor-general {
+            width: 100%;
+            max-width: 1028px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .imagen-zoom-youtube {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .imagen-zoom-youtube img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-          <!-- Botón para móviles -->
-          <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-          <!-- Menú principal -->
-          <ul class="nav-menu">
+<header>
+    <!-- Botón de Menú Inicial -->
+    <div id="menu-inicial">
+        <div class="linea"></div>
+        <div class="linea"></div>
+        <div class="linea"></div>
+    </div>
+
+    <!-- Menú principal -->
+    <nav>
+        <ul class="nav-menu">
             <li class="dropdown">
-              <a href="#" class="dropbtn">Menu <span class="arrow">▼</span></a>
-              <ul class="dropdown-content">
-                <li><a href="#salidas-ministerio">Salidas al ministerio</a></li>
-                <li><a href="#reunion-fin-semana">Reunión de fin de semana</a></li>
-                <li><a href="#tesoros-seamos-mejores">Tesoros y Seamos Mejores Maestros (Ch)</a></li>
-                <li><a href="#discurso-domingo">Discurso Domingo</a></li>
-                <li><a href="#limpieza">Arreglo de Limpieza</a></li>
-                <li><a href="#salidas_sj">Salidas en Español</a></li>
-                <li><a href="#reunion vida y ministerio SJ">Reunión entre semana español</a></li>
-                <li><a href="#anuncios-mensajes-importantes">Anuncios y mensajes importantes</a></li>
-                <li><a href="#acomodadores">Programa Acomodadores Este San Justo</a></li>
-                <li><a href="#novedades">Novedades en el Sitio Web</a></li>
-              </ul>
+                <a href="#" class="dropbtn">Menú Inicial <span class="arrow">▼</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="#salidas-ministerio">Salidas al ministerio</a></li>
+                    <li><a href="#reunion-fin-semana">Reunión de fin de semana</a></li>
+                    <li><a href="#tesoros-seamos-mejores">Tesoros y Seamos Mejores Maestros (Ch)</a></li>
+                    <li><a href="#discurso-domingo">Discurso Domingo</a></li>
+                    <li><a href="#limpieza">Arreglo de Limpieza</a></li>
+                    <li><a href="#salidas_sj">Salidas en Español</a></li>
+                    <li><a href="#reunion-vida-y-ministerio-sj">Reunión entre semana español</a></li>
+                    <li><a href="#anuncios-mensajes-importantes">Anuncios y mensajes importantes</a></li>
+                    <li><a href="#acomodadores">Programa Acomodadores Este San Justo</a></li>
+                    <li><a href="#novedades">Novedades en el Sitio Web</a></li>
+                </ul>
             </li>
-          </ul>
-        </nav>
-      </header>
+        </ul>
+    </nav>
+</header>
+
+        <center>
+            <img src="Texto 2025.jpg" alt="Texto del año" style="max-width: 100%; height: auto; max-width: 1028px;">
+        </center>
+
+        <div class="imagen-zoom-youtube">
+            <a href="#discurso-domingo"><img src="youtube.png" alt="YouTube"></a>
+            <a href="https://us02web.zoom.us/j/85723916731?pwd=waF77XpgVDcxSHEqWiTub34xWswrSM.1"><img src="zoom.png" alt="Zoom"></a>
+        </div>
 
 <!-- Code injected by live-server -->
 <script>
@@ -109,13 +146,7 @@
     window.onload = detectarDispositivo;
     </script>
 
-<img src="Texto 2025.jpg" alt="Texto del año" width="100%" height="100%">
 
-
-    <div class="contenido-centrado">
-        <a href="#discurso-domingo"><img src="youtube.png"></a>
-        <br><a href="https://us02web.zoom.us/j/85723916731?pwd=waF77XpgVDcxSHEqWiTub34xWswrSM.1"><img src="zoom.png"></a>
-    </div>
 
     <div class = "contenido-centrado">
         <section id="salidas-ministerio" align="center">
@@ -440,7 +471,7 @@
 
     <section id="anuncios-mensajes-importantes">
         <div class="marquesina">
-            <h2></h2>
+            <h2>15/6/2025: Asamblea de Circuito Chino</h2>
         </div>
         <p></p>
    </section>

@@ -1,168 +1,144 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("El DOM ha sido cargado completamente.");
-
-    // 1. Cargar y procesar la tabla de salidas
-    const csvURLSalidas = 'salidasdelmes5.csv';
-    console.log("Intentando cargar el archivo CSV de salidas desde:", csvURLSalidas);
-
-    function procesarCeldasSalidas(tabla) {
-        const filas = tabla.querySelectorAll("tbody tr");
-        const today = new Date(); // Obtener la fecha actual
-        const currentDay = today.getDate(); // Obtener el día actual del mes
-
-        filas.forEach((fila, filaIndex) => {
-            const celdas = fila.querySelectorAll("td");
-
-            celdas.forEach((celda, celdaIndex) => {
-                const contenido = celda.textContent.trim();
-
-                // Verificar si la celda contiene un número seguido de un guion
-                if (/^\d+\s*-/.test(contenido)) {
-                    // Extraer el número inicial
-                    const numeroInicial = contenido.match(/^\d+/)[0];
-
-                    // Extraer el resto del contenido después del guion
-                    const restoContenido = contenido.replace(/^\d+\s*-\s*/, "");
-
-                    // Asignar un ID único al número
-                    const idUnico = `fila-${filaIndex}-celda-${celdaIndex}`;
-                    celda.setAttribute("data-id", idUnico);
-
-                    // Verificar si el número inicial es el día actual
-                    const esDiaActual = parseInt(numeroInicial, 10) === currentDay;
-
-                    // Crear el contenido final con las clases CSS
-                    const contenidoFinal = `
-                        <span class="numero-destacado ${esDiaActual ? 'dia-actual' : ''}">${numeroInicial}</span><br>${restoContenido}
-                    `;
-
-                    // Actualizar el contenido de la celda
-                    celda.innerHTML = contenidoFinal;
-
-                    console.log(`Celda procesada: ID = ${idUnico}, Contenido = ${contenidoFinal}`);
-                }
-            });
+document.addEventListener("DOMContentLoaded", function() {
+    // =============================================
+    // MENÚ PRINCIPAL (Versión corregida)
+    // =============================================
+    const menuInicial = document.getElementById('menu-inicial');
+    const navMenu = document.querySelector('.nav-menu');
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    // Mostrar menú en desktop si no es móvil
+    if (window.innerWidth > 768) {
+        navMenu.style.display = 'flex';
+    }
+    
+    // Toggle menú móvil
+    if (menuInicial) {
+        menuInicial.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
     }
-
-    function cargarCSVSalidas(url) {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error al cargar el CSV de salidas: ${response.status} ${response.statusText}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-                console.log("CSV de salidas cargado correctamente:", data);
-
-                const filas = data.split('\n'); // Divide el CSV por líneas
-                console.log("Número de filas en el CSV de salidas:", filas.length);
-
-                const tbody = document.querySelector("#tablaSalidas tbody");
-                if (!tbody) {
-                    throw new Error("No se encontró el elemento <tbody> en la tabla de salidas.");
-                }
-
-                // Limpiar la tabla antes de agregar datos
-                tbody.innerHTML = "";
-
-                // Agregar las filas al tbody
-                filas.forEach((fila, index) => {
-                    const celdas = fila.split(','); // Divide cada línea por comas
-                    console.log(`Fila ${index + 1}:`, celdas);
-
-                    const tr = document.createElement("tr");
-
-                    // Asegurarse de que siempre haya 7 celdas (una para cada día de la semana)
-                    while (celdas.length < 7) {
-                        celdas.unshift(""); // Añadir celdas vacías al principio si es necesario
-                    }
-
-                    celdas.forEach((celda, celdaIndex) => {
-                        const td = document.createElement("td");
-                        td.textContent = celda.trim().replace(/"/g, ''); // Elimina comillas y espacios
-                        tr.appendChild(td);
-                    });
-
-                    tbody.appendChild(tr);
-                });
-
-                console.log("Tabla de salidas generada correctamente.");
-
-                // Procesar las celdas de la tabla de salidas
-                procesarCeldasSalidas(document.querySelector("#tablaSalidas"));
-            })
-            .catch(error => {
-                console.error("Error durante la carga o procesamiento del CSV de salidas:", error);
+    
+    // Manejar dropdowns
+    dropdowns.forEach(dropdown => {
+        const dropbtn = dropdown.querySelector('.dropbtn');
+        const content = dropdown.querySelector('.dropdown-content');
+        
+        if (dropbtn && content) {
+            dropbtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
             });
-    }
-
-    // Llamar a la función para cargar el CSV de salidas
-    cargarCSVSalidas(csvURLSalidas);
-
-    // 2. Script para la marquesina de anuncios
-    const marqueeText = document.querySelector('.marquesina');
-    if (marqueeText) {
-        marqueeText.addEventListener('click', function () {
-            this.style.color = '#ff6347'; // Cambia el color cuando se haga clic
-        });
-    } else {
-        console.warn("No se encontró el elemento '.marquesina'.");
-    }
-
-    // 3. Script para marcar el día actual en el calendario
-    const today = new Date();
-    const currentDay = today.getDate();
-
-    const dayCells = document.querySelectorAll(".day");
-    dayCells.forEach(cell => {
-        const cellDay = parseInt(cell.getAttribute("data-day"), 10);
-        if (cellDay === currentDay) {
-            cell.classList.add("highlight-today");
         }
     });
-
-    // 4. Script para cargar la tabla de traducciones
-    const csvURLTraducciones = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQruOBwIcBJ5GGPzCzU0bidoCBq3F6ISLVEImUHEz1V9ao0uXsWYD40YiiTbqTG2Crx0vaIN69r7q65/pub?gid=525900315&single=true&output=csv";
-    const tableBodyTraducciones = document.querySelector("#tablaTraducciones tbody");
-
-    if (tableBodyTraducciones) {
-        fetch(csvURLTraducciones)
-            .then(response => {
-                if (!response.ok) throw new Error(`Error al cargar el archivo CSV: ${response.statusText}`);
-                return response.text();
-            })
-            .then(data => {
-                const rows = data.trim().split("\n"); // Separar las filas
-
-                rows.forEach((row, index) => {
-                    if (index === 0) return; // Omitir encabezado
-
-                    const columns = row.split(","); // Separar columnas
-                    const newRow = document.createElement("tr");
-
-                    columns.forEach(cellText => {
-                        const newCell = document.createElement("td");
-                        newCell.textContent = cellText.trim();
-                        newRow.appendChild(newCell);
-                    });
-
-                    tableBodyTraducciones.appendChild(newRow); // Añadir la fila a la tabla
-                });
-
-                console.log("Datos cargados en la tabla de traducciones.");
-            })
-            .catch(error => console.error("Error al cargar los datos del CSV:", error));
-    } else {
-        console.error("No se encontró la tabla con ID 'tablaTraducciones'.");
+    
+    // Cerrar menús al hacer clic en un enlace
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                menuInicial.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                content.style.display = 'none';
+            });
+        });
+    });
+    
+    // =============================================
+    // 1. TABLA DE SALIDAS CON MAPAS (NUEVA VERSIÓN)
+    // =============================================
+    async function cargarYCombinarDatos() {
+        try {
+            const [respuestaSalidas, respuestaCoordenadas] = await Promise.all([
+                fetch('salidasdelmes5.csv'),
+                fetch('coordenadas.csv')
+            ]);
+            
+            const [textoSalidas, textoCoordenadas] = await Promise.all([
+                respuestaSalidas.text(),
+                respuestaCoordenadas.text()
+            ]);
+            
+            const datosCombinados = combinarDatos(
+                parseCSV(textoSalidas),
+                parseCSV(textoCoordenadas)
+            );
+            
+            generarTablaSalidas(datosCombinados);
+        } catch (error) {
+            console.error('Error al cargar los CSV:', error);
+        }
     }
 
-    // 5. Script para cargar la tabla de Reunión de Fin de Semana
-    const csvURLReunion = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRuLTRwnl9nW40-b2ncbUMDanMAjlmmHWhxQ9NszK0480-ChqyJfgEe7FAqHwygqBWpGTiO6zqb8tqG/pub?gid=0&single=true&output=csv";
-    console.log("Intentando cargar el archivo CSV de reunión desde:", csvURLReunion);
-
     function parseCSV(csvText) {
+        return csvText.split('\n').map(fila => {
+            const valores = [];
+            let dentroDeComillas = false;
+            let valorActual = '';
+            
+            for (let char of fila) {
+                if (char === '"') {
+                    dentroDeComillas = !dentroDeComillas;
+                } else if (char === ',' && !dentroDeComillas) {
+                    valores.push(valorActual.trim());
+                    valorActual = '';
+                } else {
+                    valorActual += char;
+                }
+            }
+            valores.push(valorActual.trim());
+            return valores;
+        });
+    }
+
+    function combinarDatos(datosSalidas, datosCoordenadas) {
+        return datosSalidas.map((fila, i) => 
+            fila.map((celda, j) => ({
+                texto: celda.replace(/"/g, ''),
+                mapa: (datosCoordenadas[i] && datosCoordenadas[i][j]?.includes('https://')) 
+                    ? datosCoordenadas[i][j].replace(/"/g, '') 
+                    : null
+            }))
+        );
+    }
+
+    function generarTablaSalidas(datos) {
+        const tbody = document.querySelector("#tablaSalidas tbody");
+        if (!tbody) return;
+
+        tbody.innerHTML = '';
+        const hoy = new Date().getDate();
+
+        datos.slice(0, 5).forEach(fila => {
+            const tr = document.createElement("tr");
+            
+            fila.slice(0, 7).forEach((celda, j) => {
+                const td = document.createElement("td");
+                const diaMatch = celda.texto.match(/^(\d+)\s*-/);
+                const esHoy = diaMatch && parseInt(diaMatch[1]) === hoy;
+                
+                td.innerHTML = `
+                    <div class="celda-superior ${esHoy ? 'dia-actual' : ''}">
+                        ${celda.texto || '-'}
+                    </div>
+                    <div class="celda-inferior">
+                        ${celda.mapa ? `<a href="${celda.mapa}" class="enlace-mapa" target="_blank">Ver mapa</a>` : ''}
+                    </div>
+                `;
+                
+                if (esHoy) td.style.backgroundColor = "#fff0f0";
+                tr.appendChild(td);
+            });
+            
+            tbody.appendChild(tr);
+        });
+    }
+
+    // =============================================
+    // 2. TABLA REUNIÓN FIN DE SEMANA (VERSIÓN CORREGIDA)
+    // =============================================
+    function parseCSVReunion(csvText) {
         const rows = [];
         let currentRow = [];
         let currentCell = '';
@@ -173,18 +149,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const nextChar = csvText[i + 1];
 
             if (char === '"' && insideQuotes && nextChar === '"') {
-                // Doble comilla dentro de una celda: agregar una comilla literal
                 currentCell += '"';
                 i++;
             } else if (char === '"') {
-                // Alternar entre dentro y fuera de las comillas
                 insideQuotes = !insideQuotes;
             } else if (char === ',' && !insideQuotes) {
-                // Nueva celda
                 currentRow.push(currentCell.trim());
                 currentCell = '';
             } else if ((char === '\n' || char === '\r') && !insideQuotes) {
-                // Nueva fila
                 if (currentCell) {
                     currentRow.push(currentCell.trim());
                     currentCell = '';
@@ -194,156 +166,178 @@ document.addEventListener("DOMContentLoaded", function () {
                     currentRow = [];
                 }
             } else {
-                // Continuar construyendo la celda
                 currentCell += char;
             }
         }
 
-        // Agregar la última celda y fila si no están vacías
         if (currentCell) currentRow.push(currentCell.trim());
         if (currentRow.length > 0) rows.push(currentRow);
 
         return rows;
     }
 
-    function cargarCSVReunion(url) {
-        fetch(url)
+    function cargarReunionFinSemana() {
+        const csvURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRuLTRwnl9nW40-b2ncbUMDanMAjlmmHWhxQ9NszK0480-ChqyJfgEe7FAqHwygqBWpGTiO6zqb8tqG/pub?gid=0&single=true&output=csv";
+        
+        fetch(csvURL)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error al cargar el CSV de reunión: ${response.status} ${response.statusText}`);
-                }
+                if (!response.ok) throw new Error(`Error: ${response.status}`);
                 return response.text();
             })
             .then(data => {
-                console.log("CSV de reunión cargado correctamente:", data);
-
-                const rows = parseCSV(data); // Parsear el CSV correctamente
-                console.log("Filas procesadas:", rows);
-
                 const tbody = document.querySelector("#reunion-fin-semana tbody");
-                if (!tbody) {
-                    throw new Error("No se encontró el elemento <tbody> en la tabla de reunión.");
-                }
+                if (!tbody) throw new Error("No se encontró la tabla de reunión");
 
-                // Limpiar la tabla antes de agregar datos
-                tbody.innerHTML = "";
+                tbody.innerHTML = '';
+                const filas = parseCSVReunion(data);
 
-                // Agregar las filas al tbody
-                rows.forEach((fila, index) => {
+                filas.forEach((fila, index) => {
+                    if (index === 0 && fila[0].toLowerCase().includes('fecha')) return;
+
                     const tr = document.createElement("tr");
-
-                    // Asegurarse de que siempre haya 8 celdas
-                    while (fila.length < 8) {
-                        fila.push(""); // Añadir celdas vacías si faltan datos
-                    }
-
-                    fila.forEach((celda, colIndex) => {
+                    const datosFila = fila.slice(0, 8);
+                    
+                    while (datosFila.length < 8) datosFila.push('');
+                    
+                    datosFila.forEach(celda => {
                         const td = document.createElement("td");
-                        td.textContent = celda.trim(); // Eliminar espacios innecesarios
+                        td.textContent = celda.trim() || '-';
+                        if (!celda.trim()) td.style.color = '#999';
                         tr.appendChild(td);
                     });
 
                     tbody.appendChild(tr);
                 });
-
-                console.log("Tabla de reunión generada correctamente.");
             })
-            .catch(error => {
-                console.error("Error durante la carga o procesamiento del CSV de reunión:", error);
-            });
+            .catch(error => console.error("Error al cargar reunión:", error));
     }
 
-    // Llamar a la función para cargar el CSV de reunión
-    cargarCSVReunion(csvURLReunion);
+    // =============================================
+    // 3. FUNCIONALIDADES EXISTENTES
+    // =============================================
+    
+    // Marquesina de anuncios
+    const marqueeText = document.querySelector('.marquesina');
+    if (marqueeText) {
+        marqueeText.addEventListener('click', function() {
+            this.style.color = '#ff6347';
+        });
+    }
 
-    // 6. Script para cargar la tabla de Acomodadores
-    const csvURLAcomodadores = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSTRe6TxfWpi4f23scgO6H5eEpmbN_7_b6o175EASAXL7CMBN2slvGabdTehe_3rb_b25zzrmmcnUFD/pub?output=csv";
-    const tableBodyAcomodadores = document.querySelector("#tablaAcomodadores tbody");
+    // Calendario (día actual)
+    const today = new Date();
+    const currentDay = today.getDate();
+    document.querySelectorAll(".day").forEach(cell => {
+        if (parseInt(cell.getAttribute("data-day")) === currentDay) {
+            cell.classList.add("highlight-today");
+        }
+    });
 
-    if (tableBodyAcomodadores) {
-        fetch(csvURLAcomodadores)
-            .then(response => {
-                if (!response.ok) throw new Error(`Error al cargar el archivo CSV: ${response.statusText}`);
-                return response.text();
-            })
+    // Tabla de traducciones
+    const tableBodyTraducciones = document.querySelector("#tablaTraducciones tbody");
+    if (tableBodyTraducciones) {
+        fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQruOBwIcBJ5GGPzCzU0bidoCBq3F6ISLVEImUHEz1V9ao0uXsWYD40YiiTbqTG2Crx0vaIN69r7q65/pub?gid=525900315&single=true&output=csv")
+            .then(response => response.text())
             .then(data => {
-                const rows = data.trim().split("\n"); // Separar las filas
-
-                rows.forEach((row, index) => {
-                    if (index === 0) return; // Omitir encabezado
-
-                    const columns = row.split(","); // Separar columnas
-                    const newRow = document.createElement("tr");
-
-                    columns.forEach(cellText => {
-                        const newCell = document.createElement("td");
-                        newCell.textContent = cellText.trim();
-                        newRow.appendChild(newCell);
+                data.trim().split("\n").forEach((row, index) => {
+                    if (index === 0) return;
+                    const tr = document.createElement("tr");
+                    row.split(",").forEach(cellText => {
+                        const td = document.createElement("td");
+                        td.textContent = cellText.trim();
+                        tr.appendChild(td);
                     });
-
-                    tableBodyAcomodadores.appendChild(newRow); // Añadir la fila a la tabla
+                    tableBodyTraducciones.appendChild(tr);
                 });
-
-                console.log("Datos cargados en la tabla de acomodadores.");
             })
-            .catch(error => console.error("Error al cargar los datos del CSV:", error));
-    } else {
-        console.error("No se encontró la tabla con ID 'tablaAcomodadores'.");
+            .catch(error => console.error("Error en traducciones:", error));
     }
-});
 
-
-// Función para mostrar/ocultar el menú
-function toggleMenu() {
-  const ul = document.querySelector("#menu ul");
-  ul.classList.toggle("mostrar"); // Alterna la clase "mostrar"
-}
-
-// Asignar el evento de clic al primer elemento del menú
-document.addEventListener("DOMContentLoaded", function () {
-    const menuLink = document.querySelector(".nav-menu li:first-child a");
-  
-    if (menuLink) {  // Verifica si el elemento existe
-      menuLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        toggleMenu();
-      });
-    } else {
-      console.error("El elemento del menú no fue encontrado");
+    // Tabla de acomodadores
+    const tableBodyAcomodadores = document.querySelector("#tablaAcomodadores tbody");
+    if (tableBodyAcomodadores) {
+        fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSTRe6TxfWpi4f23scgO6H5eEpmbN_7_b6o175EASAXL7CMBN2slvGabdTehe_3rb_b25zzrmmcnUFD/pub?output=csv")
+            .then(response => response.text())
+            .then(data => {
+                data.trim().split("\n").forEach((row, index) => {
+                    if (index === 0) return;
+                    const tr = document.createElement("tr");
+                    row.split(",").forEach(cellText => {
+                        const td = document.createElement("td");
+                        td.textContent = cellText.trim();
+                        tr.appendChild(td);
+                    });
+                    tableBodyAcomodadores.appendChild(tr);
+                });
+            })
+            .catch(error => console.error("Error en acomodadores:", error));
     }
-  });
 
-// Función para mostrar/ocultar el menú
-function toggleMenu() {
-    const ul = document.querySelector("#menu ul");
-    ul.classList.toggle("mostrar"); // Alterna la clase "mostrar"
-  }
-  
-  // Asignar el evento de clic al primer elemento del menú
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuLink = document.querySelector("#menu ul li:first-child a");
-    if (menuLink) { // Verifica si el enlace "Menú" existe
-      menuLink.addEventListener("click", function (event) {
-        event.preventDefault(); // Evita que el enlace recargue la página
-        toggleMenu(); // Muestra/oculta el menú
-      });
+    // Detección de dispositivo
+    function esDispositivoMovil() {
+        const esPantallaPequena = window.innerWidth <= 768;
+        const userAgent = navigator.userAgent.toLowerCase();
+        const esUserAgentMovil = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+        return esPantallaPequena || esUserAgentMovil;
     }
-  });
 
-  // esto se agrega despues de incorporar el menú desplegable
- // Mostrar/ocultar menú en dispositivos móviles
-const mobileMenu = document.getElementById('mobile-menu');
-const navMenu = document.querySelector('.nav-menu');
+    function detectarDispositivo() {
+        const mensaje = document.getElementById("mensaje");
+        if (!mensaje) return;
 
-mobileMenu.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
-});
+        if (esDispositivoMovil()) {
+            mensaje.textContent = "Estás usando un dispositivo Móvil.";
+            mensaje.classList.add("movil");
+        } else {
+            mensaje.textContent = "Estás usando una versión de PC.";
+            mensaje.classList.add("pc");
+            navMenu.classList.add("active");
+        }
+    }
 
-// Cerrar el menú al hacer clic en un enlace (opcional)
-const navLinks = document.querySelectorAll('.nav-menu li a');
+    // Ejecutar funciones iniciales
+    detectarDispositivo();
+    cargarYCombinarDatos();
+    cargarReunionFinSemana();
 
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('active');
-  });
+    // Estilos para la tabla de salidas
+    const style = document.createElement("style");
+    style.textContent = `
+        .tabla-salidas {
+            border: 2px solid #333;
+            border-collapse: collapse;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 900px;
+        }
+        .tabla-salidas th, .tabla-salidas td {
+            border: 1px solid #ccc;
+            padding: 0;
+            text-align: center;
+            vertical-align: middle;
+            height: 80px;
+        }
+        .celda-superior {
+            display: block;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            font-weight: bold;
+        }
+        .celda-inferior {
+            display: block;
+            padding: 5px;
+        }
+        .enlace-mapa {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .enlace-mapa:hover {
+            text-decoration: underline;
+        }
+        .dia-actual {
+            color: #d40000;
+        }
+    `;
+    document.head.appendChild(style);
 });
