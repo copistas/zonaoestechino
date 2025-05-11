@@ -117,13 +117,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 const td = document.createElement("td");
                 const diaMatch = celda.texto.match(/^(\d+)\s*-/);
                 const esHoy = diaMatch && parseInt(diaMatch[1]) === hoy;
-                
+
+                // CORRECCIÓN: Limpiar la URL del mapa si existe
+                let mapaUrl = celda.mapa;
+                if (mapaUrl) {
+                    // Eliminar cualquier prefijo no deseado (como "10 - ")
+                    mapaUrl = mapaUrl.replace(/^\d+\s*-\s*/, '');
+                    // Asegurarse que comience con http:// o https://
+                    if (!mapaUrl.startsWith('http')) {
+                        mapaUrl = 'https://' + mapaUrl;
+                    }
+                }
+
+
                 td.innerHTML = `
                     <div class="celda-superior ${esHoy ? 'dia-actual' : ''}">
                         ${celda.texto || '-'}
                     </div>
                     <div class="celda-inferior">
-                        ${celda.mapa ? `<a href="${celda.mapa}" class="enlace-mapa" target="_blank">Ver mapa</a>` : ''}
+                        ${mapaUrl ? `<a href="${mapaUrl}" class="enlace-mapa" target="_blank">Ver mapa</a>` : ''}
                     </div>
                 `;
                 
