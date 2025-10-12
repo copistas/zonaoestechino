@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     async function cargarYCombinarDatos() {
         try {
             const [respuestaSalidas, respuestaCoordenadas] = await Promise.all([
-                fetch('salidasdelmes5.csv'),
+                fetch('salidas.csv'),
                 fetch('coordenadas.csv')
             ]);
             
