@@ -352,4 +352,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     `;
     document.head.appendChild(style);
+
+fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vSMOzvZgxzwEwwWCpadOcrFRXKc5rpIVTeVfUtEFm_OiQt1THadE-DwdkEUfzhgvWXSOQdYpYrA7j5m/pub?gid=407726371&single=true&output=csv")
+    .then(r => r.text())
+    .then(link => {
+        const a = document.getElementById("youtubeLink");
+        if (a && link.trim()) {
+            a.href = link.trim();
+        }
+    })
+    .catch(e => console.error("Error cargando link de YouTube:", e));
+
+
 });
