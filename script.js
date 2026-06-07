@@ -245,25 +245,64 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Tabla de traducciones
-    const tableBodyTraducciones = document.querySelector("#tablaTraducciones tbody");
-    if (tableBodyTraducciones) {
-        fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQruOBwIcBJ5GGPzCzU0bidoCBq3F6ISLVEImUHEz1V9ao0uXsWYD40YiiTbqTG2Crx0vaIN69r7q65/pub?gid=525900315&single=true&output=csv")
-            .then(response => response.text())
-            .then(data => {
-                data.trim().split("\n").forEach((row, index) => {
-                    if (index === 0) return;
-                    const tr = document.createElement("tr");
-                    row.split(",").forEach(cellText => {
-                        const td = document.createElement("td");
-                        td.textContent = cellText.trim();
-                        tr.appendChild(td);
-                    });
-                    tableBodyTraducciones.appendChild(tr);
+// Tabla de traducciones
+const tableBodyTraducciones = document.querySelector("#tablaTraducciones tbody");
+
+if (tableBodyTraducciones) {
+
+    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQruOBwIcBJ5GGPzCzU0bidoCBq3F6ISLVEImUHEz1V9ao0uXsWYD40YiiTbqTG2Crx0vaIN69r7q65/pub?gid=525900315&single=true&output=csv")
+        .then(response => response.text())
+        .then(data => {
+
+            let dentroDeBloque = false;
+
+            data.trim().split("\n").forEach((row, index) => {
+
+                if (index === 0) return;
+
+                const tr = document.createElement("tr");
+
+                let esInicioBloque = row.trim().startsWith("**");
+                let esFinBloque = row.trim().endsWith("**");
+
+                if (esInicioBloque) {
+                    dentroDeBloque = true;
+                }
+
+                if (dentroDeBloque) {
+                    tr.classList.add("bloque");
+                }
+
+                if (esInicioBloque) {
+                    tr.classList.add("bloque-inicio");
+                }
+
+                if (esFinBloque) {
+                    tr.classList.add("bloque-fin");
+                }
+
+                row.split(",").forEach(cellText => {
+
+                    cellText = cellText.trim();
+
+                    cellText = cellText.replace(/^\*\*/, "");
+                    cellText = cellText.replace(/\*\*$/, "");
+
+                    const td = document.createElement("td");
+                    td.textContent = cellText;
+
+                    tr.appendChild(td);
                 });
-            })
-            .catch(error => console.error("Error en traducciones:", error));
-    }
+
+                tableBodyTraducciones.appendChild(tr);
+
+                if (esFinBloque) {
+                    dentroDeBloque = false;
+                }
+            });
+        })
+        .catch(error => console.error("Error en traducciones:", error));
+}
 
     // Tabla de acomodadores
     const tableBodyAcomodadores = document.querySelector("#tablaAcomodadores tbody");
