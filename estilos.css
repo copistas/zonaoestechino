@@ -310,3 +310,20 @@ table {
     padding: 10px;
     box-sizing: border-box;
 }
+
+/* Estilos para la tabla de Temas para la escuela */
+.bloque td:first-child {
+    border-left: 1.5px solid black !important;
+}
+
+.bloque td:last-child {
+    border-right: 1.5px solid black !important;
+}
+
+.bloque-inicio td {
+    border-top: 1.5px solid black !important;
+}
+
+.bloque-fin td {
+    border-bottom: 1.5px solid black !important;
+}
