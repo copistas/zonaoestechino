@@ -1,17 +1,3 @@
-data.trim().split("\n").forEach((row, index) => {
-
-    if (index === 0) return;
-
-    let esInicioBloque = row.trim().startsWith("**");
-    let esFinBloque = row.trim().endsWith("**");
-
-    console.log("Fila:", row);
-    console.log("Inicio:", esInicioBloque);
-    console.log("Fin:", esFinBloque);
-
-    ...
-});
-
 document.addEventListener("DOMContentLoaded", function() {
     // =============================================
     // MENÚ PRINCIPAL (Versión corregida)
