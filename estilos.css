@@ -312,20 +312,20 @@ table {
 }
 
 /* Estilos para la tabla de Temas para la escuela */
-.bloque td:first-child {
-    border-left: 1.5px solid black !important;
+#tablaTraducciones tr.bloque td:first-child {
+    border-left: 3px solid black !important;
 }
 
-.bloque td:last-child {
-    border-right: 1.5px solid black !important;
+#tablaTraducciones tr.bloque td:last-child {
+    border-right: 3px solid black !important;
 }
 
-.bloque-inicio td {
-    border-top: 1.5px solid black !important;
+#tablaTraducciones tr.bloque-inicio td {
+    border-top: 3px solid black !important;
 }
 
-.bloque-fin td {
-    border-bottom: 1.5px solid black !important;
+#tablaTraducciones tr.bloque-fin td {
+    border-bottom: 3px solid black !important;
 }
 
 #tablaTraducciones tr.bloque-inicio td {
