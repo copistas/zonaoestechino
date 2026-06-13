@@ -327,16 +327,3 @@ table {
 #tablaTraducciones tr.bloque-fin td {
     border-bottom: 3px solid black !important;
 }
-
-#tablaTraducciones tr.bloque-inicio td {
-    border-top: 5px solid red !important;
-}
-
-/* lo que sigue es temporal */
-#tablaTraducciones tr.bloque td:first-child {
-    border-left: 8px solid red !important;
-}
-
-#tablaTraducciones tr.bloque td:last-child {
-    border-right: 8px solid red !important;
-}
