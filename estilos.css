@@ -327,3 +327,7 @@ table {
 .bloque-fin td {
     border-bottom: 1.5px solid black !important;
 }
+
+#tablaTraducciones tr.bloque-inicio td {
+    border-top: 5px solid red !important;
+}
