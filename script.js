@@ -258,7 +258,7 @@ if (tableBodyTraducciones) {
 
             data.trim().split("\n").forEach((row, index) => {
 
-                if (index === 0) return;
+                // if (index === 0) return;
 
                 const tr = document.createElement("tr");
 
