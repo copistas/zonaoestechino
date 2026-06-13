@@ -262,8 +262,10 @@ if (tableBodyTraducciones) {
 
                 const tr = document.createElement("tr");
 
-                let esInicioBloque = row.trim().startsWith("**");
-                let esFinBloque = row.trim().endsWith("**");
+                const filaLimpia = row.replace(/\r/g, "").trim();
+
+                let esInicioBloque = filaLimpia.startsWith("**");
+                let esFinBloque = filaLimpia.endsWith("**");
 
                 if (esInicioBloque) {
                     dentroDeBloque = true;
@@ -283,7 +285,7 @@ if (tableBodyTraducciones) {
 
                 row.split(",").forEach(cellText => {
 
-                    cellText = cellText.trim();
+                    cellText = cellText.replace(/\r/g, "").trim();
 
                     cellText = cellText.replace(/^\*\*/, "");
                     cellText = cellText.replace(/\*\*$/, "");
